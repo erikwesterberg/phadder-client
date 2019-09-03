@@ -1,0 +1,12 @@
+/* NAVBAR */
+
+#nav-bar {
+  background-color: #96006a;
+  border-radius: 0; 
+  height: 70px;
+}
+
+#phadder-letters {
+  font-size: 24px;
+  font-weight: 700;
+}
