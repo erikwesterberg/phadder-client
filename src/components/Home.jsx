@@ -1,10 +1,11 @@
 import React from "react";
+import { Container } from "semantic-ui-react";
 
 function Home() {
   return (
-    <div>
+    <Container>
       <h1>Phadder</h1>
-    </div>
+    </Container>
   );
 }
 
