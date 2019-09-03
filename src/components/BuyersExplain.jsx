@@ -4,7 +4,7 @@ import { Container } from "semantic-ui-react";
 const BuyersExplain = () => {
   return (
     <Container>
-      <h1>LOOKING FOR A SUPPLIER? WE ARE OPE FOR BUISSNIES</h1>
+      <h1 id="buyers-bar">LOOKING FOR A SUPPLIER? WE ARE OPEN FOR BUSINESS!</h1>
       <h1>Get Started</h1>
       <p>
         Select a location and project category that best matches your business
@@ -29,7 +29,7 @@ const BuyersExplain = () => {
       </p>
       <h1>Get The Job Done</h1>
       <p>
-        Shortly after posting your service request, you start recieving bids and
+        Shortly after posting your service request, you start receiving bids and
         proposals to choose from
       </p>
       <p>Connect with your selected service providers to negotiate terms</p>
