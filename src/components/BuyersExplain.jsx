@@ -4,7 +4,11 @@ import { Container } from "semantic-ui-react";
 const BuyersExplain = () => {
   return (
     <Container>
-      <h1 id="buyers-bar">LOOKING FOR A SUPPLIER? WE ARE OPEN FOR BUSINESS!</h1>
+      <div id="buyers-bar">
+        <h1>
+          LOOKING FOR A SUPPLIER? WE ARE OPEN FOR BUSINESS!
+        </h1>
+      </div>
       <h1>Get Started</h1>
       <p>
         Select a location and project category that best matches your business

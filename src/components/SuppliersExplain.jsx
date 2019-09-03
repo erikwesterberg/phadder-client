@@ -4,9 +4,10 @@ import { Container } from "semantic-ui-react";
 const SuppliersExplain = () => {
   return (
     <Container>
-      <h1 id="suppliers-bar">
-        MANY BUYERS. PLENTY OF OPPORTUNITIES. ONE MARKETPLACE.
-      </h1>
+      <div id="suppliers-bar">
+        <h1>MANY BUYERS. PLENTY OF OPPORTUNITIES. ONE MARKETPLACE.</h1>
+      </div>
+
       <h1>Join the elite</h1>
       <p>
         Complete an online application to join the exclusive Phadder Service

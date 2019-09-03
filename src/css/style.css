@@ -10,3 +10,12 @@
   font-size: 24px;
   font-weight: 700;
 }
+
+#buyers-bar,
+#suppliers-bar {
+  background-color: #96006a;
+  color: white;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+}
