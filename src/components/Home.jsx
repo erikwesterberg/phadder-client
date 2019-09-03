@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container } from "semantic-ui-react";
+import { Container, Button } from "semantic-ui-react";
 import BuyersExplain from "./BuyersExplain";
 import SuppliersExplain from "./SuppliersExplain";
 
@@ -9,10 +9,8 @@ const Home = () => {
   return (
     <Container>
       <h1>Phadder</h1>
-      <button id="buyers-button" onClick={() => setExplain(<BuyersExplain />)}>Buyers</button>
-      <button id="suppliers-button" onClick={() => setExplain(<SuppliersExplain />)}>
-        Suppliers
-      </button>
+      <Button id="buyers-button" onClick={() => setExplain(<BuyersExplain />)}>Buyers</Button>
+      <Button id="suppliers-button" onClick={() => setExplain(<SuppliersExplain />)}>Suppliers</Button>
       {explain}
     </Container>
   );
