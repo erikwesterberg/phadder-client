@@ -3,13 +3,16 @@ import { Container, Menu } from 'semantic-ui-react';
 
 const Navbar = () => {
   return (
-    <div className="ui stackable menu">
+    <div className="ui inverted menu">
       <Container>
-        <Menu.Item to="/">Phadder</Menu.Item>
-        <Menu.Item id="login-button">Log In</Menu.Item>
+        <Menu.Item className="ui left aligned container" to="/">
+          Phadder
+        </Menu.Item>
+        <Menu.Item className="ui right aligned container" id="login-button">
+          Log In
+        </Menu.Item>
       </Container>
-     </div>
-    
+    </div>
   );
 }
 
