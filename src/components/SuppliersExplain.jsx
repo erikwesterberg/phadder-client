@@ -4,6 +4,7 @@ import { Container } from "semantic-ui-react";
 const SuppliersExplain = () => {
   return (
     <Container>
+      <h1>LOOKING FOR A SUPPLIER? WE ARE OPE FOR BUISSNIES</h1>
       <h1>Join the elite</h1>
       <p>
       Complete an online application to join the exclusive Phadder Service Supplier community.
