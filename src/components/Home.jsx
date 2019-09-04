@@ -8,6 +8,7 @@ const Home = () => {
 
   return (
     <Container>
+      <Button id="sign-up-button">REGISTER AS A CLIENT</Button>
       <h1>Phadder</h1>
       <Button id="buyers-button" onClick={() => setExplain(<BuyersExplain />)}>Buyers</Button>
       <Button id="suppliers-button" onClick={() => setExplain(<SuppliersExplain />)}>Suppliers</Button>
