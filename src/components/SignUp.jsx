@@ -7,13 +7,13 @@ const SignUp = () => {
     <div>
       <Form id="signup-form">
         <Form.Field>
-          <label id="first-name">First Name</label>
-          <input id="name" />
+          <label >First Name</label>
+          <input id="first-name" />
         </Form.Field>
 
         <Form.Field>
-          <label id="last-name">Last Name</label>
-          <input id="name" />
+          <label >Last Name</label>
+          <input id="last-name" />
         </Form.Field>
 
         <Form.Field>
