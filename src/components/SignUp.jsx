@@ -1,23 +1,22 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
-import useForm from 'react-hook-form';
+import useForm from "react-hook-form";
 import { connect } from "react-redux";
 import { registerUser } from "../state/actions/reduxTokenAuthConfig";
 
-const SignUp = (props) => {
-  const {register, handleSubmit} = useForm();
-  const [error, setError] = useState()
-  
-  const saveNewUserHandler = (data) => {
-    const { registerUser } = props
+const SignUp = props => {
+  const { register, handleSubmit } = useForm();
+  const [error, setError] = useState();
+
+  const saveNewUserHandler = data => {
+    const { registerUser } = props;
     const email = data.email;
     const firstName = data.firstName;
-    const password = data.password
-    registerUser({ email, firstName, password })
-      .catch(error => {
-        setError(error.response.data.errors) // will be changed when we implement flash messages
-      });
-  }
+    const password = data.password;
+    registerUser({ email, firstName, password }).catch(error => {
+      setError(error.response.data.errors); // will be changed when we implement flash messages
+    });
+  };
 
   return (
     <div>

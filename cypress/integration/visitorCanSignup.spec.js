@@ -1,5 +1,5 @@
 describe("Visitor can sign up", () => {
-  beforeEach(function () {
+  beforeEach(function() {
     cy.server();
   });
   it("Can successfully sign up as a client", () => {
@@ -36,6 +36,4 @@ describe("Visitor can sign up", () => {
     cy.get("#submit-account-button").click();
     cy.contains("Invalid email");
   });
-})
-
-
+});
