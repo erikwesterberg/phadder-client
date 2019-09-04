@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
 
 const SignUp = () => {
-  const {name, lastname, email, password, password_confirmation} = this.state
+  const {name, lastName, email, password, passwordConfirmation} = this.state
   return (
     <div>
       <Modal
@@ -20,8 +20,8 @@ const SignUp = () => {
 
             <Form.Field>
               <label>Last Name</label>
-              <input id="last-name" vale={lastname} 
-              onChange={e => this.setState({lastname: e.target.value})}/>
+              <input id="last-name" vale={lastName} 
+              onChange={e => this.setState({lastName: e.target.value})}/>
             </Form.Field>
 
             <Form.Field>
@@ -38,8 +38,8 @@ const SignUp = () => {
 
             <Form.Field>
               <label>Password Confirmation</label>
-              <input id="password-confirmation" type="password" value={password_confirmation} 
-              onChange={e => this.setState({password_confirmation: e.target.value})}/>
+              <input id="password-confirmation" type="password" value={passwordConfirmation} 
+              onChange={e => this.setState({passwordConfirmation: e.target.value})}/>
             </Form.Field>
 
             <Button id="submit-account-button" type="submit">
