@@ -4,8 +4,8 @@ import App from "./App";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import "semantic-ui-css/semantic.min.css";
-import configureStore from "./redux/store/configureStore";
-import { verifyCredentials } from "./redux/actions/reduxTokenAuthConfig";
+import configureStore from "./state/store/configureStore";
+import { verifyCredentials } from "./state/actions/reduxTokenAuthConfig";
 
 const store = configureStore();
 verifyCredentials(store);

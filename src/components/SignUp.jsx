@@ -1,8 +1,13 @@
 import React from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
+import useForm from 'react-hook-form'
 
 const SignUp = () => {
-  const {name, lastName, email, password, passwordConfirmation} = this.state
+  const {register, handleSubmit} = useForm();
+  
+  const onSubmit = data => {
+    console.log(data);
+  };
   return (
     <div>
       <Modal
@@ -11,35 +16,32 @@ const SignUp = () => {
       >
         <Modal.Header>Join us!</Modal.Header>
         <Modal.Content>
-          <Form id="signup-form">
+          <Form id="signup-form" onSubmit={handleSubmit(onSubmit)}>
             <Form.Field>
               <label>First Name</label>
-              <input id="first-name" value={name}
-              onChange={e => this.setState({name: e.target.value})}/>
+              <input id="first-name" name="firstname" ref={register({required: true})}/> 
             </Form.Field>
 
             <Form.Field>
               <label>Last Name</label>
-              <input id="last-name" vale={lastName} 
-              onChange={e => this.setState({lastName: e.target.value})}/>
+              <input id="last-name" name="lastname" ref={register({required: true})}/> 
             </Form.Field>
 
             <Form.Field>
-              <label>Email</label>
-              <input id="email" value={email}
-              onChange={e => this.setState({email: e.target.value})}/>
+              <label>Email Adress</label>
+              <input id="email" name="email" ref={register({required: true})}/> 
             </Form.Field>
 
             <Form.Field>
               <label>Password</label>
-              <input id="password" type="password" value={password}
-              onChange={e => this.setState({password: e.target.value})}/>
+              <input id="password" name="passsword" type="password" ref={register({required: true})}/> 
+             
             </Form.Field>
 
             <Form.Field>
               <label>Password Confirmation</label>
-              <input id="password-confirmation" type="password" value={passwordConfirmation} 
-              onChange={e => this.setState({passwordConfirmation: e.target.value})}/>
+              <input id="password-confirmation" name="password_confirmation" type="password" ref={register({required: true})}/> 
+             
             </Form.Field>
 
             <Button id="submit-account-button" type="submit">
