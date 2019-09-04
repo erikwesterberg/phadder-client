@@ -12,3 +12,18 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add(
+  "client_successful_signup",
+  (first_name, last_name, email, password, password_confirmation) => {
+    cy.visit("http://localhost:3001");
+    cy.get("#sign-up-button").click();
+    cy.get("#signup-form").within(() => {
+      cy.get('input[id="first-name"]').select(first_name);
+      cy.get('input[id="last-name"]').type(last_name);
+      cy.get('input[id="email"]').type(email);
+      cy.get('input[id="password"]').type(password);
+      cy.get('input[id="password-confirmation"]').type(password_confirmation);
+    });
+  }
+);
