@@ -16,7 +16,6 @@ describe("Visitor can sign up", () => {
       "password"
     );
     cy.get("#submit-account-button").click();
-    cy.get('#account-confirmation')
-      .should('contain', "Your university account successfully created!");
+    cy.contains("Welcome John!");
   });
 })
