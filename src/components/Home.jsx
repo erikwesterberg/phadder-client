@@ -3,14 +3,19 @@ import { Container, Button } from "semantic-ui-react";
 import BuyersExplain from "./BuyersExplain";
 import SuppliersExplain from "./SuppliersExplain";
 import SignUp from "./SignUp";
+import { connect } from 'react-redux'; 
 
-const Home = () => {
+const Home = (props) => {
   const [explain, setExplain] = useState(<BuyersExplain />);
+  const [signup, setSignUp] = useState(<SignUp />)
+  
+  if (props.currentUser.isSignedIn ? setSignUp("") : "")
 
   return (
     <Container>
       <div>
-        <SignUp />
+        
+        {signup}
       </div>
       <div>
         <Button
@@ -31,4 +36,13 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  };
+};
+
+export default connect(mapStateToProps
+)(Home);
+
+
