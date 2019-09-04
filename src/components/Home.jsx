@@ -20,7 +20,7 @@ const Home = props => {
   return (
     <Container>
       <div>
-        {welcomeMessage}
+        {welcomeMessage} 
         {signUp}
       </div>
       <div>

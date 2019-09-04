@@ -18,4 +18,24 @@ describe("Visitor can sign up", () => {
     cy.get("#submit-account-button").click();
     cy.contains("Welcome John!");
   });
+
+  it("Gets a response if User has invalid email", () => {
+    cy.route({
+      method: "POST",
+      url: "http://localhost:3000/api/auth",
+      response: "fixture:unsuccessful_client_signup_response.json",
+      status: 400
+    });
+    cy.client_successful_signup(
+      "John",
+      "Doe",
+      "johndoeemail.com",
+      "password",
+      "password"
+    );
+    cy.get("#submit-account-button").click();
+    cy.contains("Invalid email");
+  });
 })
+
+
