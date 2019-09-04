@@ -4,18 +4,21 @@ import useForm from 'react-hook-form';
 import { connect } from "react-redux";
 import { registerUser } from "../state/actions/reduxTokenAuthConfig";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const {register, handleSubmit} = useForm();
   
-  const saveNewUserHandler = data => {
-    registerUser(
-      data.firstName,
-      data.lastName,
-      data.email,
-      data.password,
-      data.passwordConfirmation,
-    )
-  };
+  const saveNewUserHandler = (data) => {
+    const { registerUser } = props
+    const email = data.email;
+    const firstName = data.firstName;
+    const password = data.password
+    registerUser({ email, firstName, password })
+      .then(console.log(data))
+      .catch(error => {
+        console.log(error)
+      });
+  }
+
   return (
     <div>
       <Modal
@@ -27,29 +30,49 @@ const SignUp = () => {
           <Form id="signup-form" onSubmit={handleSubmit(saveNewUserHandler)}>
             <Form.Field>
               <label>First Name</label>
-              <input id="first-name" name="firstName" ref={register({required: true})}/> 
+              <input
+                id="first-name"
+                name="firstName"
+                ref={register({ required: true })}
+              />
             </Form.Field>
 
             <Form.Field>
               <label>Last Name</label>
-              <input id="last-name" name="lastName" ref={register({required: true})}/> 
+              <input
+                id="last-name"
+                name="lastName"
+                ref={register({ required: true })}
+              />
             </Form.Field>
 
             <Form.Field>
               <label>Email Adress</label>
-              <input id="email" name="email" ref={register({required: true})}/> 
+              <input
+                id="email"
+                name="email"
+                ref={register({ required: true })}
+              />
             </Form.Field>
 
             <Form.Field>
               <label>Password</label>
-              <input id="password" name="password" type="password" ref={register({required: true})}/> 
-             
+              <input
+                id="password"
+                name="password"
+                type="password"
+                ref={register({ required: true })}
+              />
             </Form.Field>
 
             <Form.Field>
               <label>Password Confirmation</label>
-              <input id="password-confirmation" name="passwordConfirmation" type="password" ref={register({required: true})}/> 
-             
+              <input
+                id="password-confirmation"
+                name="passwordConfirmation"
+                type="password"
+                ref={register({ required: true })}
+              />
             </Form.Field>
 
             <Button id="submit-account-button" type="submit">
@@ -62,12 +85,7 @@ const SignUp = () => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.reduxTokenAuth.currentUser
-  };
-};
-
 export default connect(
-  mapStateToProps
+  null,
+  { registerUser }
 )(SignUp);

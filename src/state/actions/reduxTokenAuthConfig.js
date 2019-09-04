@@ -13,6 +13,7 @@ const config = {
     firstName: "first_name",
     lastName: "last_name",
     email: "email",
+    password: "password",
     password_confirmation: "password_confirmation"
   }
 };
