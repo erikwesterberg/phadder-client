@@ -5,9 +5,7 @@ const BuyersExplain = () => {
   return (
     <Container>
       <div id="buyers-bar">
-        <h1>
-          LOOKING FOR A SUPPLIER? WE ARE OPEN FOR BUSINESS!
-        </h1>
+        <h1>LOOKING FOR A SUPPLIER? WE ARE OPEN FOR BUSINESS!</h1>
       </div>
       <h1>Get Started</h1>
       <p>
