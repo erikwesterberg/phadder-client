@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
 
 const SignUp = () => {
+  const {name, lastname, email, password, password_confirmation} = this.state
   return (
     <div>
       <Modal
@@ -13,27 +14,32 @@ const SignUp = () => {
           <Form id="signup-form">
             <Form.Field>
               <label>First Name</label>
-              <input id="first-name" />
+              <input id="first-name" value={name}
+              onChange={e => this.setState({name: e.target.value})}/>
             </Form.Field>
 
             <Form.Field>
               <label>Last Name</label>
-              <input id="last-name" />
+              <input id="last-name" vale={lastname} 
+              onChange={e => this.setState({lastname: e.target.value})}/>
             </Form.Field>
 
             <Form.Field>
               <label>Email</label>
-              <input id="email" />
+              <input id="email" value={email}
+              onChange={e => this.setState({email: e.target.value})}/>
             </Form.Field>
 
             <Form.Field>
               <label>Password</label>
-              <input id="password" type="password" />
+              <input id="password" type="password" value={password}
+              onChange={e => this.setState({password: e.target.value})}/>
             </Form.Field>
 
             <Form.Field>
               <label>Password Confirmation</label>
-              <input id="password-confirmation" type="password" />
+              <input id="password-confirmation" type="password" value={password_confirmation} 
+              onChange={e => this.setState({password_confirmation: e.target.value})}/>
             </Form.Field>
 
             <Button id="submit-account-button" type="submit">
