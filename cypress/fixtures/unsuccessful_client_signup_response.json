@@ -1,3 +1,4 @@
-{ "status": 400,
+{ 
+  "status": 400,
   "errors": "Invalid email"
 }

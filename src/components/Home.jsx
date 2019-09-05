@@ -8,12 +8,12 @@ import { connect } from "react-redux";
 const Home = props => {
   const [explain, setExplain] = useState(<BuyersExplain />);
 
-  let signUp;
+  let signUpActions;
   let welcomeMessage; // to be removed when we install flash messages
   if (props.currentUser.isSignedIn === false) {
-    signUp = <SignUp />;
+    signUpActions = <SignUp />;
   } else {
-    signUp = "";
+    signUpActions = "";
     welcomeMessage = `Welcome ${props.currentUser.attributes.firstName}!`; // to be removed when we install flash messages
   }
 
@@ -21,7 +21,7 @@ const Home = props => {
     <Container>
       <div>
         {welcomeMessage}
-        {signUp}
+        {signUpActions}
       </div>
       <div>
         <Button
