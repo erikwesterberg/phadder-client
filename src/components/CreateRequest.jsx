@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
+import { saveRequest } from "../modules/saveRequest";
 
 const CreateRequest = () => {
   const { register, handleSubmit } = useForm();
- 
-
-  const saveServiceRequestHandler = data => {
-    console.log(data)
-    const { title, category, details, budget, timeframe } = data
-    
+  const { status, setStatus } = useState();
+  
+  const saveServiceRequestHandler = async data => {
+    const { title, category, details, budget, timeframe } = data;
+    let response = await saveRequest(title, category, details, budget, timeframe);
+    if (response.status === 200) {
+       setStatus("Request successfully created!") 
+    } else {
+       setStatus("Something went wrong! Please try again") 
+  }
   };
-
-
 
   return (
     <div>
@@ -22,7 +25,11 @@ const CreateRequest = () => {
       >
         <Modal.Header>Describe your needs below</Modal.Header>
         <Modal.Content>
-          <Form id="request-form" onSubmit={handleSubmit(saveServiceRequestHandler)}>
+          {status}
+          <Form
+            id="request-form"
+            onSubmit={handleSubmit(saveServiceRequestHandler)}
+          >
             <Form.Field>
               <label>Title</label>
               <input

@@ -7,7 +7,7 @@ describe("Client can create service request", () => {
   it("Request is posted successfully", () => {
     cy.route({
       method: "POST",
-      url: "http://localhost:3000/api/v0/service_request",
+      url: "http://localhost:3000/api/service_request",
       response: "fixture:successful_saving_requests_response.json",
       status: 200
     });
@@ -27,7 +27,7 @@ describe("Client can create service request", () => {
   it("Request is not created successfully", () => {
     cy.route({
       method: "POST",
-      url: "http://localhost:3000/api/v0/service_request",
+      url: "http://localhost:3000/api/service_request",
       response: "fixture:unsuccessful_creating_request_response.json",
       status: 422
     });
