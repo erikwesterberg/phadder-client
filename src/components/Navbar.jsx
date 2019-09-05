@@ -5,12 +5,12 @@ import { connect } from "react-redux";
 import "../css/style.css";
 
 const Navbar = props => {
+  
   let logInActions;
-  if (props.currentUser.isSignedIn === false) {
-    logInActions = <LogIn />;
-  } else {
+  props.currentUser.isSignedIn === false ?
+    logInActions = <LogIn /> :
     logInActions = "";
-  }
+  
 
   return (
     <div className="ui inverted menu" id="nav-bar">

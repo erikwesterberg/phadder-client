@@ -10,12 +10,11 @@ const Home = props => {
 
   let signUpActions;
   let welcomeMessage; // to be removed when we install flash messages
-  if (props.currentUser.isSignedIn === false) {
-    signUpActions = <SignUp />;
-  } else {
+  props.currentUser.isSignedIn === false ?
+    signUpActions = <SignUp /> :
     signUpActions = "";
     welcomeMessage = `Welcome ${props.currentUser.attributes.firstName}!`; // to be removed when we install flash messages
-  }
+  
 
   return (
     <Container>
