@@ -11,6 +11,13 @@
   font-weight: 700;
 }
 
+#login-button {
+  background: none;
+  color: white;
+}
+
+/* HOMEPAGE */
+
 #buyers-bar,
 #suppliers-bar {
   background-color: #96006a;

@@ -1,24 +1,33 @@
 import React from "react";
 import { Container, Menu } from "semantic-ui-react";
+import LogIn from "./LogIn";
+import { connect } from "react-redux";
 import "../css/style.css";
 
-const Navbar = () => {
+const Navbar = props => {
+  
+  let logInActions;
+  props.currentUser.isSignedIn === false ?
+    logInActions = <LogIn /> :
+    logInActions = "";
+  
+
   return (
     <div className="ui inverted menu" id="nav-bar">
       <Container>
-        <Menu.Item
-          className="ui left aligned container"
-          id="home-button"
-          to="/"
-        >
+        <Menu.Item id="home-button" to="/">
           Phadder
         </Menu.Item>
-        <Menu.Item className="ui right aligned container" id="login-button">
-          Log In
-        </Menu.Item>
+        <Menu.Item id="login-button">{logInActions}</Menu.Item>
       </Container>
     </div>
   );
 };
 
-export default Navbar;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);
