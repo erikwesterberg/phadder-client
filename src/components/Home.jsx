@@ -21,9 +21,12 @@ const Home = props => {
 
   return (
     <Container>
-      <div>
+      <div id="cover">
         {welcomeMessage}
-        <div id="main-actions">{signUpActions}<CreateRequest /></div>
+        <div id="main-actions">
+          {signUpActions}
+          <CreateRequest />
+        </div>
       </div>
       <div id="explain-selector">
         <div id="buyer-button-div">

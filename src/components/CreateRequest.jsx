@@ -1,34 +1,9 @@
 import React from "react";
-import { Button, Form, Modal, Dropdown, TextArea } from "semantic-ui-react";
+import { Button, Form, Modal, TextArea } from "semantic-ui-react";
 import useForm from "react-hook-form";
 
 const CreateRequest = () => {
   const { register, handleSubmit } = useForm();
-
-  const budgetOptions = [
-    { key: 1, text: "Small", value: 1 },
-    { key: 2, text: "Medium", value: 2 },
-    { key: 3, text: "Big", value: 3 }
-  ];
-
-  const timeOptions = [
-    { key: 1, text: "Urgent", value: 1 },
-    { key: 2, text: "Moderate", value: 2 },
-    { key: 3, text: "Long term", value: 3 }
-  ];
-
-  const categoryOptions = [
-    { key: 1, text: "Accounting", value: 1 },
-    { key: 2, text: "Cleaning Service", value: 2 },
-    { key: 3, text: "Construction & Maintance", value: 3 },
-    { key: 4, text: "Education", value: 1 },
-    { key: 5, text: "Finacal Service", value: 2 },
-    { key: 6, text: "Health Care", value: 3 },
-    { key: 7, text: "Insurance", value: 1 },
-    { key: 8, text: "IT Service", value: 2 },
-    { key: 9, text: "Legal Service", value: 3 },
-    { key: 10, text: "Software Development", value: 3 }
-  ];
 
   return (
     <div>
@@ -49,17 +24,46 @@ const CreateRequest = () => {
             </Form.Field>
 
             <Form.Field>
-              <Dropdown
-                placeholder="Select Category"
-                fluid
-                search
-                selection
+              <label>Category</label>
+              <select
                 id="category"
                 name="category"
-                options={categoryOptions}
-                ref={register({required: false})}
-              />
-              
+                ref={register({ required: true })}
+              >
+                <option className="options" disabled>
+                  Choose Category
+                </option>
+                <option className="options" name="accounting">
+                  Accounting
+                </option>
+                <option className="options" name="cleaning_service">
+                  Cleaning Service
+                </option>
+                <option className="options" name="construction_and_maintenance">
+                  Construction and Maintenance
+                </option>
+                <option className="options" name="education">
+                  Education
+                </option>
+                <option className="options" name="financial_service">
+                  Financial Service
+                </option>
+                <option className="options" name="health_care">
+                  Health Care
+                </option>
+                <option className="options" name="insurance">
+                  Insurance
+                </option>
+                <option className="options" name="it_service">
+                  IT Service
+                </option>
+                <option className="options" name="legal_services">
+                  Legal Services
+                </option>
+                <option className="options" name="software_development">
+                  Software Development
+                </option>
+              </select>
             </Form.Field>
 
             <Form.Field>
@@ -73,23 +77,47 @@ const CreateRequest = () => {
             </Form.Field>
 
             <Form.Field compact>
-              <Dropdown
-                text="Budget"
+              <label>Budget</label>
+              <select
                 id="budget"
-                options={budgetOptions}
-                simple
-                item
-              />
+                name="budget"
+                ref={register({ required: true })}
+              >
+                <option className="options" disabled>
+                  Choose Budget
+                </option>
+                <option className="options" name="small">
+                  Small
+                </option>
+                <option className="options" name="medium">
+                  Medium
+                </option>
+                <option className="options" name="big">
+                  Big
+                </option>
+              </select>
             </Form.Field>
 
             <Form.Field compact>
-              <Dropdown
-                text="Time frame"
+              <label>Time-frame</label>
+              <select
                 id="timeframe"
-                options={timeOptions}
-                simple
-                item
-              />
+                name="timeframe"
+                ref={register({ required: true })}
+              >
+                <option className="options" disabled>
+                  Choose Time-Frame
+                </option>
+                <option className="options" name="urgent">
+                  Urgent
+                </option>
+                <option className="options" name="moderate">
+                  Moderate
+                </option>
+                <option className="options" name="long_term">
+                  Long Term
+                </option>
+              </select>
             </Form.Field>
 
             <Button id="submit-request-button" type="submit">
