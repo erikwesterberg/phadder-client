@@ -1,9 +1,18 @@
 import React from "react";
-import { Button, Form, Modal, TextArea } from "semantic-ui-react";
+import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
 
 const CreateRequest = () => {
   const { register, handleSubmit } = useForm();
+ 
+
+  const saveServiceRequestHandler = data => {
+    console.log(data)
+    const { title, category, details, budget, timeframe } = data
+    
+  };
+
+
 
   return (
     <div>
@@ -13,7 +22,7 @@ const CreateRequest = () => {
       >
         <Modal.Header>Describe your needs below</Modal.Header>
         <Modal.Content>
-          <Form id="request-form" onSubmit={handleSubmit()}>
+          <Form id="request-form" onSubmit={handleSubmit(saveServiceRequestHandler)}>
             <Form.Field>
               <label>Title</label>
               <input
@@ -67,11 +76,11 @@ const CreateRequest = () => {
             </Form.Field>
 
             <Form.Field>
-              <TextArea
+              <textarea
                 placeholder="Please describe your need"
                 id="details"
                 name="details"
-                ref={register({ required: false })}
+                ref={register({ required: true })}
                 style={{ minHeight: 100 }}
               />
             </Form.Field>
