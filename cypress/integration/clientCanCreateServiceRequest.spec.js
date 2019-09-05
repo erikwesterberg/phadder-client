@@ -1,12 +1,7 @@
 describe("Client can create service request", () => {
   beforeEach(() => {
     cy.server();
-    cy.route({
-      method: 'GET',
-      url: "http://localhost:3000/api/v0/service_request",
-      response: "fixture:requests.json",
-      status: 200
-    })
+    cy.visit("http://localhost:3001");
   });
 
   it("Request is posted successfully", () => {
@@ -17,11 +12,12 @@ describe("Client can create service request", () => {
       status: 200
     });
     cy.get("#create-request-button").click();
-    cy.get("#create-request-form").within(() => {
+    cy.get("#request-form").within(() => {
       cy.get("#title").type("Build my webpage");
-      cy.get("#category").type("It service");
+      cy.get('dropdown[id="category"]').select("IT Service")
       cy.get("#details").type("Im a proffensional painter, I want a website to show the world my art");
-      cy.get("#budget").type("big");
+      cy.get('select[id="budget"]').select("big")
+      cy.get('select[id="timeframe"]').select("Long term")
       cy.get("#submit-request-button").click();
     });
     cy.contains("Request successfully created");
@@ -36,10 +32,11 @@ describe("Client can create service request", () => {
       status: 422
     });
     cy.get("#create-request-button").click();
-    cy.get("#create-request-form").within(() => {
-      cy.get("#category").type("It service");
+    cy.get("#request-form").within(() => {
+      cy.get('select[id="category"]').select("IT Service")
       cy.get("#details").type("Im a proffensional painter, I want a website to show the world my art");
-      cy.get("#budget").type("big");
+      cy.get('select[id="budget"]').select("big")
+      cy.get('select[id="timeframe"]').select("Long term")
       cy.get("#submit-request-button").click();
     });
     cy.contains("Title can't be blank.")

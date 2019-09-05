@@ -6,7 +6,7 @@
     "category": "plumbing",
     "details": "It's leaking under the sink, need help",
     "budget": "medium",
-    "time-frame": "in two weaks",
+    "time-frame": "Long term",
     "city": "Madeira"
   },
   {
@@ -15,7 +15,7 @@
     "category": "It service",
     "details": "Im a proffensional painter, I want a website to show the world my art",
     "budget": "big",
-    "time-frame": "now",
+    "time-frame": "Moderate",
     "city": "Portimão"
   },
   {
@@ -24,7 +24,7 @@
     "category": "travel agency",
     "details": "Cheap as possible",
     "budget": "small",
-    "time-frame": "Before christmas",
+    "time-frame": "Urgent",
     "city": "Sagres"
   }
 ]

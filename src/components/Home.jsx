@@ -3,8 +3,9 @@ import { Container, Button } from "semantic-ui-react";
 import BuyersExplain from "./BuyersExplain";
 import SuppliersExplain from "./SuppliersExplain";
 import SignUp from "./SignUp";
+import CreateRequest from "./CreateRequest";
 import { connect } from "react-redux";
-import '../css/style.css'
+import "../css/style.css"
 
 const Home = props => {
   const [explain, setExplain] = useState(<BuyersExplain />);
@@ -22,7 +23,7 @@ const Home = props => {
     <Container>
       <div>
         {welcomeMessage}
-        <div id="main-actions">{signUpActions}</div>
+        <div id="main-actions">{signUpActions}<CreateRequest /></div>
       </div>
       <div id="explain-selector">
         <div id="buyer-button-div">
