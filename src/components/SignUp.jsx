@@ -3,6 +3,7 @@ import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { connect } from "react-redux";
 import { registerUser } from "../state/actions/reduxTokenAuthConfig";
+import "../css/style.css";
 
 const SignUp = props => {
   const { register, handleSubmit } = useForm();

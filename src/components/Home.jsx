@@ -4,6 +4,7 @@ import BuyersExplain from "./BuyersExplain";
 import SuppliersExplain from "./SuppliersExplain";
 import SignUp from "./SignUp";
 import { connect } from "react-redux";
+import '../css/style.css'
 
 const Home = props => {
   const [explain, setExplain] = useState(<BuyersExplain />);
@@ -21,21 +22,25 @@ const Home = props => {
     <Container>
       <div>
         {welcomeMessage}
-        {signUpActions}
+        <div id="main-actions">{signUpActions}</div>
       </div>
-      <div>
-        <Button
-          id="buyers-button"
-          onClick={() => setExplain(<BuyersExplain />)}
-        >
-          Buyers
-        </Button>
-        <Button
-          id="suppliers-button"
-          onClick={() => setExplain(<SuppliersExplain />)}
-        >
-          Suppliers
-        </Button>
+      <div id="explain-selector">
+        <div id="buyer-button-div">
+          <Button
+            id="buyers-button"
+            onClick={() => setExplain(<BuyersExplain />)}
+          >
+            BUYERS
+          </Button>
+        </div>
+        <div id="supplier-button-div">
+          <Button
+            id="suppliers-button"
+            onClick={() => setExplain(<SuppliersExplain />)}
+          >
+            SUPPLIERS
+          </Button>
+        </div>
       </div>
       {explain}
     </Container>

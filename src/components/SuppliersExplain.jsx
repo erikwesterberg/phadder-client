@@ -1,9 +1,14 @@
 import React from "react";
 import { Container } from "semantic-ui-react";
+import "../css/style.css";
 
 const SuppliersExplain = () => {
   return (
     <Container>
+      <div id="selected-option">
+        <div id="inactive-stroke"></div>
+        <div id="active-stroke"></div>
+      </div>
       <div id="suppliers-bar">
         <h1>MANY BUYERS. PLENTY OF OPPORTUNITIES. ONE MARKETPLACE.</h1>
       </div>
