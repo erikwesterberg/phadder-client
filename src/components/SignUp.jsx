@@ -10,9 +10,7 @@ const SignUp = props => {
 
   const saveNewUserHandler = data => {
     const { registerUser } = props;
-    const email = data.email;
-    const firstName = data.firstName;
-    const password = data.password;
+    const { email, firstName, password } = data
     registerUser({ email, firstName, password }).catch(error => {
       setError(error.response.data.errors); // will be changed when we implement flash messages
     });
