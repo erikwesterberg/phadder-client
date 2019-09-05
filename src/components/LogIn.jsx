@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { connect } from "react-redux";
@@ -15,41 +15,47 @@ const LogIn = props => {
     signInUser({ email, password })
       .then()
       .catch(error => {
-              debugger
-               setError(error.response.data.errors); // will be changed when we implement flash messages
-             });
+        setError(error.response.data.errors); // will be changed when we implement flash messages
+      });
   };
-return (
-  <div>
-    <Modal trigger={<Button id="login-button">Log in</Button>} centered={false}>
-      <Modal.Header>Log in</Modal.Header>
-      <Modal.Content>
-        {error}
-        <Form id="login-form" onSubmit={handleSubmit(loginHandler)}>
-          <Form.Field>
-            <label>Email</label>
-            <input id="email" name="email" ref={register({ required: true })} />
-          </Form.Field>
+  return (
+    <div>
+      <Modal
+        trigger={<Button id="login-button">Log in</Button>}
+        centered={false}
+      >
+        <Modal.Header>Log in</Modal.Header>
+        <Modal.Content>
+          {error}
+          <Form id="login-form" onSubmit={handleSubmit(loginHandler)}>
+            <Form.Field>
+              <label>Email</label>
+              <input
+                id="email"
+                name="email"
+                ref={register({ required: true })}
+              />
+            </Form.Field>
 
-          <Form.Field>
-            <label>Password</label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              ref={register({ required: true })}
-            />
-          </Form.Field>
+            <Form.Field>
+              <label>Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                ref={register({ required: true })}
+              />
+            </Form.Field>
 
-          <Button id="login-form-submit" type="submit">
-            Log in
-          </Button>
-        </Form>
-      </Modal.Content>
-    </Modal>
-  </div>
-);
-}
+            <Button id="login-form-submit" type="submit">
+              Log in
+            </Button>
+          </Form>
+        </Modal.Content>
+      </Modal>
+    </div>
+  );
+};
 
 export default connect(
   null,

@@ -1,16 +1,15 @@
 import React from "react";
 import { Container, Menu } from "semantic-ui-react";
-import LogIn from "./LogIn"
+import LogIn from "./LogIn";
 import { connect } from "react-redux";
 import "../css/style.css";
 
 const Navbar = props => {
-
   let logInActions;
   if (props.currentUser.isSignedIn === false) {
     logInActions = <LogIn />;
   } else {
-    logInActions = ""
+    logInActions = "";
   }
 
   return (
