@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { connect } from "react-redux";
+import * as flashActions from "../state/actions/flashActions";
+import { bindActionCreators } from "redux";
 import { signInUser } from "../state/actions/reduxTokenAuthConfig";
 import "../css/style.css";
 
 const LogIn = props => {
   const { register, handleSubmit } = useForm();
-  const [error, setError] = useState();
 
   const loginHandler = data => {
     const { signInUser } = props;
@@ -15,7 +16,7 @@ const LogIn = props => {
     signInUser({ email, password })
       .then()
       .catch(error => {
-        setError(error.response.data.errors); // will be changed when we implement flash messages
+        props.flashActions.dispatchMessage(error.response.data.errors, "error");
       });
   };
   return (
@@ -26,7 +27,6 @@ const LogIn = props => {
       >
         <Modal.Header>Log in</Modal.Header>
         <Modal.Content>
-          {error}
           <Form id="login-form" onSubmit={handleSubmit(loginHandler)}>
             <Form.Field>
               <label>Email</label>
@@ -57,7 +57,20 @@ const LogIn = props => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signInUser: bindActionCreators(signInUser, dispatch),
+    flashActions: bindActionCreators(flashActions, dispatch)
+  };
+};
+
 export default connect(
-  null,
-  { signInUser }
+  mapStateToProps,
+  mapDispatchToProps
 )(LogIn);

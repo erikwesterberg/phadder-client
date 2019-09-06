@@ -23,6 +23,74 @@
   background-color: #96006a;
   color: white;
   margin: 20px;
-  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   text-align: center;
+}
+
+#cover {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -14px;
+  margin-left: -200px;
+  margin-right: -200px;
+  background-image: url("./images/cover_3.png");
+  background-size: cover;
+  text-align:center;
+  height: 40vh;
+}
+
+#main-actions {
+
+}
+
+#explain-selector {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#sign-up-button,
+#create-request-button {
+  background-color: #96006a;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 0px;
+  color: white
+}
+
+#sign-up-button:hover {
+  background-color: #c81793;
+}
+
+#buyer-button-div,
+#supplier-button-div {
+  
+}
+
+#buyers-button,
+#suppliers-button {
+  background: white;
+  color: #0c0c0c;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+#selected-option {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#active-stroke {
+  outline: 1px solid #c81793;
+  width: 50%
+}
+
+#inactive-stroke {
+  width: 50%
 }

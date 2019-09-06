@@ -1,0 +1,30 @@
+  
+[
+  {
+    "id": 1,
+    "title": "Help with sink",
+    "category": "plumbing",
+    "details": "It's leaking under the sink, need help",
+    "budget": "medium",
+    "time-frame": "Long term",
+    "city": "Madeira"
+  },
+  {
+    "id": 2,
+    "title": "Build my website",
+    "category": "It service",
+    "details": "Im a proffensional painter, I want a website to show the world my art",
+    "budget": "big",
+    "time-frame": "Moderate",
+    "city": "Portimão"
+  },
+  {
+    "id": 3,
+    "title": "Book my trip",
+    "category": "travel agency",
+    "details": "Cheap as possible",
+    "budget": "small",
+    "time-frame": "Urgent",
+    "city": "Sagres"
+  }
+]

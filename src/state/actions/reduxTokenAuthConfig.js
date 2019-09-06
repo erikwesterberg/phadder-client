@@ -5,13 +5,13 @@ let authUrl = "http://localhost:3000/api/auth";
 const config = {
   authUrl,
   userAttributes: {
-    firstName: "first_name",
-    lastName: "last_name",
+    firstName: "firstName",
+    lastName: "lastName",
     email: "email"
   },
   userRegistrationAttributes: {
-    firstName: "first_name",
-    lastName: "last_name",
+    firstName: "firstName",
+    lastName: "lastName",
     email: "email",
     password_confirmation: "password_confirmation"
   }
