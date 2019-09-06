@@ -5,6 +5,8 @@ import SuppliersExplain from "./SuppliersExplain";
 import SignUp from "./SignUp";
 import CreateRequest from "./CreateRequest";
 import { connect } from "react-redux";
+import * as flashActions from "../state/actions/flashActions";
+import { bindActionCreators } from "redux";
 import "../css/style.css"
 
 const Home = props => {
@@ -15,6 +17,10 @@ const Home = props => {
     signUpActions = <SignUp />;
   } else {
     signUpActions = "";
+    props.dispatchMessage(
+      `Welcome ${props.currentUser.attributes.firstName}!`,
+      "success"
+    );
   }
 
   return (
@@ -54,4 +60,11 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(flashActions, dispatch)
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

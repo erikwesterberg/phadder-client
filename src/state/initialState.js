@@ -4,8 +4,8 @@ const initialState = {
       isLoading: false,
       isSignedIn: false,
       attributes: {
-        first_name: "",
-        last_name: "",
+        firstName: "",
+        lastName: "",
         email: "", 
       },
     },

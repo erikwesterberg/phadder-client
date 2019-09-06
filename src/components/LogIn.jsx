@@ -14,12 +14,7 @@ const LogIn = props => {
     const { signInUser } = props;
     const { email, password } = data;
     signInUser({ email, password })
-      .then(() => {
-        props.flashActions.dispatchMessage(
-          `Welcome ${props.currentUser.attributes.firstName}!`,
-          "success"
-        )
-      })
+      .then()
       .catch(error => {
         props.flashActions.dispatchMessage(
           error.response.data.errors,
