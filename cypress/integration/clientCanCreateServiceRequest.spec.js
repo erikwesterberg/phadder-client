@@ -22,7 +22,7 @@ describe("Client can create service request", () => {
     });
     cy.contains("Request successfully created");
     cy.get("#create-request-form").should("not.exist");
-    cy.wait(5000)
+    cy.wait(2000)
   });
 
   it("Request is not created successfully", () => {
@@ -42,5 +42,6 @@ describe("Client can create service request", () => {
       cy.get("#submit-request-button").click();
     });
     cy.contains("Something went wrong! Please try again.")
+    cy.wait(2000);
   })
 });

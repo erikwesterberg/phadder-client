@@ -24,5 +24,6 @@ describe("User can log in", () => {
     });
     cy.user_login("johndoe@mail.com", "wrong_password");
     cy.contains("Invalid login credentials. Please try again.");
+    cy.wait(2000);
   });
 });

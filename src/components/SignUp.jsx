@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { connect } from "react-redux";
+import * as flashActions from "../state/actions/flashActions";
+import { bindActionCreators } from "redux";
 import { registerUser } from "../state/actions/reduxTokenAuthConfig";
 import "../css/style.css";
 
@@ -13,7 +15,7 @@ const SignUp = props => {
     const { registerUser } = props;
     const { email, firstName, password } = data
     registerUser({ email, firstName, password }).catch(error => {
-      setError(error.response.data.errors); // will be changed when we implement flash messages
+      props.flashActions.dispatchMessage(error.response.data.errors, "error");
     });
   };
 
@@ -84,7 +86,14 @@ const SignUp = props => {
   );
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    registerUser: bindActionCreators(registerUser, dispatch),
+    flashActions: bindActionCreators(flashActions, dispatch)
+  };
+};
+
 export default connect(
   null,
-  { registerUser }
+  mapDispatchToProps
 )(SignUp);

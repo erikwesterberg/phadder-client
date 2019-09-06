@@ -17,6 +17,7 @@ describe("Visitor can sign up", () => {
     );
     cy.get("#submit-account-button").click();
     cy.contains("Welcome John!");
+    cy.wait(2000);
   });
 
   it("Gets a response if User has invalid email", () => {
@@ -35,5 +36,6 @@ describe("Visitor can sign up", () => {
     );
     cy.get("#submit-account-button").click();
     cy.contains("Invalid email");
+    cy.wait(2000);
   });
 });
