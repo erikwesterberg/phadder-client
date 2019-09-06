@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "semantic-ui-react";
-import '../css/style.css'
+import "../css/style.css";
 
 const BuyersExplain = () => {
   return (

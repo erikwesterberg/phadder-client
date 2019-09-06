@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { connect } from "react-redux";
@@ -9,11 +9,10 @@ import "../css/style.css";
 
 const SignUp = props => {
   const { register, handleSubmit } = useForm();
-  const [error, setError] = useState();
 
   const saveNewUserHandler = data => {
     const { registerUser } = props;
-    const { email, firstName, password } = data
+    const { email, firstName, password } = data;
     registerUser({ email, firstName, password }).catch(error => {
       props.flashActions.dispatchMessage(error.response.data.errors, "error");
     });
@@ -27,7 +26,6 @@ const SignUp = props => {
       >
         <Modal.Header>Join us!</Modal.Header>
         <Modal.Content>
-          {error}
           <Form id="signup-form" onSubmit={handleSubmit(saveNewUserHandler)}>
             <Form.Field>
               <label>First Name</label>

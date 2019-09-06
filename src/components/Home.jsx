@@ -7,7 +7,7 @@ import CreateRequest from "./CreateRequest";
 import { connect } from "react-redux";
 import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
-import "../css/style.css"
+import "../css/style.css";
 
 const Home = props => {
   const [explain, setExplain] = useState(<BuyersExplain />);
@@ -61,7 +61,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators(flashActions, dispatch)
+  return bindActionCreators(flashActions, dispatch);
 };
 
 export default connect(

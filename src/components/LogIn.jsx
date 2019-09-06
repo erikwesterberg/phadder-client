@@ -9,17 +9,14 @@ import "../css/style.css";
 
 const LogIn = props => {
   const { register, handleSubmit } = useForm();
-  
+
   const loginHandler = data => {
     const { signInUser } = props;
     const { email, password } = data;
     signInUser({ email, password })
       .then()
       .catch(error => {
-        props.flashActions.dispatchMessage(
-          error.response.data.errors,
-          "error"
-        );
+        props.flashActions.dispatchMessage(error.response.data.errors, "error");
       });
   };
   return (
@@ -70,9 +67,10 @@ const mapDispatchToProps = dispatch => {
   return {
     signInUser: bindActionCreators(signInUser, dispatch),
     flashActions: bindActionCreators(flashActions, dispatch)
-  }
+  };
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps)(LogIn);
+  mapDispatchToProps
+)(LogIn);
