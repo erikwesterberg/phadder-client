@@ -5,17 +5,22 @@ import { saveRequest } from "../modules/saveRequest";
 
 const CreateRequest = () => {
   const { register, handleSubmit } = useForm();
-  const [ status, setStatus ] = useState();
-  
+  const [status, setStatus] = useState();
+
   const saveServiceRequestHandler = async data => {
     const { title, category, details, budget, timeframe } = data;
-    let response = await saveRequest(title, category, details, budget, timeframe);
+    let response = await saveRequest(
+      title,
+      category,
+      details,
+      budget,
+      timeframe
+    );
     if (response.status === 200) {
-      console.log(response)
-       setStatus("Request successfully created!") 
+      setStatus(response.data.message);
     } else {
-       setStatus("Title can't be blank.") 
-  }
+      setStatus(response.data.errors);
+    }
   };
 
   return (
@@ -36,7 +41,7 @@ const CreateRequest = () => {
               <input
                 id="title"
                 name="title"
-                ref={register()}
+                ref={register({ required: true })}
               />
             </Form.Field>
 
@@ -93,7 +98,7 @@ const CreateRequest = () => {
               />
             </Form.Field>
 
-            <Form.Field compact>
+            <Form.Field>
               <label>Budget</label>
               <select
                 id="budget"
@@ -115,7 +120,7 @@ const CreateRequest = () => {
               </select>
             </Form.Field>
 
-            <Form.Field compact>
+            <Form.Field>
               <label>Time-frame</label>
               <select
                 id="timeframe"
