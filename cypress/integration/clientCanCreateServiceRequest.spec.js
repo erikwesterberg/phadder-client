@@ -22,6 +22,7 @@ describe("Client can create service request", () => {
     });
     cy.contains("Request successfully created");
     cy.get("#create-request-form").should("not.exist");
+    cy.wait(5000)
   });
 
   it("Request is not created successfully", () => {
