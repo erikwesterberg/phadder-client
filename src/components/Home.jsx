@@ -11,18 +11,15 @@ const Home = props => {
   const [explain, setExplain] = useState(<BuyersExplain />);
 
   let signUpActions;
-  let welcomeMessage; // to be removed when we install flash messages
   if (props.currentUser.isSignedIn === false) {
     signUpActions = <SignUp />;
   } else {
     signUpActions = "";
-    welcomeMessage = `Welcome ${props.currentUser.attributes.firstName}!`; // to be removed when we install flash messages
   }
 
   return (
     <Container>
       <div id="cover">
-        {welcomeMessage}
         <div id="main-actions">
           {signUpActions}
           <CreateRequest />

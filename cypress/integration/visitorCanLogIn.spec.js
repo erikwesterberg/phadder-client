@@ -11,7 +11,9 @@ describe("User can log in", () => {
     });
     cy.user_login("johndoe@mail.com", "password");
     cy.contains("Welcome John!");
+    cy.wait(2000)
   });
+
 
   it("Attempts to log in with invalid credentials", () => {
     cy.route({

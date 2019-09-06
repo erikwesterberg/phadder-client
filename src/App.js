@@ -13,7 +13,6 @@ const App = (props) => {
   return (
     <>
       <Navbar />
-      {/* {props.flashMessage} */}
       <ToastContainer />
       <Home />
     </>
