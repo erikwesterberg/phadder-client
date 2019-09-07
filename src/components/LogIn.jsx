@@ -4,14 +4,42 @@ import useForm from "react-hook-form";
 import { connect } from "react-redux";
 import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
-import { signInUser } from "../state/actions/reduxTokenAuthConfig";
+import * as authActions from "../state/actions/reduxTokenAuthConfig";
+import FacebookAuth from 'react-facebook-auth';
+import OAuthSignInButton from './OAuthSignInButton'
 import "../css/style.css";
 
 const LogIn = props => {
   const { register, handleSubmit } = useForm();
+  const { signInUser, registerUser } = props.auth;
+  const responseFacebook = (response) => {
+    console.log(response);
+    // try {
+    //   registerUser({ email: response.email, password: response.userID, provider: 'facebook' })
+      
+    // } catch {
+    //   registerUser({ email: response.email, password: response.userID })
+    //     .then(response => {
+    //       props.flashActions.dispatchMessage(response.data.message, "success");
+    //     })
+    //     .catch(error => {
+    //       props.flashActions.dispatchMessage(error.message, "error");
+    //     })
+
+    // }
+
+
+  }
+
+
+  const facebookButton = ({ onClick }) => (
+    <button className="ui facebook button" onClick={onClick}>
+      <i className="facebook icon"></i>
+      Login with facebook
+    </button>
+  );
 
   const loginHandler = data => {
-    const { signInUser } = props;
     const { email, password } = data;
     signInUser({ email, password })
       .then()
@@ -51,6 +79,15 @@ const LogIn = props => {
               Log in
             </Button>
           </Form>
+          <OAuthSignInButton provider='facebook'/>
+          <FacebookAuth
+            appId="216978619108390"
+            callback={responseFacebook}
+            component={facebookButton}
+            fields="first_name, last_name, email, picture"
+            redirectUri="http://localhost:3000/omniauth/facebook/callback/"
+            disableRedirect={false}
+          />
         </Modal.Content>
       </Modal>
     </div>
@@ -65,7 +102,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    signInUser: bindActionCreators(signInUser, dispatch),
+    auth: bindActionCreators(authActions, dispatch),
     flashActions: bindActionCreators(flashActions, dispatch)
   };
 };

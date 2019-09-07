@@ -17,8 +17,9 @@ const Home = props => {
     signUpActions = <SignUp />;
   } else {
     signUpActions = "";
+    let welcomeName = props.currentUser.attributes.firstName || props.currentUser.attributes.email
     props.dispatchMessage(
-      `Welcome ${props.currentUser.attributes.firstName}!`,
+      `Welcome ${welcomeName}!`,
       "success"
     );
   }
