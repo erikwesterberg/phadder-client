@@ -13,7 +13,7 @@ const LogIn = props => {
   const { register, handleSubmit } = useForm();
   const loginHandler = data => {
     const { email, password } = data;
-    signInUser({ email, password })
+    props.signInUser({ email, password })
       .then()
       .catch(error => {
         props.flashActions.dispatchMessage(error.response.data.errors, "error");
