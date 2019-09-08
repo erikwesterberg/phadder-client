@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import { reduxTokenAuthReducer } from 'redux-token-auth'
 import modalStateReducer from './modalStateReducer'
 import flashReducer from './flashReducer'
-import oauthReducer from './oauthReducer'
+import apiRequestReducer from './apiRequestReducer'
 import { authStateReducer } from 'redux-oauth';
 
 
@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   modalState: modalStateReducer,
   flashes: flashReducer,
   auth: authStateReducer,
-  oauthReducer
+  apiRequest: apiRequestReducer
 })
 
 export default rootReducer;

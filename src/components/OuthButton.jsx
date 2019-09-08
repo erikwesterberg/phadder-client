@@ -3,35 +3,35 @@ import { connect } from 'react-redux';
 import { Button } from "semantic-ui-react";
 import { oAuthSignIn } from 'redux-oauth';
 import { dispatchMessage } from "../state/actions/flashActions";
+import { bindActionCreators } from "redux";
+import configuredStore from '../state/store/store'
+import { verifyCredentials } from "../state/actions/reduxTokenAuthConfig";
 
 
 class OauthButton extends Component {
   handleClick = () => {
-    const { provider, dispatch } = this.props;
-
-    dispatch(oAuthSignIn({ provider }))
+    const { provider, oAuthSignIn, dispatchMessage } = this.props;
+    oAuthSignIn({ provider })
       .then(() => {
-        // Let's store the credentials in LocalStorage
         this.props.auth
           .getIn(['headers'])
           .forEach((value, key) => { localStorage.setItem(key, value) })
-        dispatch({ type: 'DISPATCH_MESSAGE', payload: { message: 'All good', type: 'success' } })
+        verifyCredentials(configuredStore);
+        dispatchMessage(`Authenticated using ${provider.capitalize()}`, 'success')
       });
 
   };
 
   render() {
-    const { disabled, loading, icon } = this.props;
-
-
+    const { disabled, loading, provider } = this.props;
     return (
       <Button
         loading={loading}
-        icon={icon}
-        className={'facebook'}
+        icon={`${provider}`}
+        className={`${provider}`}
         disabled={disabled}
         onClick={this.handleClick}
-        content={`Log in with ${this.props.provider}`}
+        content={`Log in with ${this.props.provider.capitalize()}`}
       />
     );
   }
@@ -40,9 +40,20 @@ class OauthButton extends Component {
 const mapStateToProps = ({ auth }, ownProps) => {
   const disabled = auth.getIn(['user', 'isSignedIn']);
   const loading = auth.getIn(['oAuthSignIn', ownProps.provider, 'loading']);
-
-  return { auth, disabled, loading };
+  return {
+    auth,
+    disabled,
+    loading
+  };
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatchMessage: bindActionCreators(dispatchMessage, dispatch),
+    oAuthSignIn: bindActionCreators(oAuthSignIn, dispatch)
+  };
+};
 
-export default connect(mapStateToProps)(OauthButton)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps)(OauthButton)

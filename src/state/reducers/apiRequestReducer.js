@@ -8,7 +8,7 @@ const initialState = {
   errors: null
 };
 
-const oauthReducer = (state = initialState, action) => {
+const apiRequestReducer = (state = initialState, action) => {
   switch (action.type) {
     case "API_START":
       return {
@@ -35,4 +35,4 @@ const oauthReducer = (state = initialState, action) => {
   }
 }
 
-export default oauthReducer
+export default apiRequestReducer

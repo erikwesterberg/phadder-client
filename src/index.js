@@ -4,9 +4,10 @@ import App from "./App";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import "semantic-ui-css/semantic.min.css";
-import configureStore from "./state/store/configureStore";
+import configuredStore from './state/store/store'
 import { verifyCredentials } from "./state/actions/reduxTokenAuthConfig";
 import { initialize } from 'redux-oauth';
+import './modules/capitalize'
 
 const reduxOauthConfig = {
   backend: {
@@ -20,9 +21,8 @@ const reduxOauthConfig = {
   currentLocation: document.URL
 };
 
-const store = configureStore();
+const store = configuredStore;
 verifyCredentials(store);
-
 window.store = store
 
 store.dispatch(initialize(reduxOauthConfig)).then(
@@ -35,10 +35,4 @@ store.dispatch(initialize(reduxOauthConfig)).then(
     );
   }
 );
-
 serviceWorker.unregister();
-
-
-
-
-

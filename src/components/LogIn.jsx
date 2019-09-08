@@ -4,15 +4,13 @@ import useForm from "react-hook-form";
 import { connect } from "react-redux";
 import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
-import * as authActions from "../state/actions/reduxTokenAuthConfig";
+import { signInUser } from "../state/actions/reduxTokenAuthConfig";
 import OauthButton from './OuthButton'
 import "../css/style.css";
 
 
 const LogIn = props => {
   const { register, handleSubmit } = useForm();
-  const { signInUser } = props.auth;
-
   const loginHandler = data => {
     const { email, password } = data;
     signInUser({ email, password })
@@ -22,7 +20,7 @@ const LogIn = props => {
       });
   };
   return (
-    <div>
+    <>
       <Modal
         trigger={<Button id="login-button">Log in</Button>}
         centered={false}
@@ -38,7 +36,6 @@ const LogIn = props => {
                 ref={register({ required: true })}
               />
             </Form.Field>
-
             <Form.Field>
               <label>Password</label>
               <input
@@ -48,7 +45,6 @@ const LogIn = props => {
                 ref={register({ required: true })}
               />
             </Form.Field>
-
             <Button id="login-form-submit" type="submit">
               Log in
             </Button>
@@ -56,7 +52,7 @@ const LogIn = props => {
           <OauthButton provider="facebook"/>
         </Modal.Content>
       </Modal>
-    </div>
+    </>
   );
 };
 
@@ -68,7 +64,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    auth: bindActionCreators(authActions, dispatch),
+    signInUser: bindActionCreators(signInUser, dispatch),
     flashActions: bindActionCreators(flashActions, dispatch)
   };
 };

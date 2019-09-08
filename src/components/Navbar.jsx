@@ -6,7 +6,7 @@ import "../css/style.css";
 
 const Navbar = props => {
   let logInActions;
-  props.currentUser.isSignedIn === false
+  !props.currentUser.isSignedIn
     && (logInActions = <LogIn />)
 
   return (
