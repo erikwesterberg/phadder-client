@@ -1,9 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const UserProfile = () => {
+const UserProfile = props => {
   return(
-    <h1>UserProfile</h1>
+    <>
+    <button>Profilepage</button>
+    <h1>`Welcome {props.currentUser.attributes.firstName}, to your profie page!`</h1>
+    </>
   )
 }
 
-export default UserProfile;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  };
+};
+
+export default connect(mapStateToProps)(UserProfile);
