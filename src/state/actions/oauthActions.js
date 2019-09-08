@@ -1,17 +1,5 @@
 import { fetch, parseResponse } from 'redux-oauth';
 
-// const reduxOauthConfig = {
-//   backend: {
-//     apiUrl: 'http://localhost:3000/api',
-//     signOutPath: null,
-//     authProviderPaths: {
-//       facebook: '/auth/facebook/'
-//     }
-//   },
-//   cookies: document.cookie,
-//   currentLocation: document.URL
-// };
-
 const apiStart = () => {
   return { type: "API_START" };
 }
@@ -23,14 +11,19 @@ const apiDone = (payload) => {
 const apiError = (payload) => {
   return { type: "API_ERROR", payload };
 }
+// Example usage: 
+// let message = encodeURI('Jag testar att skriva på svenska')
+// props.dispatch(apiRequest('http://localhost:3000/api/language_queries?content=' + message, 'POST'));
 
-const apiRequest = (url) => {
+// this method comes from 'redux-oauth' and varifies user with the back end
+const apiRequest = (url, httpMethod) => {
   return dispatch => {
     dispatch(apiStart());
 
-    return dispatch(fetch(url, { method: 'POST' }))
+    return dispatch(fetch(url, { method: httpMethod }))
       .then(parseResponse)
       .then(response => {
+        // we need to think about this...
         dispatch(apiDone(response))
       })
       .catch(errors => dispatch(apiError(errors)));

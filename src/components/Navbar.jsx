@@ -7,8 +7,7 @@ import "../css/style.css";
 const Navbar = props => {
   let logInActions;
   props.currentUser.isSignedIn === false
-    ? (logInActions = <LogIn />)
-    : (logInActions = "");
+    && (logInActions = <LogIn />)
 
   return (
     <div className="ui inverted menu" id="nav-bar">
