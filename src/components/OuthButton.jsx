@@ -10,22 +10,14 @@ import configuredStore from '../state/store/store'
 
 class OauthButton extends Component {
   handleClick = () => {
-    const { provider, oAuthSignIn, dispatchMessage, verifyCredentials } = this.props;
+    const { provider, oAuthSignIn } = this.props;
     oAuthSignIn({ provider })
       .then(() => {
         this.props.auth
           .getIn(['headers'])
           .forEach((value, key) => { localStorage.setItem(key, value) })
-        debugger
-
         verifyCredentials(configuredStore)
-          .then(() => {
-            dispatchMessage(`Authenticated using ${provider.capitalize()}`, 'success')
-          }).catch(() => {
-            dispatchMessage(`Could not authorize with ${provider.capitalize()}`, 'error')
-          });
-      });
-
+      })
   };
 
   render() {
@@ -57,7 +49,6 @@ const mapDispatchToProps = dispatch => {
   return {
     dispatchMessage: bindActionCreators(dispatchMessage, dispatch),
     oAuthSignIn: bindActionCreators(oAuthSignIn, dispatch),
-    verifyCredentials: bindActionCreators(verifyCredentials, dispatch)
   };
 };
 
