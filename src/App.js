@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { connect } from 'react-redux'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,9 +13,11 @@ const App = props => {
   }
   return (
     <>
-      <Navbar />
-      <ToastContainer />
-      <Home />
+      <Suspense fallback={<div>Loading</div>}>
+        <Navbar />
+        <ToastContainer />
+        <Home />
+      </Suspense>
     </>
   );
 };
