@@ -9,13 +9,15 @@ import OauthButton from './OuthButton'
 import { useTranslation } from "react-i18next";
 import "../css/style.css";
 
-
 const LogIn = props => {
   const { t } = useTranslation();
   const { register, handleSubmit } = useForm();
-  const loginHandler = data => {
+
+  const loginHandler = (data, e) => {
+    e.preventDefault();
     const { email, password } = data;
-    props.signInUser({ email, password })
+    props
+      .signInUser({ email, password })
       .then()
       .catch(error => {
         props.flashActions.dispatchMessage(error.response.data.errors, "error");
@@ -51,7 +53,7 @@ const LogIn = props => {
               Log in
             </Button>
           </Form>
-          <OauthButton provider="facebook"/>
+          <OauthButton provider="facebook" />
         </Modal.Content>
       </Modal>
     </>

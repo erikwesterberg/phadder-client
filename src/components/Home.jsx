@@ -13,16 +13,7 @@ const Home = props => {
   const [explain, setExplain] = useState(<BuyersExplain />);
 
   let signUpActions;
-  if (props.currentUser.isSignedIn === false) {
-    signUpActions = <SignUp />;
-  } else {
-    signUpActions = "";
-    let welcomeName = props.currentUser.attributes.firstName || props.currentUser.attributes.email
-    props.dispatchMessage(
-      `Welcome ${welcomeName}!`,
-      "success"
-    );
-  }
+  !props.currentUser.isSignedIn && (signUpActions = <SignUp />);
 
   return (
     <Container>

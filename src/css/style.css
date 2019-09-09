@@ -30,7 +30,8 @@
   background-size: contain
 }
 
-#login-button {
+#login-button,
+#profile-button {
   background: none;
   margin-right: 40px;
 }
