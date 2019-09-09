@@ -17,8 +17,8 @@ const Navbar = props => {
       <Menu.Menu position="right">
         <Dropdown item text="Language" id="language-select">
           <Dropdown.Menu>
-            <Dropdown.Item id="english">English</Dropdown.Item>
-            <Dropdown.Item id="swedish">Swedish</Dropdown.Item>
+            <Dropdown.Item id="english" onChange={languageChange(en)}>English</Dropdown.Item>
+            <Dropdown.Item id="swedish" onChange={languageChange(sv)}>Swedish</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
