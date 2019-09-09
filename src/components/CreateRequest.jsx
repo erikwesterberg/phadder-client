@@ -63,7 +63,7 @@ const CreateRequest = props => {
                   name="category"
                   ref={register({ required: true })}
                 >
-                  <option className="options" disabled>
+                  <option className="options">
                     Choose Category
                   </option>
                   <option className="options" name="accounting">
@@ -119,7 +119,7 @@ const CreateRequest = props => {
                   name="budget"
                   ref={register({ required: true })}
                 >
-                  <option className="options" disabled>
+                  <option className="options">
                     Choose Budget
                   </option>
                   <option className="options" name="small">
@@ -141,7 +141,7 @@ const CreateRequest = props => {
                   name="timeframe"
                   ref={register({ required: true })}
                 >
-                  <option className="options" disabled>
+                  <option className="options">
                     Choose Time-Frame
                   </option>
                   <option className="options" name="urgent">

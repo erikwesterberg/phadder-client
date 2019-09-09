@@ -1,23 +1,34 @@
 import React from "react";
-import { Container, Menu } from "semantic-ui-react";
+import { Dropdown, Menu, Button } from "semantic-ui-react";
 import LogIn from "./LogIn";
 import { connect } from "react-redux";
 import "../css/style.css";
 
 const Navbar = props => {
   let logInActions;
-  !props.currentUser.isSignedIn
-    && (logInActions = <LogIn />)
+  !props.currentUser.isSignedIn && (logInActions = <LogIn />);
 
   return (
-    <div className="ui inverted menu" id="nav-bar">
-      <Container>
-        <Menu.Item id="home-button" to="/">
-          Phadder
+    <Menu id="nav-bar">
+      <div id="logo-bg">
+        <div id="phadder-logo" />
+      </div>
+      <Menu.Item id="home-button" name="Phadder" />
+      <Menu.Menu position="right">
+        <Dropdown item text="Language" id="language-select">
+          <Dropdown.Menu>
+            <Dropdown.Item>English</Dropdown.Item>
+            <Dropdown.Item>Swedish</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <Menu.Item>
+          <Button primary id="login-button">
+            {logInActions}
+          </Button>
         </Menu.Item>
-        <Menu.Item id="login-button">{logInActions}</Menu.Item>
-      </Container>
-    </div>
+      </Menu.Menu>
+    </Menu>
   );
 };
 
