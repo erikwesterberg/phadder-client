@@ -16,12 +16,9 @@ const App = props => {
       <Navbar />
       <ToastContainer />
       <Switch>
-        <Route exact path="/" ></Route>
+        <Route exact path="/" component={Home} ></Route>
         <Route exact path="/profile" component={UserProfile}></Route>
       </Switch>
-      <Home />
-     
-      
     </>
   );
 };
