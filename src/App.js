@@ -8,8 +8,9 @@ import UserProfile from "./components/UserProfile";
 import { Switch, Route } from 'react-router-dom';
 
 const App = props => {
+
   if (props.flashMessage) {
-    toast(props.flashMessage.message, { type: props.flashMessage.type });
+    toast(props.flashMessage.message, { type: props.flashMessage.type })
   }
   return (
     <>
