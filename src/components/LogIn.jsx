@@ -14,17 +14,8 @@ const LogIn = props => {
   const loginHandler = (data, e) => {
     e.preventDefault();
     const { email, password } = data;
-    let welcomeName =
-      props.currentUser.attributes.firstName ||
-      props.currentUser.attributes.email;
-    props
-      .signInUser({ email, password })
-      .then(() => {
-        props.flashActions.dispatchMessage(
-          `Welcome ${welcomeName}!`,
-          "success"
-        );
-      })
+      props.signInUser({ email, password })
+      .then()
       .catch(error => {
         props.flashActions.dispatchMessage(error.response.data.errors, "error");
       });

@@ -15,6 +15,7 @@ describe("User can access profile page", () => {
   });
 
   it("Unregistered visitor should not see profile button", () => {
+    cy.visit("http://localhost:3001");
     cy.get("#profile-button").should("not.exist");
   });
 });
