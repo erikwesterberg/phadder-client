@@ -3,7 +3,7 @@ describe("User can access profile page", () => {
     cy.server();
   });
 
-  it("If user click on profile page in navbar they should se a personal greeting", () => {
+  it("Logged in user can access profile page", () => {
     cy.route({
       method: "POST",
       url: "http://localhost:3000/api/auth/sign_in",

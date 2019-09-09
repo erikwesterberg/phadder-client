@@ -11,7 +11,7 @@ const SignUp = props => {
   const { register, handleSubmit } = useForm();
 
   const saveNewUserHandler = (data, e) => {
-    e.preventDefault()
+    e.preventDefault();
     const { registerUser } = props;
     const { email, firstName, password } = data;
     registerUser({ email, firstName, password })

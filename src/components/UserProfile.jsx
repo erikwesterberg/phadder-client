@@ -1,13 +1,15 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
 const UserProfile = props => {
-  return(
+  return (
     <>
-      <h1>Welcome {props.currentUser.attributes.firstName}, to your profile page!</h1>
+      <h1>
+        Welcome {props.currentUser.attributes.firstName}, to your profile page!
+      </h1>
     </>
-  )
-}
+  );
+};
 
 const mapStateToProps = state => {
   return {
