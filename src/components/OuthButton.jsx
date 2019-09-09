@@ -3,21 +3,27 @@ import { connect } from 'react-redux';
 import { Button } from "semantic-ui-react";
 import { oAuthSignIn } from 'redux-oauth';
 import { dispatchMessage } from "../state/actions/flashActions";
+import { verifyCredentials } from "../state/actions/reduxTokenAuthConfig";
 import { bindActionCreators } from "redux";
 import configuredStore from '../state/store/store'
-import { verifyCredentials } from "../state/actions/reduxTokenAuthConfig";
 
 
 class OauthButton extends Component {
   handleClick = () => {
-    const { provider, oAuthSignIn, dispatchMessage } = this.props;
+    const { provider, oAuthSignIn, dispatchMessage, verifyCredentials } = this.props;
     oAuthSignIn({ provider })
       .then(() => {
         this.props.auth
           .getIn(['headers'])
           .forEach((value, key) => { localStorage.setItem(key, value) })
-        verifyCredentials(configuredStore);
-        dispatchMessage(`Authenticated using ${provider.capitalize()}`, 'success')
+        debugger
+
+        verifyCredentials(configuredStore)
+          .then(() => {
+            dispatchMessage(`Authenticated using ${provider.capitalize()}`, 'success')
+          }).catch(() => {
+            dispatchMessage(`Could not authorize with ${provider.capitalize()}`, 'error')
+          });
       });
 
   };
@@ -50,7 +56,8 @@ const mapStateToProps = ({ auth }, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     dispatchMessage: bindActionCreators(dispatchMessage, dispatch),
-    oAuthSignIn: bindActionCreators(oAuthSignIn, dispatch)
+    oAuthSignIn: bindActionCreators(oAuthSignIn, dispatch),
+    verifyCredentials: bindActionCreators(verifyCredentials, dispatch)
   };
 };
 
