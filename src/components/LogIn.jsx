@@ -5,16 +5,26 @@ import { connect } from "react-redux";
 import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
 import { signInUser } from "../state/actions/reduxTokenAuthConfig";
-import OauthButton from './OuthButton'
+import OauthButton from "./OuthButton";
 import "../css/style.css";
-
 
 const LogIn = props => {
   const { register, handleSubmit } = useForm();
-  const loginHandler = data => {
+  
+  const loginHandler = (data, e) => {
+    e.preventDefault();
     const { email, password } = data;
-    props.signInUser({ email, password })
-      .then()
+    let welcomeName =
+      props.currentUser.attributes.firstName ||
+      props.currentUser.attributes.email;
+    props
+      .signInUser({ email, password })
+      .then(() => {
+        props.flashActions.dispatchMessage(
+          `Welcome ${welcomeName}!`,
+          "success"
+        );
+      })
       .catch(error => {
         props.flashActions.dispatchMessage(error.response.data.errors, "error");
       });
@@ -49,7 +59,7 @@ const LogIn = props => {
               Log in
             </Button>
           </Form>
-          <OauthButton provider="facebook"/>
+          <OauthButton provider="facebook" />
         </Modal.Content>
       </Modal>
     </>
