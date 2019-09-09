@@ -10,12 +10,20 @@ import "../css/style.css";
 const SignUp = props => {
   const { register, handleSubmit } = useForm();
 
-  const saveNewUserHandler = data => {
+  const saveNewUserHandler = (data, e) => {
+    e.preventDefault()
     const { registerUser } = props;
     const { email, firstName, password } = data;
-    registerUser({ email, firstName, password }).catch(error => {
-      props.flashActions.dispatchMessage(error.response.data.errors, "error");
-    });
+    registerUser({ email, firstName, password })
+      .then(() => {
+        props.flashActions.dispatchMessage(
+          `Welcome ${props.currentUser.attributes.firstName}!`,
+          "success"
+        );
+      })
+      .catch(error => {
+        props.flashActions.dispatchMessage(error.response.data.errors, "error");
+      });
   };
 
   return (
@@ -91,7 +99,13 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SignUp);

@@ -8,9 +8,15 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = props => {
   let logInActions;
-  props.currentUser.isSignedIn === false
-    ? (logInActions = <LogIn /> )
-    : (logInActions = "");
+  let profileButton
+  !props.currentUser.isSignedIn
+    && (logInActions = <LogIn />)
+
+  props.currentUser.isSignedIn && (profileButton = 
+        <Menu.Item as={NavLink} to="/profile" id="profile-button">
+          Profile
+        </Menu.Item>)
+      
 
   return (
     <div className="ui inverted menu" id="nav-bar">
@@ -19,7 +25,7 @@ const Navbar = props => {
           Phadder
         </Menu.Item>
         <Menu.Item id="login-button">{logInActions}</Menu.Item>
-        <Menu.Item as={NavLink} to="/profile" id="profile-button">Profile</Menu.Item>
+        {profileButton}
       </Container>
     </div>
   );
