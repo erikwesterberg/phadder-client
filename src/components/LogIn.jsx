@@ -6,10 +6,12 @@ import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
 import { signInUser } from "../state/actions/reduxTokenAuthConfig";
 import OauthButton from './OuthButton'
+import { useTranslation } from "react-i18next";
 import "../css/style.css";
 
 
 const LogIn = props => {
+  const { t } = useTranslation();
   const { register, handleSubmit } = useForm();
   const loginHandler = data => {
     const { email, password } = data;
@@ -22,7 +24,7 @@ const LogIn = props => {
   return (
     <>
       <Modal
-        trigger={<Button id="login-button">Log in</Button>}
+        trigger={<Button id="login-button">{t("navbar.login")}</Button>}
         centered={false}
       >
         <Modal.Header>Log in</Modal.Header>
