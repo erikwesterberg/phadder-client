@@ -10,13 +10,25 @@
 
 #language-select {
   color: white;
+  background: none;
+  width: 60px;
+  outline: none;
+  border: none;
+  margin-right: 100px;
+  font-weight: 900;
+  font-size: 12px;
+  padding-left: 20px;
+}
+
+#language-select select {
+  display: none;
 }
 
 #logo-bg {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:60px;
+  height: 60px;
   width: 60px;
   background-color: white;
   margin-left: 150px;
@@ -26,20 +38,27 @@
 #phadder-logo {
   height: 50px;
   width: 50px;
-  background-image: url('./images/phadder_logo.png');
-  background-size: contain
+  background-image: url("./images/phadder_logo.png");
+  background-size: contain;
 }
 
 #login-button,
 #profile-button {
   background: none;
-  margin-right: 40px;
+}
+
+#login-button:hover,
+#profile-button:hover,
+#language-select:hover,
+#home-button:hover {
+  background-color: #a51279;
 }
 
 #home-button {
   font-size: 24px;
   font-weight: 900;
   color: white;
+  background-color: #96006a;
 }
 
 #login-button {
@@ -74,9 +93,6 @@
   height: 40vh;
 }
 
-#main-actions {
-}
-
 #explain-selector {
   display: flex;
   justify-content: space-around;
@@ -92,12 +108,9 @@
   color: white;
 }
 
-#sign-up-button:hover {
-  background-color: #c81793;
-}
-
-#buyer-button-div,
-#supplier-button-div {
+#sign-up-button:hover,
+#create-request-button:hover {
+  background-color: #a51279;
 }
 
 #buyers-button,

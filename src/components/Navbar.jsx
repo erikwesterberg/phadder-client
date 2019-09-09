@@ -1,11 +1,13 @@
 import React from "react";
-import { Dropdown, Menu, Button } from "semantic-ui-react";
+import { Menu, Button } from "semantic-ui-react";
 import LogIn from "./LogIn";
 import { connect } from "react-redux";
 import "../css/style.css";
 import { NavLink } from "react-router-dom";
 import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
+import LanguageSelect from "./LanguageSelect";
+import "../css/style.css";
 
 const Navbar = props => {
   let logInActions;
@@ -40,18 +42,9 @@ const Navbar = props => {
       </div>
       <Menu.Item id="home-button" as={NavLink} to="/" name="Phadder" />
       <Menu.Menu position="right">
-        <Dropdown item text="Language" id="language-select">
-          <Dropdown.Menu>
-            <Dropdown.Item id="english" onChange={languageChange(en)}>
-              English
-            </Dropdown.Item>
-            <Dropdown.Item id="swedish" onChange={languageChange(sv)}>
-              Swedish
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
         {profileButton}
         {logInActions}
+        <LanguageSelect />
       </Menu.Menu>
     </Menu>
   );

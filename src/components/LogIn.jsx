@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { connect } from "react-redux";
@@ -6,12 +6,12 @@ import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
 import { signInUser } from "../state/actions/reduxTokenAuthConfig";
 import OauthButton from './OuthButton'
-import { useTranslation } from "react-i18next";
+import { I18nContext } from "../locales/index";
 import "../css/style.css";
 
 const LogIn = props => {
-  const { t } = useTranslation();
   const { register, handleSubmit } = useForm();
+   const { translate } = useContext(I18nContext);
 
   const loginHandler = (data, e) => {
     e.preventDefault();
@@ -26,7 +26,11 @@ const LogIn = props => {
   return (
     <>
       <Modal
-        trigger={<Button id="login-button">{t("navbar.login")}</Button>}
+        trigger={
+          <Button id="login-button">
+            {translate("login")}
+          </Button>
+        }
         centered={false}
       >
         <Modal.Header>Log in</Modal.Header>

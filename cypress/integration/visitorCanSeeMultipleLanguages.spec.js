@@ -4,16 +4,12 @@ describe("Visitor can change language from", () => {
   });
 
   it("English to Swedish", () => {
-    cy.get('#language-select').click()
-    cy.get('#swedish').click({ force: true })
-    cy.reload(true);
+    cy.get('select[id="language-select"]').select("SV");
     cy.get('#nav-bar').should('contain', 'Logga in');
   });
 
   it("Swedish to English", () => {
-    cy.get('#language-select').click()
-    cy.get('#english').click({ force: true });
-    cy.reload(true);
+    cy.get('select[id="language-select"]').select("EN");
     cy.get('#nav-bar').should('contain', 'Log in');
   });
 });
