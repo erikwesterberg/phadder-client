@@ -15,11 +15,12 @@ const App = props => {
     <>
       <Navbar />
       <ToastContainer />
-      <Home />
       <Switch>
         <Route exact path="/" ></Route>
         <Route exact path="/profile" component={UserProfile}></Route>
       </Switch>
+      <Home />
+     
       
     </>
   );

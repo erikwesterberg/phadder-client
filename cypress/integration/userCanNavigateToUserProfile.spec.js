@@ -14,8 +14,8 @@ describe("User can log in", () => {
     cy.wait(2000)
   });
 
- it("If user click on profile page in navbar they should se a perosno greeting", () => {
+ it("If user click on profile page in navbar they should se a perosnal greeting", () => {
     cy.get("#profile-button").click();
-    cy.contains("Welcome John to your profile page!");
+    cy.contains("Welcome John, to your profile page!");
   });
 });
