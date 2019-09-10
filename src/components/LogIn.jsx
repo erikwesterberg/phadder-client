@@ -6,7 +6,7 @@ import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
 import { signInUser } from "../state/actions/reduxTokenAuthConfig";
 import OauthButton from './OuthButton'
-import { I18nContext } from "../locales/index";
+import { I18nContext } from "../i18n/index";
 import "../css/style.css";
 
 const LogIn = props => {

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { I18nContext } from "../locales/index";
+import { I18nContext } from "../i18n/index";
 
 const LanguageSelect = props => {
   const { langCode, dispatch } = useContext(I18nContext);

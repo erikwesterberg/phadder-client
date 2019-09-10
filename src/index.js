@@ -9,7 +9,7 @@ import configuredStore from "./state/store/store";
 import { verifyCredentials } from "./state/actions/reduxTokenAuthConfig";
 import { initialize } from "redux-oauth";
 import "./modules/capitalize";
-import { I18nContextProvider } from "./locales/index";
+import { I18nContextProvider } from "./i18n/index";
 
 const reduxOauthConfig = {
   backend: {
