@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Menu, Button } from "semantic-ui-react";
 import LogIn from "./LogIn";
 import { connect } from "react-redux";
@@ -8,8 +8,10 @@ import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
 import LanguageSelect from "./LanguageSelect";
 import "../css/style.css";
+import { I18nContext } from "../i18n/index";
 
 const Navbar = props => {
+  const { translate } = useContext(I18nContext);
   let logInActions;
   let profileButton;
   let welcomeName =
@@ -20,7 +22,7 @@ const Navbar = props => {
     profileButton = (
       <Menu.Item>
         <Button primary as={NavLink} to="/profile" id="profile-button">
-          Profile
+          {translate("profile-button")}
         </Button>
       </Menu.Item>
     );
