@@ -14,7 +14,7 @@ describe("Client can create service request", () => {
     cy.get("#create-request-button").click();
     cy.get("#request-form").within(() => {
       cy.get("#title").type("Build my webpage");
-      cy.get('select[id="category"]').select("IT Service");
+      cy.get('select[id="category"]').select("IT Services");
       cy.get("#details").type("Im a professional painter, I want a website to show the world my art");
       cy.get('select[id="budget"]').select("Big")
       cy.get('select[id="timeframe"]').select("Long Term")
@@ -35,7 +35,7 @@ describe("Client can create service request", () => {
     cy.get("#create-request-button").click();
     cy.get("#request-form").within(() => {
       cy.get("#title").type("Build my webpage");
-      cy.get('select[id="category"]').select("IT Service")
+      cy.get('select[id="category"]').select("IT Services")
       cy.get("#details").type("Im a proffensional painter, I want a website to show the world my art");
       cy.get('select[id="budget"]').select("Big")
       cy.get('select[id="timeframe"]').select("Long Term")

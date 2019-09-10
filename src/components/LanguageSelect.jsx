@@ -12,6 +12,7 @@ const LanguageSelect = props => {
   const renderOption = (code, display) => (
     <button
       id="language-button"
+      class={code}
       onClick={onLanguageSelect}
       value={code}
       selected={code === langCode}
