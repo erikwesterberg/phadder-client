@@ -79,21 +79,21 @@
 }
 #buyer1-logo {
   height: 300px;
-  width: 300px;
+  width: 500px;
   background-image: url("./images/phadder_buyer_cta_3.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 #buyer2-logo {
   height: 300px;
-  width: 300px;
+  width: 500px;
   background-image: url("./images/phadder_buyer_cta_2.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 #buyer3-logo {
   height: 300px;
-  width: 300px;
+  width: 500px;
   background-image: url("./images/phadder_buyer_cta_1.png");
   background-size: contain;
   background-repeat: no-repeat;
