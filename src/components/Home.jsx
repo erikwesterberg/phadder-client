@@ -22,12 +22,11 @@ const Home = props => {
         <div id="main-actions">
           {signUpActions}
           <CreateRequest />
-
+          <CityFetcher />
         </div>
       </div>
       <div id="explain-selector">
         <div id="buyer-button-div">
-          <CityFetcher />
           <Button
             id="buyers-button"
             onClick={() => setExplain(<BuyersExplain />)}
