@@ -111,5 +111,8 @@
   "select_language": "Välj språk",
   "password": "Lösenord",
   "password_confirmation": "Bekräfta lösenord",
-  "facebook": "Bekräfta med Facebook"
+  "facebook": "Bekräfta med Facebook",
+  "signup": "Bli medlem som kund",
+  "signup-header": "Gå med!",
+  "signup-button": "Bekräfta"
 }

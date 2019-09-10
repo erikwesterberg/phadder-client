@@ -8,7 +8,7 @@ import { signInUser } from "../state/actions/reduxTokenAuthConfig";
 import OauthButton from './OuthButton'
 import { I18nContext } from "../i18n/index";
 import "../css/style.css";
-import OuthButton from "./OuthButton";
+
 
 const LogIn = props => {
   const { register, handleSubmit } = useForm();
