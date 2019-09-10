@@ -3,25 +3,32 @@ import { Button, Modal, Form } from "semantic-ui-react";
 import "../css/style.css";
 import axios from "axios";
 
+
 const CityFetcher = () => {
  const [location, setLocation] = useState()
- const [postCode, setPostCode] = useState()
+//  const [postcode, setPostCode] = useState()
 
- getLocation = async () => {
+ const getLocation = async (val) => {
+   console.log(val)
+   debugger;
    try {
-     let response = await axios.post("/post_code_queries", postCode);
+     let response = await axios.post("/post_code_queries"/`${val}`);
+     debugger;
      if (response.status === 200) {
+       console.log(response)
        setLocation(response)
      }
    } catch (error) {
      console.log(error)
    }
  };
-
-  const onChangeHandler = event => {
-    setPostCode(event.target.value);
-    getLocation();
-  };
+ const onChangeHandler = e => {
+  const val = e.target.value;
+  if (val.length === 5 && /^(\s*|\d+)$/.test(val)) { 
+    getLocation(val)
+    }; 
+  }
+  
 
   return (
     <Modal
@@ -36,7 +43,7 @@ const CityFetcher = () => {
               <input
                 id="post-code-input"
                 placeholder="Enter your post code"
-                onChange={onChangeHandler()}
+                onChange={(e) => {onChangeHandler(e)}}
               />
             </Form.Field>
           </Form>
