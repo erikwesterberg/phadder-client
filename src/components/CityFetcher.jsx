@@ -21,7 +21,8 @@ const CityFetcher = () => {
   };
   const onChangeHandler = e => {
     const val = e.target.value;
-    if (val.length >= 5 && /^(\s*|\d+)$/.test(val)) {
+    let regex = /[0-9]|\s/;
+    if (val.length >= 5 && regex.test(val)) {
       getLocation(val);
     }
   };
@@ -39,6 +40,7 @@ const CityFetcher = () => {
               <input
                 id="post-code-input"
                 placeholder="Enter your post code"
+                type="number"
                 onChange={e => {
                   onChangeHandler(e);
                 }}
