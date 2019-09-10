@@ -8,6 +8,7 @@ import { signInUser } from "../state/actions/reduxTokenAuthConfig";
 import OauthButton from './OuthButton'
 import { I18nContext } from "../i18n/index";
 import "../css/style.css";
+import OuthButton from "./OuthButton";
 
 const LogIn = props => {
   const { register, handleSubmit } = useForm();
@@ -33,7 +34,7 @@ const LogIn = props => {
         }
         centered={false}
       >
-        <Modal.Header>Log in</Modal.Header>
+        <Modal.Header>{translate("login")}</Modal.Header>
         <Modal.Content>
           <Form id="login-form" onSubmit={handleSubmit(loginHandler)}>
             <Form.Field>
@@ -45,7 +46,7 @@ const LogIn = props => {
               />
             </Form.Field>
             <Form.Field>
-              <label>Password</label>
+              <label>{translate("password")}</label>
               <input
                 id="password"
                 name="password"
@@ -54,10 +55,10 @@ const LogIn = props => {
               />
             </Form.Field>
             <Button id="login-form-submit" type="submit">
-              Log in
+             {translate("login")}
             </Button>
           </Form>
-          <OauthButton provider="facebook" />
+          <OauthButton provider="facebook"/>
         </Modal.Content>
       </Modal>
     </>

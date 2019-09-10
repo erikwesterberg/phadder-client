@@ -108,5 +108,8 @@
   "deals": "Avtal",
   "edit_profile": "Redigera",
   "requests": "Nya Förfrågningar",
-  "select_language": "Välj språk"
+  "select_language": "Välj språk",
+  "password": "Lösenord",
+  "password_confirmation": "Bekräfta lösenord",
+  "facebook": "Bekräfta med Facebook"
 }

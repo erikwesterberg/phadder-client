@@ -106,5 +106,8 @@
   "deals": "Deals",
   "edit_profile": "Edit profile",
   "requests": "New requests",
-  "select_language": "Select language"
+  "select_language": "Select language",
+  "password": "Password",
+  "password_confirmation": "Password vonfirmation",
+  "facebook": "Authorize with Facebook"
 }
