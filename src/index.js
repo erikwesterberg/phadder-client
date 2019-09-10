@@ -1,20 +1,40 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import "semantic-ui-css/semantic.min.css";
-import configureStore from "./state/store/configureStore";
+import configuredStore from "./state/store/store";
 import { verifyCredentials } from "./state/actions/reduxTokenAuthConfig";
+import { initialize } from "redux-oauth";
+import "./modules/capitalize";
 
-const store = configureStore();
+const reduxOauthConfig = {
+  backend: {
+    apiUrl: "http://localhost:3000/api",
+    signOutPath: null,
+    authProviderPaths: {
+      facebook: "/auth/facebook/"
+    }
+  },
+  cookies: document.cookie,
+  currentLocation: document.URL
+};
+
+const store = configuredStore;
 verifyCredentials(store);
+window.store = store;
 
-ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-  document.getElementById("root")
-);
+store.dispatch(initialize(reduxOauthConfig)).then(() => {
+  ReactDOM.render(
+    <Router>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Router>,
 
+    document.getElementById("root")
+  );
+});
 serviceWorker.unregister();
