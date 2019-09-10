@@ -10,6 +10,8 @@
 
 #language-select {
   display: flex;
+  text-align: center;
+  width: 105px;
   margin-right: 10vw;
 }
 
@@ -98,21 +100,21 @@
 }
 #supplier1-logo {
   height: 300px;
-  width: 300px;
+  width: 500px;
   background-image: url("./images/phadder_new_service_provider1.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 #supplier2-logo {
   height: 300px;
-  width: 300px;
+  width: 500px;
   background-image: url("./images/phadder_build_your_reputation2.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 #supplier3-logo {
   height: 300px;
-  width: 300px;
+  width: 500px;
   background-image: url("./images/phadder_need_for_trust3.png");
   background-size: contain;
   background-repeat: no-repeat;

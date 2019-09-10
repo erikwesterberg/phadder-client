@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { Button } from "semantic-ui-react";
 import "../css/style.css";
-
 import { I18nContext } from "../i18n/index";
 
 const LanguageSelect = props => {
-  const { langCode, dispatch } = useContext(I18nContext);
+  const { langCode, dispatch, translate } = useContext(I18nContext);
 
   const onLanguageSelect = e =>
     dispatch({ type: "setLanguage", payload: e.target.value });
@@ -21,12 +20,15 @@ const LanguageSelect = props => {
     </button>
   );
 
+  let english = translate("english");
+  let swedish = translate("swedish");
+
   return (
     <div id="language-select">
-      <Button id="drop-button">Language</Button>
+      <Button id="drop-button">{translate("language")}</Button>
       <div id="language-options">
-        {renderOption("EN", "English")}
-        {renderOption("SV", "Swedish")}
+        {renderOption("EN", english)}
+        {renderOption("SV", swedish)}
       </div>
     </div>
   );

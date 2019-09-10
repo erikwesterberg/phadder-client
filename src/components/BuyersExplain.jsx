@@ -21,10 +21,10 @@ const BuyersExplain = () => {
             <div id="buyer1-logo" />
           </Grid.Column>
           <Grid.Column width={8}>
-            <h1>{translate("buyerh1-1")}</h1>
-            <p>{translate("buyerParagraph-1")}</p>
-            <p>{translate("buyerParagraph-2")}</p>
-            <p>{translate("buyerParagraph-3")}</p>
+            <h1>{translate("get_started")}</h1>
+            <p>{translate("buyers_p1")}</p>
+            <p>{translate("buyers_p2")}</p>
+            <p>{translate("buyers_p3")}</p>
           </Grid.Column>
         </Grid.Row>
 
@@ -33,9 +33,9 @@ const BuyersExplain = () => {
             <div id="buyer2-logo" />
           </Grid.Column>
           <Grid.Column width={8}>
-            <h1>{translate("buyerh1-2")}</h1>
-            <p>{translate("buyerParagraph-4")}</p>
-            <p>{translate("buyerParagraph-5")}</p>
+            <h1>{translate("get_connected")}</h1>
+            <p>{translate("buyers_p4")}</p>
+            <p>{translate("buyers_p5")}</p>
           </Grid.Column>
         </Grid.Row>
 
@@ -44,10 +44,10 @@ const BuyersExplain = () => {
             <div id="buyer3-logo" />
           </Grid.Column>
           <Grid.Column width={8}>
-            <h1>{translate("buyerh1-3")}</h1>
-            <p>{translate("buyerParagraph-6")}</p>
-            <p>{translate("buyerParagraph-7")}</p>
-            <p>{translate("buyerParagraph-8")}</p>
+            <h1>{translate("job_done")}</h1>
+            <p>{translate("buyers_p6")}</p>
+            <p>{translate("buyers_p7")}</p>
+            <p>{translate("buyers_p8")}</p>
           </Grid.Column>
         </Grid.Row>
       </Grid>
