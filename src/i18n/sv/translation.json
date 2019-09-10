@@ -126,5 +126,9 @@
   "small": "Liten",
   "construction_and_maintenance": "Bygg & Underhållning",
   "cleaning-service": "Städhjälp",
-  "accounting": "Bokföring"
+  "accounting": "Bokföring",
+  "buyer-banner": "SÖKER DU EFTER LEVERANTÖR? VI ÄR ÖPPNA FÖR AFFÄRER!",
+  "supplier-banner": "MÅNGA KÖPARE. OÄNDLIGA MÖJLIGHETER. EN MARKNADSPLATS.",
+  "suppliers-button": "Leverantörer",
+  "buyers-button": "Kunder"
 }

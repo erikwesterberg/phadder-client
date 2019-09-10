@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container } from "semantic-ui-react";
 import "../css/style.css";
+import { I18nContext } from "../i18n/index";
 
 const SuppliersExplain = () => {
+  const { translate } = useContext(I18nContext);
   return (
     <Container>
       <div id="selected-option">
@@ -10,7 +12,7 @@ const SuppliersExplain = () => {
         <div id="active-stroke"></div>
       </div>
       <div id="suppliers-bar">
-        <h1>MANY BUYERS. PLENTY OF OPPORTUNITIES. ONE MARKETPLACE.</h1>
+        <h1>{translate("supplier-banner")}</h1>
       </div>
 
       <h1>Join the elite</h1>
