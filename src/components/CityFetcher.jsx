@@ -15,8 +15,8 @@ const CityFetcher = () => {
       if (response.status === 200) {
         setLocation(response.data.message);
       }
-    } catch (error) {
-      console.log(error);
+    } catch {
+      setLocation("Connection failed");
     }
   };
   const onChangeHandler = e => {
