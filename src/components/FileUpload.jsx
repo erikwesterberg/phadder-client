@@ -5,10 +5,10 @@ import axios from "axios";
 const FileUpload = () => {
   const [file, setFile] = useState("");
   const [fileuploadMessage, setFileuploadMessage] = useState();
+  const [upLoadedFile, setupLoadedFile] = useState({})
 
   const onChange = e => {
-    setFile(e.target.files[0]);
-    
+    setFile(e.target.files[0]);  
     console.log(file)
     debugger;
   };
@@ -20,16 +20,19 @@ const FileUpload = () => {
         "http://localhost:3000/api/update_picture",
         { file }
       );
+      const { FileName } = response.data;
       if (response.status === 200) {
         setFileuploadMessage(response.data.message);
+        setupLoadedFile({FileName})
       }
     } catch {
-      setFileuploadMessage("Connection failed");
+      setFileuploadMessage("Something went wrong");
     }
   };
 
   return (
     <Modal
+      size="mini"
       trigger={<Button id="edit-profile-pic">Edit</Button>}
       centered={false}
     >
@@ -43,19 +46,19 @@ const FileUpload = () => {
               onChange={onChange}
             />
           </Form.Field>
-
           <Form.Field>
-            {/* <label>
+            <label>
             {fileuploadMessage}
-            </label> */}
+            </label>
           </Form.Field>
-    
           <Button id="save-profile-picture-submit" type="submit">
             Submit Changes
           </Button>
         </Form>
       </Modal.Content>
+      {uploadedFile ? (<img style={{ width: '100%' }}/>) : null}
     </Modal>
+
   );
 };
 
