@@ -4,7 +4,7 @@ describe("User can get location providing post code", () => {
     cy.route({
       method: "POST",
       url: "http://localhost:3000/api/post_code_queries",
-      response: "fixture:sucessful_fetching_city_response.json",
+      response: "fixture:successful_fetching_city_response.json",
       status: 200
     });
   });
