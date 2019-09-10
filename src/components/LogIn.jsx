@@ -58,7 +58,9 @@ const LogIn = props => {
              {translate("login")}
             </Button>
           </Form>
-          <OauthButton provider="facebook"/>
+          <OauthButton provider="facebook">
+            {translate("log_in_with_facebook")}
+          </OauthButton>
         </Modal.Content>
       </Modal>
     </>

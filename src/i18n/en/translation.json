@@ -35,7 +35,7 @@
   "avatar": "Upload a profile picture",
   "banner": "Upload a banner picture",
   "company_name": "Company name",
-  "details": "Details",
+  "details_serice": "Details",
   "edit_company_details": "Edit company details",
   "find": "Find",
   "get_started": "Get started!",
@@ -112,5 +112,17 @@
   "facebook": "Authorize with Facebook",
   "signup": "Sign up as client",
   "signup-header": "Join us!",
-  "signup-button": "Sign up"
+  "signup-button": "Sign up",
+  "time-frame": "Time frame",
+  "choose-timeframe": "Choose a time frame",
+  "urgent": "Urgent",
+  "moderate": "Moderate",
+  "long-term": "Long Term",
+  "budget": "Budget",
+  "choose-budget": "Choose budget",
+  "big": "Big",
+  "medium": "Medium",
+  "small": "Small",
+  "construction_and_maintenance": "Construction & Maintenance",
+  "cleaning-service": "Cleaning service"
 }

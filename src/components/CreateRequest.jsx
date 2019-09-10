@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext }  from "react";
 import { connect } from "react-redux";
 import * as modalActions from "../state/actions/modalActions";
 import * as flashActions from "../state/actions/flashActions";
@@ -6,10 +6,13 @@ import { bindActionCreators } from "redux";
 import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { saveRequest } from "../modules/saveRequest";
+import { I18nContext } from "../i18n/index";
 
 const CreateRequest = props => {
+  const { translate } = useContext(I18nContext);
   props.showCreateServiceRequestModal();
   const { register, handleSubmit } = useForm();
+
   const saveServiceRequestHandler = async data => {
     const { title, category, details, budget, timeframe } = data;
     let response = await saveRequest(
@@ -37,18 +40,18 @@ const CreateRequest = props => {
               onClick={() => props.showCreateServiceRequestModal()}
               id="create-request-button"
             >
-              CREATE A REQUEST
+              {translate("create_request")}
             </Button>
           }
         >
-          <Modal.Header>Create a Service Request</Modal.Header>
+          <Modal.Header>{translate("create_request_header")}</Modal.Header>
           <Modal.Content>
             <Form
               id="request-form"
               onSubmit={handleSubmit(saveServiceRequestHandler)}
             >
               <Form.Field>
-                <label>Title</label>
+                <label>{translate("title")}</label>
                 <input
                   id="title"
                   name="title"
@@ -57,54 +60,54 @@ const CreateRequest = props => {
               </Form.Field>
 
               <Form.Field>
-                <label>Category</label>
+                <label>{translate("category")}</label>
                 <select
                   id="category"
                   name="category"
                   ref={register({ required: true })}
                 >
                   <option className="options">
-                    Choose Category
+                    {translate("please_choose")}
                   </option>
                   <option className="options" name="accounting">
-                    Accounting
+                    {translate("accounting")}
                   </option>
                   <option className="options" name="cleaning_service">
-                    Cleaning Service
+                  {translate("cleaning-service")}
                   </option>
                   <option
                     className="options"
                     name="construction_and_maintenance"
                   >
-                    Construction and Maintenance
+                    {translate("construction_and_maintenance")}
                   </option>
                   <option className="options" name="education">
-                    Education
+                  {translate("education")}
                   </option>
                   <option className="options" name="financial_service">
-                    Financial Service
+                  {translate("financial_services")}
                   </option>
                   <option className="options" name="health_care">
-                    Health Care
+                  {translate("health_care")}
                   </option>
                   <option className="options" name="insurance">
-                    Insurance
+                  {translate("insurance")}
                   </option>
                   <option className="options" name="it_service">
-                    IT Service
+                  {translate("it_services")}
                   </option>
                   <option className="options" name="legal_services">
-                    Legal Services
+                  {translate("legal_services")}
                   </option>
                   <option className="options" name="software_development">
-                    Software Development
+                  {translate("software_development")}
                   </option>
                 </select>
               </Form.Field>
 
               <Form.Field>
                 <textarea
-                  placeholder="Please describe your need"
+                  placeholder={translate("details_service")}
                   id="details"
                   name="details"
                   ref={register({ required: true })}
@@ -113,51 +116,51 @@ const CreateRequest = props => {
               </Form.Field>
 
               <Form.Field>
-                <label>Budget</label>
+                <label>{translate("budget")}</label>
                 <select
                   id="budget"
                   name="budget"
                   ref={register({ required: true })}
                 >
                   <option className="options">
-                    Choose Budget
+                    {translate("choose-budget")}
                   </option>
                   <option className="options" name="small">
-                    Small
+                    {translate("small")}
                   </option>
                   <option className="options" name="medium">
-                    Medium
+                    {translate("medium")}
                   </option>
                   <option className="options" name="big">
-                    Big
+                    {translate("big")}
                   </option>
                 </select>
               </Form.Field>
 
               <Form.Field>
-                <label>Time-frame</label>
+                <label>{translate("time-frame")}</label>
                 <select
                   id="timeframe"
                   name="timeframe"
                   ref={register({ required: true })}
                 >
                   <option className="options">
-                    Choose Time-Frame
+                    {translate("choose-timeframe")}
                   </option>
                   <option className="options" name="urgent">
-                    Urgent
+                   {translate("urgent")}
                   </option>
                   <option className="options" name="moderate">
-                    Moderate
+                  {translate("moderate")}
                   </option>
                   <option className="options" name="long_term">
-                    Long Term
+                  {translate("long-term")}
                   </option>
                 </select>
               </Form.Field>
 
               <Button id="submit-request-button" type="submit">
-                Create request
+                {translate("submit")}
               </Button>
             </Form>
           </Modal.Content>
