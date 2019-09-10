@@ -5,6 +5,7 @@ import axios from "axios";
 
 const CityFetcher = () => {
   const [location, setLocation] = useState();
+  const [getStarted, setGetStarted] = useState();
 
   const getLocation = async val => {
     try {
@@ -14,9 +15,10 @@ const CityFetcher = () => {
       );
       if (response.status === 200) {
         setLocation(response.data.message);
+        setGetStarted(<Button>GET STARTED</Button>);
       }
-    } catch {
-      setLocation("Connection failed");
+    } catch (error) {
+      setLocation(error.response.data.message);
     }
   };
   const onChangeHandler = e => {
@@ -49,7 +51,7 @@ const CityFetcher = () => {
           </Form>
         </Modal.Description>
         {location}
-        <Button>GET STARTED</Button>
+        {getStarted}
         <Button>CANCEL</Button>
       </Modal.Content>
     </Modal>
