@@ -14,38 +14,63 @@ const BuyersExplain = () => {
       <div id="buyers-bar">
         <h1>{translate("buyer-banner")}</h1>
       </div>
-      <h1>Get Started</h1>
-      <p>
-        Select a location and project category that best matches your business
-        need
-      </p>
-      <p>
-        Tell us about your project to ensure we're able to match you to the
-        right pro for your job
-      </p>
-      <p>
-        Phadder has several service providers specializing in over 20 business
-        categories
-      </p>
-      <h1>Get Connected</h1>
-      <p>
-        Your request will be presented to up to four pre-screened, verified,
-        local Phadder Service Suppliers
-      </p>
-      <p>
-        After 24 h, your request will be listed on our site for other Phadder
-        Service Suppliers to see and respond to
-      </p>
-      <h1>Get The Job Done</h1>
-      <p>
-        Shortly after posting your service request, you start receiving bids and
-        proposals to choose from
-      </p>
-      <p>Connect with your selected service providers to negotiate terms</p>
-      <p>
-        Use Phadders Smart E-greements Service to secure the legal agreement
-        with your selected provider (optional)
-      </p>
+
+      <div class="ui segment">
+        <div class="ui left aligned container">
+          <div id="buyer1-logo" />
+        </div>
+        <div class="ui right aligned container">
+          <h1>Get Started</h1>
+          <p>
+            Select a location and project category that best matches your
+            business need
+          </p>
+          <p>
+            Tell us about your project to ensure we're able to match you to the
+            right pro for your job
+          </p>
+          <p>
+            Phadder has several service providers specializing in over 20
+            business categories
+          </p>
+        </div>
+      </div>
+
+      <div class="ui segment">
+        <div class="ui left aligned container">
+          <div id="buyer2-logo" />
+        </div>
+        <div class="ui right aligned container">
+          <h1>Get Connected</h1>
+          <p>
+            Your request will be presented to up to four pre-screened, verified,
+            local Phadder Service Suppliers
+          </p>
+          <p>
+            After 24 h, your request will be listed on our site for other
+            Phadder Service Suppliers to see and respond to
+          </p>
+        </div>
+      </div>
+
+      <div class="ui segment">
+        <div class="ui left aligned container">
+          <div id="buyer3-logo" />
+        </div>
+        <div class="ui right aligned container">
+          <h1>Get The Job Done</h1>
+          <p>
+            Shortly after posting your service request, you start receiving bids
+            and proposals to choose from
+          </p>
+          <p>Connect with your selected service providers to negotiate terms</p>
+          <p>
+            Use Phadders Smart E-greements Service to secure the legal agreement
+            with your selected provider (optional)
+          </p>
+        </div>
+      </div>
+
       <h1>
         With Phadder, you will find trusted local professionals for pretty much
         any job or project.
