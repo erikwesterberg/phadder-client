@@ -4,12 +4,13 @@ import axios from "axios";
 
 const FileUpload = () => {
   const [file, setFile] = useState("");
-  const [filename, setFilename] = useState("Choose File");
-  const [fileuploadMessage, setFileuploadMessage] = useState({});
+  const [fileuploadMessage, setFileuploadMessage] = useState();
 
   const onChange = e => {
     setFile(e.target.files[0]);
-    setFilename(e.target.files[0].name);
+    
+    console.log(file)
+    debugger;
   };
 
   const savePictureHandler = async e => {
@@ -38,20 +39,19 @@ const FileUpload = () => {
           <Form.Field>
             <input
               type="file"
-              className="custom-file-input"
-              id="customFile"
+              id="choose-picture-input"
               onChange={onChange}
             />
           </Form.Field>
 
           <Form.Field>
-            <label className="custom-file-label" htmlFor="customFile">
-              {filename}
-            </label>
+            {/* <label>
+            {fileuploadMessage}
+            </label> */}
           </Form.Field>
-          {fileuploadMessage}
+    
           <Button id="save-profile-picture-submit" type="submit">
-            Submit
+            Submit Changes
           </Button>
         </Form>
       </Modal.Content>

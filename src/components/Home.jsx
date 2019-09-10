@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
 import "../css/style.css";
+import FileUpload from './FileUpload';
 
 const Home = props => {
   const [explain, setExplain] = useState(<BuyersExplain />);
@@ -29,6 +30,7 @@ const Home = props => {
         <div id="main-actions">
           {signUpActions}
           <CreateRequest />
+          <FileUpload />
         </div>
       </div>
       <div id="explain-selector">
