@@ -16,6 +16,8 @@ describe("Client can create service request", () => {
       cy.get("#title").type("Build my webpage");
       cy.get('select[id="category"]').select("IT Service");
       cy.get("#details").type("My roof just fell down because of the storm and I need someone qualified to fix it. This is an urgent request. ");
+      cy.wait(2000);
+      cy.get("#en").should("be.checked");
     });
     cy.contains("You are writing in English...");
   });

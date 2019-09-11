@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import * as modalActions from "../state/actions/modalActions";
 import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
-import { Button, Form, Modal } from "semantic-ui-react";
+import { Button, Form, Modal, Checkbox } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { saveRequest } from "../modules/saveRequest";
 import axios from 'axios'
@@ -38,6 +38,7 @@ const CreateRequest = props => {
       );
       if (response.status === 200) {
         setLiveLanguage(response.data.message);
+        document.getElementById(`${response.data.lang_code}`).checked = true;
       }
     } catch {}
   };
@@ -123,7 +124,11 @@ const CreateRequest = props => {
                   </option>
                 </select>
               </Form.Field>
-
+              <Form.Field>
+                <label>I can receive bids in the following languages</label>
+                <Checkbox id="se" label="Swedish" />
+                <Checkbox id="en" label="English" />
+              </Form.Field>
               <Form.Field>
                 {liveLanguage}
                 <textarea
