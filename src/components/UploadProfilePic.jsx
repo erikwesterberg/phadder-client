@@ -48,12 +48,12 @@ const ProfileImageUpload = () => {
             size="medium"
             src={
               selectedPicture ||
-              "https://react.semantic-ui.com/images/avatar/large/rachel.png"
+              "https://www.bemanistyle.com/wp-content/uploads/2018/01/Linux-Avatar-300px.png"
             }
           />
           <Modal.Description>
             <p>
-            A new picture helps making your site more personal, and that sometimes helps for better deals.
+            A new picture helps making your site more personal, and sometimes thats helps for better deals.
             </p>
           </Modal.Description>
           <input
@@ -62,7 +62,7 @@ const ProfileImageUpload = () => {
             type="file"
             onChange={fileSelectedHandler}
           />
-          <Button id="upload-button" onClick={fileUploadHandler}>
+          <Button id="upload-button" onClick={fileUploadHandler} >
             Upload Picture
           </Button>
           {uploadStatus}
