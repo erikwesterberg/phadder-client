@@ -7,7 +7,7 @@ const locationReducer = (state = initialLocationState, action) => {
     case "UPDATE_LOCATION":
       return {
         ...state,
-        updateUserLocation: action.payload
+        location: action.payload
       };
     default:
       return state;

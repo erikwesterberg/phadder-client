@@ -1,7 +1,5 @@
-const updateUserLocation = () => ({
-  type: "UPDATE_LOCATION"
+const updateUserLocation = location => ({
+  type: "UPDATE_LOCATION", payload: {location: location}
 })
-
-
 
 export { updateUserLocation }

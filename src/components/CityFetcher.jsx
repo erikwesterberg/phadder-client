@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Button, Modal, Form } from "semantic-ui-react";
 import "../css/style.css";
 import axios from "axios";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as updateUserLocation from "../state/actions/locationActions";
 
-const CityFetcher = () => {
+const CityFetcher = props => {
   const [location, setLocation] = useState();
   const [getStarted, setGetStarted] = useState();
 
@@ -14,6 +17,9 @@ const CityFetcher = () => {
         { val }
       );
       if (response.status === 200) {
+        props.location.updateUserLocation(response.data.message);
+        console.log(props);
+        debugger
         setLocation(response.data.message);
         setGetStarted(<Button>GET STARTED</Button>);
       }
@@ -58,4 +64,10 @@ const CityFetcher = () => {
   );
 };
 
-export default CityFetcher;
+const mapDispatchToProps = dispatch => {
+  return {
+    location: bindActionCreators(updateUserLocation, dispatch)
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CityFetcher);
