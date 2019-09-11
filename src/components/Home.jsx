@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
 import "../css/style.css";
+import CityFetcher from './CityFetcher';
 
 const Home = props => {
   const [explain, setExplain] = useState(<BuyersExplain />);
@@ -21,6 +22,7 @@ const Home = props => {
         <div id="main-actions">
           {signUpActions}
           <CreateRequest />
+          <CityFetcher />
         </div>
       </div>
       <div id="explain-selector">
