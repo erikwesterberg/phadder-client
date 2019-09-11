@@ -14,7 +14,7 @@ const ProfileImageUpload = () => {
   const fileUploadHandler = () => {
     const image = new FormData();
     image.append('image', selectedPicture, selectedPicture.name)
-    axios.post("http://localhost:3000/api/image_upload", image)
+    axios.post("http://localhost:3000/api/profile_update", image)
     .then(response => {
       setUploadStatus(response.data.message);
       setNewProfilePic(response.data.message)
@@ -23,8 +23,6 @@ const ProfileImageUpload = () => {
       setUploadStatus(error.response.data.message);
     })
   };
-
-  
 
   return (
     <>
@@ -41,7 +39,7 @@ const ProfileImageUpload = () => {
       {uploadStatus}
     </div>
     <div>
-    <Image src="../css/images/defaultAvatar.png" size='medium' rounded />
+    <Image src={newProfilePic || "../css/images/defaultAvatar.png"} size='medium' rounded />
     </div>
     </>
   );

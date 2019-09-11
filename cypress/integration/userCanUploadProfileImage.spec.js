@@ -8,7 +8,7 @@ describe("Logged in User can upload profile images", () => {
     });
     cy.route({
       method: "POST",
-      url: "http://localhost:3000/api/image_upload",
+      url: "http://localhost:3000/api/profile_update",
       response: "fixture:successful_uploads_image_response.json",
       status: 200
     });;
