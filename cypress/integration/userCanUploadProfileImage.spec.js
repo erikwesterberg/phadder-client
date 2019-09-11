@@ -18,6 +18,7 @@ describe("Logged in User can upload profile images", () => {
     });;
       cy.get("#profile-button").click();
       cy.contains("Welcome John, to your profile page!");
+      cy.get("#edit-profile-picture").click()
       cy.get("#select-image").click();
       cy.file_upload("image.jpeg");
       cy.get("#upload-button").click();
