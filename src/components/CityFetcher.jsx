@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "semantic-ui-react";
+import { connect } from "react-redux";
+import * as locationActions from "../state/actions/locationActions";
+import { bindActionCreators } from "redux";
 import "../css/style.css";
 import axios from "axios";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as updateUserLocation from "../state/actions/locationActions";
 
 const CityFetcher = props => {
   const [location, setLocation] = useState();
@@ -17,9 +17,7 @@ const CityFetcher = props => {
         { val }
       );
       if (response.status === 200) {
-        props.location.updateUserLocation(response.data.message);
-        console.log(props);
-        debugger
+        props.locationActions.updateUserLocation(`${response.data.message}`);
         setLocation(response.data.message);
         setGetStarted(<Button>GET STARTED</Button>);
       }
@@ -66,8 +64,17 @@ const CityFetcher = props => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    location: bindActionCreators(updateUserLocation, dispatch)
+    locationActions: bindActionCreators(locationActions, dispatch)
   };
 };
 
-export default connect(null, mapDispatchToProps)(CityFetcher);
+const mapStateToProps = state => {
+  return {
+    location: state.location
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CityFetcher);
