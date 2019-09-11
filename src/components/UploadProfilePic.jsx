@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Image, Button, Header, Modal } from "semantic-ui-react";
+import { Image, Button, Modal } from "semantic-ui-react";
 
 const ProfileImageUpload = () => {
   const [selectedPicture, setSelectedPicture] = useState();
@@ -31,7 +31,7 @@ const ProfileImageUpload = () => {
         <Image
           src={
             newProfilePic ||
-            "https://react.semantic-ui.com/images/wireframe/square-image.png"
+            "https://cdn0.iconfinder.com/data/icons/occupation-002/64/programmer-programming-occupation-avatar-512.png"
           }
           size="medium"
           rounded
@@ -47,14 +47,13 @@ const ProfileImageUpload = () => {
             wrapped
             size="medium"
             src={
-              newProfilePic ||
+              selectedPicture ||
               "https://react.semantic-ui.com/images/avatar/large/rachel.png"
             }
           />
           <Modal.Description>
-            <Header>Default Profile Image</Header>
             <p>
-              A picture can be a good Idea for making the customer more safe
+            A new picture helps making your site more personal, and that sometimes helps for better deals.
             </p>
           </Modal.Description>
           <input
