@@ -1,5 +1,6 @@
 describe("Logged in User can upload profile images", () => {
   beforeEach(() => {
+    cy.server()
     cy.route({
       method: "POST",
       url: "http://localhost:3000/api/auth/sign_in",
@@ -11,16 +12,17 @@ describe("Logged in User can upload profile images", () => {
       response: "fixture:successful_uploads_image_response.json",
       status: 200
     });;
-    cy.user_login("johndoe@mail.com", "password");
-    
+    cy.user_login("johndoe@mail.com", "password");   
   });
 
   it("User upload images succesfully", () => {
       cy.get("#profile-button").click();
       cy.contains("Welcome John, to your profile page!");
-      cy.get("#edit-profile-pic-button").click();
-      cy.get("#choose-picture-input").click();
-      cy.get("#submit-article-button").click();
+      cy.get("#select-image").click();
+      cy.file_upload("image.jpeg");
+      cy.get("#upload-button").click();
+      cy.contains("Profile picture successfully updated");
+    });
+
   });
-})
 
