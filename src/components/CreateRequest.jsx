@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { saveRequest } from "../modules/saveRequest";
+import ImageUpload from "./ImageUpload";
 
 const CreateRequest = props => {
   props.showCreateServiceRequestModal();
@@ -155,7 +156,9 @@ const CreateRequest = props => {
                   </option>
                 </select>
               </Form.Field>
-
+              <Form.Field>
+                <ImageUpload />
+              </Form.Field>
               <Button id="submit-request-button" type="submit">
                 Create request
               </Button>
