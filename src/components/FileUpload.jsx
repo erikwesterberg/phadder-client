@@ -21,9 +21,12 @@ const FileUpload = () => {
         { file }
       );
       const { FileName } = response.data;
+      setupLoadedFile({FileName})
+      
       if (response.status === 200) {
+
         setFileuploadMessage(response.data.message);
-        setupLoadedFile({FileName})
+        
       }
     } catch {
       setFileuploadMessage("Something went wrong");
@@ -56,7 +59,7 @@ const FileUpload = () => {
           </Button>
         </Form>
       </Modal.Content>
-      {uploadedFile ? (<img style={{ width: '100%' }}/>) : null}
+      {/* {uploadedFile ? (<img style={{ width: '100%' }}/>) : null} */}
     </Modal>
 
   );
