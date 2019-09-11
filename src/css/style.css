@@ -179,12 +179,19 @@
 }
 
 #sign-up-button,
-#create-request-button {
+#create-request-button,
+#get-location-button {
   background-color: #96006a;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 0px;
   color: white;
+}
+
+#sign-up-button:hover,
+#create-request-button:hover,
+#get-location-button:hover {
+  background-color: #c81793;
 }
 
 #sign-up-button:hover,
