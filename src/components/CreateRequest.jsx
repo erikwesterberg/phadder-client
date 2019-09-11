@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as modalActions from "../state/actions/modalActions";
 import * as flashActions from "../state/actions/flashActions";
@@ -6,10 +6,13 @@ import { bindActionCreators } from "redux";
 import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { saveRequest } from "../modules/saveRequest";
+import axios from 'axios'
 
 const CreateRequest = props => {
   props.showCreateServiceRequestModal();
   const { register, handleSubmit } = useForm();
+  const [ liveLanguage, setLiveLanguage ] = useState();
+
   const saveServiceRequestHandler = async data => {
     const { title, category, details, budget, timeframe } = data;
     let response = await saveRequest(
@@ -24,6 +27,25 @@ const CreateRequest = props => {
       props.hideCreateServiceRequestModal();
     } else {
       props.dispatchMessage(response.data.errors, "error");
+    }
+  };
+
+  const getLanguage = async val => {
+    try {
+      let response = await axios.post(
+        "http://localhost:3000/api/language_queries",
+        { val }
+      );
+      if (response.status === 200) {
+        setLiveLanguage(response.data.message);
+      }
+    } catch {}
+  };
+
+  const onChangeHandler = e => {
+    const val = e.target.value;
+    if (val.length > 20) {
+      getLanguage(val);
     }
   };
 
@@ -103,12 +125,16 @@ const CreateRequest = props => {
               </Form.Field>
 
               <Form.Field>
+                {liveLanguage}
                 <textarea
                   placeholder="Please describe your need"
                   id="details"
                   name="details"
                   ref={register({ required: true })}
                   style={{ minHeight: 100 }}
+                  onChange={e => {
+                    onChangeHandler(e);
+                  }}
                 />
               </Form.Field>
 
