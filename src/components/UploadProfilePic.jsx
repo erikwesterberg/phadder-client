@@ -1,74 +1,50 @@
-  
 import React, { useState } from "react";
-import { Button, Form, Modal, Image } from "semantic-ui-react";
-import axios from "axios";
+import axios from "axios"
+import { Image } from "semantic-ui-react";
 
-const FileUpload = () => {
-  const [file, setFile] = useState();
-  const [fileuploadMessage, setFileuploadMessage] = useState();
-  const [uploadedFile, setupLoadedFile] = useState({})
+const ProfileImageUpload = () => {
+  const [selectedPicture, setSelectedPicture] = useState();
+  const [uploadStatus, setUploadStatus] = useState();
+  const [newProfilePic, setNewProfilePic] = useState()
 
-  const onChange = e => {
-    setFile(e.target.files[0]);  
-    console.log(e.target.files[0])
-    debugger;
+  const fileSelectedHandler = event => {
+    setSelectedPicture(event.target.files[0]);
   };
 
-  const savePictureHandler = async e => {
-    e.preventDefault();
-    try {
-      let response = await axios.post(
-        "http://localhost:3000/api/image_upload",
-        { file }
-      );
-      const { FileName } = response.data;
-
-      setupLoadedFile({FileName})
-      
-      if (response.status === 200) {
-
-        setFileuploadMessage(response.data.message);
-        
-      }
-    } catch {
-      setFileuploadMessage("Something went wrong");
-    }
+  const fileUploadHandler = () => {
+    const image = new FormData();
+    image.append('image', selectedPicture, selectedPicture.name)
+    axios.post("http://localhost:3000/api/image_upload", image)
+    .then(response => {
+      setUploadStatus(response.data.message);
+      setNewProfilePic(response.data.message)
+    })
+    .catch(error => {
+      setUploadStatus(error.response.data.message);
+    })
   };
+
+  
 
   return (
     <>
-    <Modal
-      size="mini"
-      trigger={<Button id="edit-profile-pic-button">Edit</Button>}
-      centered={false}
-    >
-      <Modal.Header>Edit picture</Modal.Header>
-      <Modal.Content>
-        <Form id="choose-profile-picture-form" onSubmit={savePictureHandler}>
-          <Form.Field>
-            <input
-              type="file"
-              id="choose-picture-input"
-              onChange={onChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>
-            {fileuploadMessage}
-            </label>
-          </Form.Field>
-          <Button id="save-profile-picture-submit" type="submit">
-            Submit Changes
-          </Button>
-        </Form>
-      </Modal.Content>
-      
-    </Modal>
-        <div>
-          <Image src={uploadedFile} size='medium' rounded />
-      </div>
+    <div>
+      <input
+        id="select-image"
+        accept="image/png, image/jpeg"
+        type="file"
+        onChange={fileSelectedHandler}
+      />
+      <button id="upload-button" onClick={fileUploadHandler}>
+        Upload Picture
+      </button>
+      {uploadStatus}
+    </div>
+    <div>
+    <Image src="../css/images/defaultAvatar.png" size='medium' rounded />
+    </div>
     </>
   );
 };
 
-export default FileUpload;
+export default ProfileImageUpload;
