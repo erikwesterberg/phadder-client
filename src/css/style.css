@@ -2,13 +2,141 @@
 
 #nav-bar {
   background-color: #96006a;
-  border-radius: 0; 
+  border-radius: 0;
   height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+#language-select {
+  display: flex;
+  text-align: center;
+  width: 105px;
+  margin-right: 10vw;
+}
+
+#drop-button {
+  background: none;
+  color: white;
+}
+
+#language-options {
+  display: none;
+  position: absolute;
+  margin-top: 70px;
+  background-color: none;
+  width: 105px;
+}
+
+#language-button {
+  background-color: #a51279;
+  color: white;
+  border: none;
+  padding: 10px;
+}
+
+#language-button:hover {
+  background-color: #af2987;
+}
+
+#language-button:focus {
+  outline: none;
+}
+
+#language-options a:hover {
+  background-color: none;
+}
+
+#language-select:hover #language-options {
+  display: flex;
+  flex-direction: column;
+}
+
+#language-select:hover #drop-button {
+  background-color: #a51279;
+}
+
+#language-select select {
+  display: none;
+}
+
+#logo-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  min-width: 60px;
+  background-color: white;
+  margin-left: 10vw;
+  border-radius: 30px;
+}
+
+#phadder-logo {
+  height: 50px;
+  width: 50px;
+  background-image: url("./images/phadder_logo.png");
+  background-size: contain;
+}
+#buyer1-logo {
+  height: 300px;
+  width: 500px;
+  background-image: url("./images/phadder_buyer_cta_3.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#buyer2-logo {
+  height: 300px;
+  width: 500px;
+  background-image: url("./images/phadder_buyer_cta_2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#buyer3-logo {
+  height: 300px;
+  width: 500px;
+  background-image: url("./images/phadder_buyer_cta_1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#supplier1-logo {
+  height: 300px;
+  width: 500px;
+  background-image: url("./images/phadder_new_service_provider1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#supplier2-logo {
+  height: 300px;
+  width: 500px;
+  background-image: url("./images/phadder_build_your_reputation2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#supplier3-logo {
+  height: 300px;
+  width: 500px;
+  background-image: url("./images/phadder_need_for_trust3.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#login-button,
+#profile-button {
+  background: none;
+}
+
+#login-button:hover,
+#profile-button:hover,
+#language-select:hover,
+#home-button:hover {
+  background-color: #a51279;
 }
 
 #home-button {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 900;
+  color: white;
+  background-color: #96006a;
 }
 
 #login-button {
@@ -34,17 +162,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -14px;
   margin-left: -200px;
   margin-right: -200px;
+  /* width: 100vw; */
+  margin-top: -14px;
   background-image: url("./images/cover_3.png");
   background-size: cover;
-  text-align:center;
+  text-align: center;
   height: 40vh;
-}
-
-#main-actions {
-
 }
 
 #explain-selector {
@@ -54,21 +179,24 @@
 }
 
 #sign-up-button,
-#create-request-button {
+#create-request-button,
+#get-location-button {
   background-color: #96006a;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 0px;
-  color: white
+  color: white;
 }
 
-#sign-up-button:hover {
+#sign-up-button:hover,
+#create-request-button:hover,
+#get-location-button:hover {
   background-color: #c81793;
 }
 
-#buyer-button-div,
-#supplier-button-div {
-  
+#sign-up-button:hover,
+#create-request-button:hover {
+  background-color: #a51279;
 }
 
 #buyers-button,
@@ -88,9 +216,16 @@
 
 #active-stroke {
   outline: 1px solid #c81793;
-  width: 50%
+  width: 50%;
 }
 
 #inactive-stroke {
-  width: 50%
+  width: 50%;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
 }

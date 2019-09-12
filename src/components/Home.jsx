@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Container, Button } from "semantic-ui-react";
 import BuyersExplain from "./BuyersExplain";
 import SuppliersExplain from "./SuppliersExplain";
@@ -8,9 +8,12 @@ import { connect } from "react-redux";
 import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
 import "../css/style.css";
+import { I18nContext } from "../i18n/index";
+import CityFetcher from './CityFetcher';
 
 const Home = props => {
   const [explain, setExplain] = useState(<BuyersExplain />);
+  const { translate } = useContext(I18nContext);
 
   let signUpActions;
   !props.currentUser.isSignedIn && (signUpActions = <SignUp />);
@@ -21,6 +24,7 @@ const Home = props => {
         <div id="main-actions">
           {signUpActions}
           <CreateRequest />
+          <CityFetcher />
         </div>
       </div>
       <div id="explain-selector">
@@ -29,7 +33,7 @@ const Home = props => {
             id="buyers-button"
             onClick={() => setExplain(<BuyersExplain />)}
           >
-            BUYERS
+            {translate("buyers-button")}
           </Button>
         </div>
         <div id="supplier-button-div">
@@ -37,7 +41,7 @@ const Home = props => {
             id="suppliers-button"
             onClick={() => setExplain(<SuppliersExplain />)}
           >
-            SUPPLIERS
+            {translate("suppliers-button")}
           </Button>
         </div>
       </div>
