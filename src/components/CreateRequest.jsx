@@ -47,7 +47,7 @@ const CreateRequest = props => {
 
   const onChangeHandler = e => {
     const val = e.target.value;
-    if (val.length > 20) {
+    if (val.length === 20) {
       getLanguage(val);
     }
   };
