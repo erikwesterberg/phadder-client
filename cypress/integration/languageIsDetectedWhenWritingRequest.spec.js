@@ -1,10 +1,10 @@
-describe("Client can create service request", () => {
+describe("Language is detected when writing request description", () => {
   beforeEach(() => {
     cy.server();
     cy.visit("http://localhost:3001");
   });
 
-  it("Request is posted successfully", () => {
+  it("Language correctly detected", () => {
     cy.route({
       method: "POST",
       url: "http://localhost:3000/api/language_queries",
@@ -14,7 +14,7 @@ describe("Client can create service request", () => {
     cy.get("#create-request-button").click();
     cy.get("#request-form").within(() => {
       cy.get("#title").type("Build my webpage");
-      cy.get('select[id="category"]').select("IT Service");
+      cy.get('select[id="category"]').select("IT Services");
       cy.get("#details").type("My roof just fell down because of the storm and I need someone qualified to fix it. This is an urgent request. ");
       cy.wait(2000);
       cy.get("#en").should("be.checked");
