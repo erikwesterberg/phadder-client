@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { connect } from "react-redux";
@@ -6,9 +6,11 @@ import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
 import { registerUser } from "../state/actions/reduxTokenAuthConfig";
 import "../css/style.css";
+import { I18nContext } from "../i18n/index";
 
 const SignUp = props => {
   const { register, handleSubmit } = useForm();
+  const { translate } = useContext(I18nContext);
 
   const saveNewUserHandler = (data, e) => {
     e.preventDefault();
@@ -24,14 +26,14 @@ const SignUp = props => {
   return (
     <div>
       <Modal
-        trigger={<Button id="sign-up-button">REGISTER AS A CLIENT</Button>}
+        trigger={<Button id="sign-up-button">{translate("signup")}</Button>}
         centered={false}
       >
-        <Modal.Header>Join us!</Modal.Header>
+        <Modal.Header>{translate("signup-header")}</Modal.Header>
         <Modal.Content>
           <Form id="signup-form" onSubmit={handleSubmit(saveNewUserHandler)}>
             <Form.Field>
-              <label>First Name</label>
+              <label>{translate("first_name")}</label>
               <input
                 id="first-name"
                 name="firstName"
@@ -40,7 +42,7 @@ const SignUp = props => {
             </Form.Field>
 
             <Form.Field>
-              <label>Last Name</label>
+              <label>{translate("last_name")}</label>
               <input
                 id="last-name"
                 name="lastName"
@@ -49,7 +51,7 @@ const SignUp = props => {
             </Form.Field>
 
             <Form.Field>
-              <label>Email Adress</label>
+              <label>Email</label>
               <input
                 id="email"
                 name="email"
@@ -58,7 +60,7 @@ const SignUp = props => {
             </Form.Field>
 
             <Form.Field>
-              <label>Password</label>
+              <label>{translate("password")}</label>
               <input
                 id="password"
                 name="password"
@@ -68,7 +70,7 @@ const SignUp = props => {
             </Form.Field>
 
             <Form.Field>
-              <label>Password Confirmation</label>
+              <label>{translate("password_confirmation")}</label>
               <input
                 id="password-confirmation"
                 name="passwordConfirmation"
@@ -78,7 +80,7 @@ const SignUp = props => {
             </Form.Field>
 
             <Button id="submit-account-button" type="submit">
-              Sign Up
+              {translate("signup-button")}
             </Button>
           </Form>
         </Modal.Content>

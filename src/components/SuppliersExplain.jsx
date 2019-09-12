@@ -1,8 +1,10 @@
-import React from "react";
-import { Container } from "semantic-ui-react";
+import React, { useContext } from "react";
+import { Container, Grid } from "semantic-ui-react";
 import "../css/style.css";
+import { I18nContext } from "../i18n/index";
 
 const SuppliersExplain = () => {
+  const { translate } = useContext(I18nContext);
   return (
     <Container>
       <div id="selected-option">
@@ -10,46 +12,46 @@ const SuppliersExplain = () => {
         <div id="active-stroke"></div>
       </div>
       <div id="suppliers-bar">
-        <h1>MANY BUYERS. PLENTY OF OPPORTUNITIES. ONE MARKETPLACE.</h1>
+        <h1>{translate("supplier-banner")}</h1>
       </div>
 
-      <h1>Join the elite</h1>
-      <p>
-        Complete an online application to join the exclusive Phadder Service
-        Supplier community.
-      </p>
-      <p>
-        As a Service Supplier, you'll gain access to a stream of project
-        requests from our international client community. Now you’re ready to
-        provide your services to new clients in your area - Better, Safer and
-        More Profitable.
-      </p>
-      <p>
-        It's all within your reach! Register during the Pre Release period and
-        get 50% discount on the Verified Supplier Badge (optional)
-      </p>
-      <h1>Build your reputation</h1>
-      <p>
-        Networks and referrals are the main reasons for accepting bids and
-        making purchases. With Phadder, your business will be able to build an
-        online reputation and grow your business.
-      </p>
-      <p>
-        Make diversity into a competitive advantage. Benefit from the
-        multi-cultural composition of your team. The unique multi-language
-        approach of Phadder makes it possible for your clients to communicate
-        with you in their native language.
-      </p>
-      <h1>The decisive advantage</h1>
-      <p>
-        A basic membership on Phadder is FREE, but even the paid Verified
-        Supplier Badge costs significantly less than many other classic sales
-        channels and can generate up to three times as many leads.
-      </p>
-      <p>
-        In addition, the majority of business owners, prefer to look for
-        suppliers and service providers online.
-      </p>
+      <Grid>
+        <Grid.Row>
+          <Grid.Column width={8}>
+            <h1>{translate("create_supplier_account")}</h1>
+            <h1>{translate("join_the_elite")}</h1>
+            <p>{translate("suppliers_p1")}</p>
+            <p>{translate("suppliers_p2")}</p>
+            <p>{translate("suppliers_p3")}</p>
+          </Grid.Column>
+          <Grid.Column width={8}>
+            <div id="supplier1-logo" />
+          </Grid.Column>
+        </Grid.Row>
+
+        <Grid.Row>
+          <Grid.Column width={8}>
+            <div id="supplier2-logo" />
+          </Grid.Column>
+          <Grid.Column width={8}>
+            <h1>{translate("trust")}</h1>
+            <h1>{translate("reputation")}</h1>
+            <p>{translate("suppliers_p4")}</p>
+            <p>{translate("suppliers_p5")}</p>
+          </Grid.Column>
+        </Grid.Row>
+
+        <Grid.Row>
+          <Grid.Column width={8}>
+            <h1>{translate("sales_channel")}</h1>
+            <h1>{translate("advantage")}</h1>
+            <p>{translate("suppliers_p6")}</p>
+          </Grid.Column>
+          <Grid.Column width={8}>
+            <div id="supplier3-logo" />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </Container>
   );
 };
