@@ -36,6 +36,7 @@ class OauthButton extends Component {
 }
 
 const mapStateToProps = ({ auth }, ownProps) => {
+
   const disabled = auth.getIn(['user', 'isSignedIn']);
   const loading = auth.getIn(['oAuthSignIn', ownProps.provider, 'loading']);
   return {
