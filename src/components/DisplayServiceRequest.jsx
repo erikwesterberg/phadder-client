@@ -5,6 +5,7 @@ import RequestTemplate from "./ServiceRequestTemplate";
 import { connect } from "react-redux";
 
 
+
 const DisplayServiceRequest = props => {
   const [showRequest, setShowRequest] = useState(false);
   const [serviceRequests, setServiceRequest] = useState();
@@ -27,7 +28,12 @@ const DisplayServiceRequest = props => {
   if (showRequest === true) {
     usersRequests = (
       <div id="service-request">
-        <h1>Service Requests</h1>
+          <h1>Service Requests</h1>
+          <div id="handle-requests-buttons">
+              <Button id="request-activity">ACTIVITY</Button>
+              <Button id="request-pening">PENDING REQUESTS</Button>
+              <Button id="request-deals">DEALS</Button>
+          </div>
         {serviceRequests.map(serviceRequest => {
           return (
             <RequestTemplate

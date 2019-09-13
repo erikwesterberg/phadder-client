@@ -12,17 +12,17 @@ const RequestTemplate = props => {
           <Header size="medium" textAlign="left" id="title">
             {serviceRequest.title}
           </Header>
-          <Header as="h5" textAlign="right" id="category">
-            {serviceRequest.category}
+          <Header as="h5" textAlign="left" id="category">
+            <p>Category: {serviceRequest.category}</p>
           </Header>
           <Placeholder.Paragraph id="details">
             {serviceRequest.details}
           </Placeholder.Paragraph>
-          <Header as="h5" textAlign="right" id="budget">
-            {serviceRequest.budget}
+          <Header as="h5" textAlign="left" id="budget">
+            <p>Budget: {serviceRequest.budget}</p>
           </Header>
-          <Header as="h5" textAlign="right" id="timeframe">
-            {serviceRequest.timeframe}
+          <Header as="h5" textAlign="left" id="timeframe">
+           <p>Timeframe: {serviceRequest.timeframe}</p>
           </Header>
           <Divider />
         </div>
