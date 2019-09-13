@@ -66,14 +66,16 @@ const CreateRequest = props => {
             </Button>
           }
         >
-          <Modal.Header>{translate("create_request_header")}</Modal.Header>
+          <Modal.Header id="create-request-title">
+            {translate("create_request_header")}
+          </Modal.Header>
           <Modal.Content>
             <Form
               id="request-form"
               onSubmit={handleSubmit(saveServiceRequestHandler)}
             >
               <Form.Field>
-                <label>{translate("title")}</label>
+                <label id="create-request-label">{translate("title")}</label>
                 <input
                   id="title"
                   name="title"
@@ -82,7 +84,7 @@ const CreateRequest = props => {
               </Form.Field>
 
               <Form.Field>
-                <label>{translate("category")}</label>
+                <label id="create-request-label">{translate("category")}</label>
                 <select
                   id="category"
                   name="category"
@@ -95,7 +97,7 @@ const CreateRequest = props => {
                     {translate("accounting")}
                   </option>
                   <option className="options" name="cleaning_service">
-                  {translate("cleaning-service")}
+                    {translate("cleaning-service")}
                   </option>
                   <option
                     className="options"
@@ -104,30 +106,32 @@ const CreateRequest = props => {
                     {translate("construction_and_maintenance")}
                   </option>
                   <option className="options" name="education">
-                  {translate("education")}
+                    {translate("education")}
                   </option>
                   <option className="options" name="financial_service">
-                  {translate("financial_services")}
+                    {translate("financial_services")}
                   </option>
                   <option className="options" name="health_care">
-                  {translate("health_care")}
+                    {translate("health_care")}
                   </option>
                   <option className="options" name="insurance">
-                  {translate("insurance")}
+                    {translate("insurance")}
                   </option>
                   <option className="options" name="it_service">
-                  {translate("it_services")}
+                    {translate("it_services")}
                   </option>
                   <option className="options" name="legal_services">
-                  {translate("legal_services")}
+                    {translate("legal_services")}
                   </option>
                   <option className="options" name="software_development">
-                  {translate("software_development")}
+                    {translate("software_development")}
                   </option>
                 </select>
               </Form.Field>
               <Form.Field>
-                <label>I can receive bids in the following languages</label>
+                <label id="create-request-label">
+                  I can receive bids in the following languages
+                </label>
                 <Checkbox id="se" label="Swedish" />
                 <Checkbox id="en" label="English" />
               </Form.Field>
@@ -146,7 +150,7 @@ const CreateRequest = props => {
               </Form.Field>
 
               <Form.Field>
-                <label>{translate("budget")}</label>
+                <label id="create-request-label">{translate("budget")}</label>
                 <select
                   id="budget"
                   name="budget"
@@ -168,7 +172,9 @@ const CreateRequest = props => {
               </Form.Field>
 
               <Form.Field>
-                <label>{translate("time-frame")}</label>
+                <label id="create-request-label">
+                  {translate("time-frame")}
+                </label>
                 <select
                   id="timeframe"
                   name="timeframe"
@@ -178,13 +184,13 @@ const CreateRequest = props => {
                     {translate("choose-timeframe")}
                   </option>
                   <option className="options" name="urgent">
-                   {translate("urgent")}
+                    {translate("urgent")}
                   </option>
                   <option className="options" name="moderate">
-                  {translate("moderate")}
+                    {translate("moderate")}
                   </option>
                   <option className="options" name="long_term">
-                  {translate("long-term")}
+                    {translate("long-term")}
                   </option>
                 </select>
               </Form.Field>

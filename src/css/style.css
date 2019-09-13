@@ -332,3 +332,24 @@ select {
 #submit-account-button:hover {
   background-color: #c81793;
 }
+
+/* CREATE REQUEST MODAL */
+
+#create-request-title {
+  color: #a51279
+}
+
+#create-request-label {
+  color: rgb(92, 92, 92)
+}
+
+#submit-request-button {
+  margin: 5px;
+  background-color: #96006a;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  border-radius: 0px;
+  color: white;
+}
