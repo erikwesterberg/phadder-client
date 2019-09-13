@@ -6,7 +6,6 @@ import { bindActionCreators } from "redux";
 import { Button, Form, Modal, Checkbox } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { saveRequest } from "../modules/saveRequest";
-import ImageUpload from "./ImageUpload";
 import axios from 'axios';
 import { I18nContext } from "../i18n/index";
 
@@ -15,6 +14,8 @@ const CreateRequest = props => {
   props.showCreateServiceRequestModal();
   const { register, handleSubmit } = useForm();
   const [ liveLanguage, setLiveLanguage ] = useState();
+  const [selectedPicture, setSelectedPicture] = useState();
+  
 
   const saveServiceRequestHandler = async data => {
     const { title, category, details, budget, timeframe } = data;
@@ -23,7 +24,8 @@ const CreateRequest = props => {
       category,
       details,
       budget,
-      timeframe
+      timeframe,
+      selectedPicture
     );
     if (response.status === 200) {
       props.dispatchMessage(response.data.message, "success");
@@ -51,6 +53,21 @@ const CreateRequest = props => {
     if (val.length === 20) {
       getLanguage(val);
     }
+  };
+
+  const toBase64 = file =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+
+  const fileUploadHandler = async event => {
+    debugger
+    const file = event.target.files[0];
+    let convertedFile = await toBase64(file);
+    setSelectedPicture(convertedFile);
   };
 
   return (
@@ -96,7 +113,7 @@ const CreateRequest = props => {
                     {translate("accounting")}
                   </option>
                   <option className="options" name="cleaning_service">
-                  {translate("cleaning-service")}
+                    {translate("cleaning-service")}
                   </option>
                   <option
                     className="options"
@@ -105,25 +122,25 @@ const CreateRequest = props => {
                     {translate("construction_and_maintenance")}
                   </option>
                   <option className="options" name="education">
-                  {translate("education")}
+                    {translate("education")}
                   </option>
                   <option className="options" name="financial_service">
-                  {translate("financial_services")}
+                    {translate("financial_services")}
                   </option>
                   <option className="options" name="health_care">
-                  {translate("health_care")}
+                    {translate("health_care")}
                   </option>
                   <option className="options" name="insurance">
-                  {translate("insurance")}
+                    {translate("insurance")}
                   </option>
                   <option className="options" name="it_service">
-                  {translate("it_services")}
+                    {translate("it_services")}
                   </option>
                   <option className="options" name="legal_services">
-                  {translate("legal_services")}
+                    {translate("legal_services")}
                   </option>
                   <option className="options" name="software_development">
-                  {translate("software_development")}
+                    {translate("software_development")}
                   </option>
                 </select>
               </Form.Field>
@@ -179,18 +196,24 @@ const CreateRequest = props => {
                     {translate("choose-timeframe")}
                   </option>
                   <option className="options" name="urgent">
-                   {translate("urgent")}
+                    {translate("urgent")}
                   </option>
                   <option className="options" name="moderate">
-                  {translate("moderate")}
+                    {translate("moderate")}
                   </option>
                   <option className="options" name="long_term">
-                  {translate("long-term")}
+                    {translate("long-term")}
                   </option>
                 </select>
               </Form.Field>
               <Form.Field>
-                <ImageUpload />
+                <input
+                  id="select-image"
+                  accept="image/png, image/jpeg"
+                  type="file"
+                  name="image"
+                  onChange={fileUploadHandler}
+                />
               </Form.Field>
               <Button id="submit-request-button" type="submit">
                 {translate("submit")}
