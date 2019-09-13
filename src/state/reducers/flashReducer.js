@@ -5,9 +5,13 @@ const flashReducer = (state = { message: "" }, action) => {
         ...state,
         message: action.payload
       };
+    case "CLEAR_MESSAGE":
+      return {
+        message: ""
+      };
     default:
       return state;
   }
 };
 
-export default flashReducer
+export default flashReducer;

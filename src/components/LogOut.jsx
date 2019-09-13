@@ -1,4 +1,3 @@
-  
 import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
@@ -8,50 +7,48 @@ import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
 import { signOutUser } from "../state/actions/reduxTokenAuthConfig";
 
-const LogOut = props => {
-
-  const signOut = (e) => {
-  e.preventDefault();
-  const { history, signOutUser } = props
-  signOutUser()
-    .then(() => {
-      history.push("/");
-      props.flashActions.dispatchMessage(
-        `You have successfully logged out.`,
-      );
-    })
-  };
- 
-return (
-      <>
-        <Menu.Item
-          id="logout-button"
-          as={Link}
-          to="/"
-          onClick={signOut}
-        >
-          Log Out
-        </Menu.Item>
-      </>
-    )
-  }
-  
-
-  const mapStateToProps = (state) => {
-    return {
-      state: state,
-      currentUser: state.reduxTokenAuth.currentUser
-    }
-  }
-
-  const mapDispatchToProps = dispatch => {
-    return {
-      signOutUser: bindActionCreators(signOutUser, dispatch),
-      flashActions: bindActionCreators(flashActions, dispatch)
-    };
+const LogOut = props => {
+  const signOut = e => {
+    props.flashActions.dispatchMessage(
+      `You ARE AN IDIOT.`,
+      "error"
+    );
+    e.preventDefault();
+    const { signOutUser } = props;
+    signOutUser()
+      .then(() => {
+        props.flashActions.dispatchMessage(
+          `You have successfully logged out.`,
+          "success"
+        );
+      })
   };
 
-  export default withRouter(connect(
+  return (
+    <>
+      <Menu.Item id="logout-button" as={Link} to="/" onClick={(e) => signOut(e)}>
+        Log Out
+      </Menu.Item>
+    </>
+  );
+};
+
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signOutUser: bindActionCreators(signOutUser, dispatch),
+    flashActions: bindActionCreators(flashActions, dispatch)
+  };
+};
+
+export default withRouter(
+  connect(
     mapStateToProps,
-    mapDispatchToProps,
-  )(LogOut));
+    mapDispatchToProps
+  )(LogOut)
+);

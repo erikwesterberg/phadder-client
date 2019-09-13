@@ -15,10 +15,14 @@ const Navbar = props => {
   const { translate } = useContext(I18nContext);
   let logInActions;
   let profileButton;
-  let logoutActions
-  let welcomeName =
-    props.currentUser.attributes.firstName ||
-    props.currentUser.attributes.email;
+  let logoutActions;
+
+  if (props.currentUser.isSignedIn) {
+    let welcomeName =
+      props.currentUser.attributes.firstName ||
+      props.currentUser.attributes.email;
+    props.flashActions.dispatchMessage(`Welcome ${welcomeName}!`, "success");
+  }
 
   if (props.currentUser.isSignedIn) {
     profileButton = (
@@ -28,15 +32,16 @@ const Navbar = props => {
         </Button>
       </Menu.Item>
     );
-    props.flashActions.dispatchMessage(`Welcome ${welcomeName}!`, "success")
 
     logoutActions = (
-      <LogOut />
-    )
-     
+      <Menu.Item>
+        <LogOut />
+      </Menu.Item>
+    );
   } else {
     logInActions = (
       <Menu.Item>
+        <h1>I'M LOGGED OUT!!!!</h1>
         <Button primary id="login-button">
           <LogIn />
         </Button>

@@ -6,10 +6,14 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import UserProfile from "./components/UserProfile";
 import { Switch, Route } from "react-router-dom";
+import * as flashActions from "./state/actions/flashActions";
+import { bindActionCreators } from "redux";
 
 const App = props => {
   if (props.flashMessage) {
     toast(props.flashMessage.message, { type: props.flashMessage.type });
+    props.flashActions.clearMessage();
+    debugger
   }
   return (
     <>
@@ -31,4 +35,13 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    flashActions: bindActionCreators(flashActions, dispatch)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
