@@ -12,16 +12,12 @@ import { I18nContext } from "../i18n/index";
 import LogOut from "./LogOut";
 
 const Navbar = props => {
-
-
   const { translate } = useContext(I18nContext);
   let logInActions;
   let profileButton;
   let logoutActions;
 
-
   if (props.currentUser.isSignedIn) {
-    
     profileButton = (
       <Menu.Item>
         <Button primary as={NavLink} to="/profile" id="profile-button">

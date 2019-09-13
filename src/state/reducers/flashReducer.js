@@ -8,7 +8,7 @@ const flashReducer = (state = { message: "" }, action) => {
       };
     case "CLEAR_MESSAGE":
       return {
-        display: true 
+        message: { display: false }
       };
     default:
       return state;

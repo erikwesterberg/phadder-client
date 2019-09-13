@@ -17,8 +17,6 @@ const LogOut = props => {
       })
   }
 
-
-
   return (
     <>
       <Menu.Item id="logout-button" as={Link} to="/" onClick={signOutHandler}>
@@ -37,8 +35,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     signOutUser: bindActionCreators(signOutUser, dispatch),
-    flashActions: bindActionCreators(flashActions, dispatch),
-    oAuthSignOut: () => (dispatch({ type: 'SIGN_OUT' }))
+    flashActions: bindActionCreators(flashActions, dispatch)
   };
 };
 

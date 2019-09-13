@@ -6,19 +6,12 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import UserProfile from "./components/UserProfile";
 import { Switch, Route } from "react-router-dom";
-import * as flashActions from "./state/actions/flashActions";
-import { bindActionCreators } from "redux";
 
 const App = props => {
-  if (props.flashMessage) {
+  if (props.flashMessage.display) {
     toast(props.flashMessage.message, { type: props.flashMessage.type });
   }
 
-
-  // if (props.flashMessage.display) {
-  //   debugger
-  //   toast(props.flashMessage.message, { type: props.flashMessage.type });
-  // }
   return (
     <>
       <Suspense fallback={<div>Loading</div>}>
@@ -39,13 +32,6 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    flashActions: bindActionCreators(flashActions, dispatch)
-  };
-};
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(App);
