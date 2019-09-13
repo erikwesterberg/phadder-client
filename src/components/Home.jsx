@@ -23,7 +23,7 @@ const Home = props => {
       <div id="cover">
         <div id="main-actions">
           {signUpActions}
-          <CreateRequest />
+          {/* <CreateRequest /> */}
           <CityFetcher />
         </div>
       </div>

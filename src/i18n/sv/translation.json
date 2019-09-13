@@ -157,5 +157,9 @@
   "advantage": "Den avgörande fördelen",
   "suppliers_p6": "Ett basmedlemskap på Phadder är GRATIS, men även det betalda Verified Provider Badge medlemskapet kostar betydligt mindre än många andra klassiska försäljningskanaler och kan generera upp till tre gånger så många resultat. Dessutom föredrar majoriteten av företagare att leta efter produkt- och tjänsteleverantörer på nätet.",
   "profile-button": "Profil",
-  "header-profile-picture": "Välj en ny bild"
-}
+  "header-profile-picture": "Välj en ny bild",
+  "profile-update-picture": "Ladda upp bild",
+  "Edit-profile-button": "Redigera",
+  "profile-pic-description": "En ny bild gör din profil mer personlig, och ibland hjälper det för bättre affärer.",
+  "continue-with-request": "Fortsätt"
+} 

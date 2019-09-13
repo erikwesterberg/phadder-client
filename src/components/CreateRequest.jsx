@@ -17,15 +17,18 @@ const CreateRequest = props => {
   const [selectedPicture, setSelectedPicture] = useState();
   
 
+
   const saveServiceRequestHandler = async data => {
     const { title, category, details, budget, time_frame } = data;
+    const location = props.location
     let response = await saveRequest(
       title,
       category,
       details,
       budget,
       time_frame,
-      selectedPicture
+      selectedPicture,
+      location
     );
     if (response.status === 200) {
       props.dispatchMessage(response.data.message, "success");
@@ -79,7 +82,7 @@ const CreateRequest = props => {
               onClick={() => props.showCreateServiceRequestModal()}
               id="create-request-button"
             >
-              {translate("create_request")}
+              {translate("continue-with-request")}
             </Button>
           }
         >
@@ -227,7 +230,8 @@ const CreateRequest = props => {
 
 const mapStateToProps = state => {
   return {
-    showModal: state.modalState.displayCreateServiceRequestModal
+    showModal: state.modalState.displayCreateServiceRequestModal,
+    location: state.location
   };
 };
 

@@ -2,15 +2,24 @@ describe("Client can create service request", () => {
   beforeEach(() => {
     cy.server();
     cy.visit("http://localhost:3001");
-  });
-
-  it("Request is posted successfully", () => {
     cy.route({
       method: "POST",
       url: "http://localhost:3000/api/service_request",
       response: "fixture:successful_saving_requests_response.json",
       status: 200
     });
+    cy.route({
+      method: "POST",
+      url: "http://localhost:3000/api/post_code_queries",
+      response: "fixture:successful_fetching_city_response.json",
+      status: 200
+    });
+  });
+
+  it("Request is posted successfully", () => {
+    cy.get("#get-location-button").click();
+    cy.get("#post-code-input").type("11240");
+    cy.contains("Stockholm, Stockholm");
     cy.get("#create-request-button").click();
     cy.get("#request-form").within(() => {
       cy.get("#title").type("Build my webpage");
@@ -24,16 +33,21 @@ describe("Client can create service request", () => {
     });
     cy.contains("Request successfully created");
     cy.get("#create-request-form").should("not.exist");
-    cy.wait(2000)
+    cy.wait(2000);
   });
 
-  it("Request is not created successfully", () => {
-    cy.route({
-      method: "POST",
-      url: "http://localhost:3000/api/service_request",
-      response: "fixture:unsuccessful_creating_request_response.json",
-      status: 422
-    });
+
+it("Request is not created successfully", () => {
+  cy.route({
+    method: "POST",
+    url: "http://localhost:3000/api/service_request",
+    response: "fixture:unsuccessful_creating_request_response.json",
+    status: 422
+  });
+
+    cy.get("#get-location-button").click();
+    cy.get("#post-code-input").type("11240");
+    cy.contains("Stockholm, Stockholm");
     cy.get("#create-request-button").click();
     cy.get("#request-form").within(() => {
       cy.get("#title").type("Build my webpage");
@@ -44,7 +58,7 @@ describe("Client can create service request", () => {
       cy.file_upload("image.jpeg");
       cy.get("#submit-request-button").click();
     });
-    cy.contains("Something went wrong! Please try again.")
+    cy.contains("Something went wrong! Please try again.");
     cy.wait(2000);
-  })
+  });
 });
