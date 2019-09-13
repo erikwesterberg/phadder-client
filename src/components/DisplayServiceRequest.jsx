@@ -11,7 +11,6 @@ const DisplayServiceRequest = props => {
   const [showRequest, setShowRequest] = useState(false);
   const [serviceRequests, setServiceRequest] = useState();
   const [errorMessage, setErrorMessage] = useState();
-  const [showPendingSR, setShowPendingSR]
   let usersRequests;
 
   const getServiceRequest = async e => {
