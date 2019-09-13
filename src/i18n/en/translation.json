@@ -155,5 +155,9 @@
   "advantage": "The decisive advantage",
   "suppliers_p6": "A basic membership on Phadder is FREE, but even the paid Verified Supplier Badge costs significantly less than many other classic sales channels and can generate up to three times as many leads. In addition, the majority of business owners, prefer to look for suppliers and service providers online.",
   "profile-button": "Profile",
-  "header-profile-picture": "Select a new Photo"
+  "header-profile-picture": "Select a new Photo",
+  "profile-update-picture": "Upload Picture",
+  "Edit-profile-button": "Edit",
+  "profile-pic-description": "A new picture helps making your site more personal, and sometimes thats helps for better deals.",
+  "continue-with-request": "Continue"
 }

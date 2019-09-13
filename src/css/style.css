@@ -179,7 +179,6 @@
 }
 
 #sign-up-button,
-#create-request-button,
 #get-location-button {
   background-color: #96006a;
   padding-top: 20px;
@@ -189,15 +188,14 @@
 }
 
 #sign-up-button:hover,
-#create-request-button:hover,
-#get-location-button:hover {
+#create-request-button:hover {
   background-color: #c81793;
 }
 
-#sign-up-button:hover,
+/* #sign-up-button:hover,
 #create-request-button:hover {
   background-color: #a51279;
-}
+} */
 
 #buyers-button,
 #suppliers-button {
