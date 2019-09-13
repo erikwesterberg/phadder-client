@@ -18,13 +18,13 @@ const CreateRequest = props => {
   
 
   const saveServiceRequestHandler = async data => {
-    const { title, category, details, budget, timeframe } = data;
+    const { title, category, details, budget, time_frame } = data;
     let response = await saveRequest(
       title,
       category,
       details,
       budget,
-      timeframe,
+      time_frame,
       selectedPicture
     );
     if (response.status === 200) {
@@ -188,7 +188,7 @@ const CreateRequest = props => {
                 <label>{translate("time-frame")}</label>
                 <select
                   id="timeframe"
-                  name="timeframe"
+                  name="time_frame"
                   ref={register({ required: true })}
                 >
                   <option className="options">

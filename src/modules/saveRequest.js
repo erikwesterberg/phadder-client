@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const saveRequest = async (title, category, details, budget, timeframe, image) => {
+const saveRequest = async (title, category, details, budget, time_frame, image) => {
   try {
     let response = await axios.post(
       "http://localhost:3000/api/service_request",
@@ -9,8 +9,8 @@ const saveRequest = async (title, category, details, budget, timeframe, image) =
         category: category,
         details: details,
         budget: budget,
-        timeframe: timeframe,
-        image: image
+        time_frame: time_frame,
+        image: [image]
       }
     );
     return response;
