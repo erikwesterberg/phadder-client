@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import ProfileImageUpload from "./UploadProfilePic";
 import DisplayServiceRequest from "./DisplayServiceRequest";
 
 const UserProfile = props => {
@@ -7,6 +8,7 @@ const UserProfile = props => {
     <>
       <h1>
         Welcome {props.currentUser.attributes.firstName}, to your profile page!
+        <ProfileImageUpload/>
       </h1>
       <DisplayServiceRequest />
     </>
