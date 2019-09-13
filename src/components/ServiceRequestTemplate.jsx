@@ -3,8 +3,6 @@ import { Container, Divider, Header, Placeholder } from "semantic-ui-react";
 
 const RequestTemplate = props => {
   const serviceRequest = props.serviceRequest;
-  console.log(serviceRequest)
-  debugger;
   return (
     <>
       <Container>
