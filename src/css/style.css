@@ -165,6 +165,23 @@
   font-weight: 400
 }
 
+#suppliers-explain-div {
+  background-color: white
+}
+
+#suppliers-title {
+  font-size: 36px;
+  font-weight: 500;
+  color: gray
+
+}
+
+#suppliers-pre-title {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: -20px;
+}
+
 #cover {
   display: flex;
   flex-wrap: wrap;
