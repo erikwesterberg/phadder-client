@@ -7,7 +7,6 @@ import { NavLink } from "react-router-dom";
 import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
 import LanguageSelect from "./LanguageSelect";
-import "../css/style.css";
 import { I18nContext } from "../i18n/index";
 
 const Navbar = props => {

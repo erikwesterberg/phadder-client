@@ -70,7 +70,18 @@
   margin-left: 10vw;
   border-radius: 30px;
 }
+#footer {
+  background-color: grey;
+  border-radius: 0;
+  height: 150px;
+}
 
+#phadder-footer {
+  height: 50px;
+  width: 50px;
+  background-image: url("./images/phadder_logo.png");
+  background-size: contain;
+}
 #phadder-logo {
   height: 50px;
   width: 50px;
