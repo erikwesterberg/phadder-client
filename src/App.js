@@ -12,9 +12,13 @@ import { bindActionCreators } from "redux";
 const App = props => {
   if (props.flashMessage) {
     toast(props.flashMessage.message, { type: props.flashMessage.type });
-    props.flashActions.clearMessage();
-    debugger
   }
+
+
+  // if (props.flashMessage.display) {
+  //   debugger
+  //   toast(props.flashMessage.message, { type: props.flashMessage.type });
+  // }
   return (
     <>
       <Suspense fallback={<div>Loading</div>}>

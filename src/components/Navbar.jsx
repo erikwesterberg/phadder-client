@@ -12,19 +12,16 @@ import { I18nContext } from "../i18n/index";
 import LogOut from "./LogOut";
 
 const Navbar = props => {
+
+
   const { translate } = useContext(I18nContext);
   let logInActions;
   let profileButton;
   let logoutActions;
 
-  if (props.currentUser.isSignedIn) {
-    let welcomeName =
-      props.currentUser.attributes.firstName ||
-      props.currentUser.attributes.email;
-    props.flashActions.dispatchMessage(`Welcome ${welcomeName}!`, "success");
-  }
 
   if (props.currentUser.isSignedIn) {
+    
     profileButton = (
       <Menu.Item>
         <Button primary as={NavLink} to="/profile" id="profile-button">
@@ -41,7 +38,6 @@ const Navbar = props => {
   } else {
     logInActions = (
       <Menu.Item>
-        <h1>I'M LOGGED OUT!!!!</h1>
         <Button primary id="login-button">
           <LogIn />
         </Button>

@@ -3,11 +3,12 @@ const flashReducer = (state = { message: "" }, action) => {
     case "DISPATCH_MESSAGE":
       return {
         ...state,
-        message: action.payload
+        message: { ...action.payload, display: true },
+
       };
     case "CLEAR_MESSAGE":
       return {
-        message: ""
+        display: true 
       };
     default:
       return state;

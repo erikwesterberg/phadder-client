@@ -35,13 +35,15 @@ class OauthButton extends Component {
   }
 }
 
-const mapStateToProps = ({ auth }, ownProps) => {
-  const disabled = auth.getIn(['user', 'isSignedIn']);
-  const loading = auth.getIn(['oAuthSignIn', ownProps.provider, 'loading']);
+const mapStateToProps = (state, ownProps) => {
+
+  const disabled = state.auth.getIn(['user', 'isSignedIn']);
+  const loading = state.auth.getIn(['oAuthSignIn', ownProps.provider, 'loading']);
   return {
-    auth,
+    auth: state.auth,
     disabled,
-    loading
+    loading,
+    currentUser: state.reduxTokenAuth.currentUser
   };
 }
 

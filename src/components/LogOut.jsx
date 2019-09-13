@@ -8,25 +8,20 @@ import { bindActionCreators } from "redux";
 import { signOutUser } from "../state/actions/reduxTokenAuthConfig";
 
 const LogOut = props => {
-  const signOut = e => {
-    props.flashActions.dispatchMessage(
-      `You ARE AN IDIOT.`,
-      "error"
-    );
+  const signOutHandler = e => {
     e.preventDefault();
     const { signOutUser } = props;
     signOutUser()
       .then(() => {
-        props.flashActions.dispatchMessage(
-          `You have successfully logged out.`,
-          "success"
-        );
+        props.flashActions.dispatchMessage(`You have successfully logged out.`, "success");
       })
-  };
+  }
+
+
 
   return (
     <>
-      <Menu.Item id="logout-button" as={Link} to="/" onClick={(e) => signOut(e)}>
+      <Menu.Item id="logout-button" as={Link} to="/" onClick={signOutHandler}>
         Log Out
       </Menu.Item>
     </>
@@ -42,7 +37,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     signOutUser: bindActionCreators(signOutUser, dispatch),
-    flashActions: bindActionCreators(flashActions, dispatch)
+    flashActions: bindActionCreators(flashActions, dispatch),
+    oAuthSignOut: () => (dispatch({ type: 'SIGN_OUT' }))
   };
 };
 
