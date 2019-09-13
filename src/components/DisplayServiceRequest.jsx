@@ -18,7 +18,7 @@ const DisplayServiceRequest = props => {
       );
       if (response.data.length > 0) {
         setServiceRequest(response.data);
-        setShowRequest(true);
+        setShowRequest(!showRequest);
       }
     } catch (error) {
       setErrorMessage("You don't have any service request at the moment.")
