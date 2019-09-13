@@ -15,6 +15,7 @@ const CreateRequest = props => {
   const { register, handleSubmit } = useForm();
   const [ liveLanguage, setLiveLanguage ] = useState();
 
+
   const saveServiceRequestHandler = async data => {
     const { title, category, details, budget, timeframe } = data;
     let response = await saveRequest(
@@ -201,8 +202,10 @@ const CreateRequest = props => {
 };
 
 const mapStateToProps = state => {
+  
   return {
-    showModal: state.modalState.displayCreateServiceRequestModal
+    showModal: state.modalState.displayCreateServiceRequestModal,
+    location: state.location
   };
 };
 

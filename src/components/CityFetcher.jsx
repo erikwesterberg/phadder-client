@@ -9,8 +9,7 @@ import CreateRequest from "./CreateRequest";
 
 const CityFetcher = props => {
   const [location, setLocation] = useState();
-  const [getStarted, setGetStarted] = useState();
-
+  
   const getLocation = async val => {
     try {
       let response = await axios.post(
@@ -19,9 +18,7 @@ const CityFetcher = props => {
       );
       if (response.status === 200) {
         props.locationActions.updateUserLocation(`${response.data.message}`);
-        setLocation(response.data.message);
-        setGetStarted(<Button>GET STARTED</Button>);
-      }
+        setLocation(response.data.message);}
     } catch (error) {
       setLocation(error.response.data.message);
     }
@@ -34,6 +31,7 @@ const CityFetcher = props => {
     }
   };
 
+ 
   return (
     <Modal
       size="mini"
