@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
 import useForm from "react-hook-form";
 import { connect } from "react-redux";
 import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
 import { signInUser } from "../state/actions/reduxTokenAuthConfig";
-import OauthButton from "./OuthButton";
+import OauthButton from './OuthButton'
+import { I18nContext } from "../i18n/index";
 import "../css/style.css";
+
 
 const LogIn = props => {
   const { register, handleSubmit } = useForm();
+   const { translate } = useContext(I18nContext);
 
   const loginHandler = (data, e) => {
     e.preventDefault();
@@ -24,10 +27,14 @@ const LogIn = props => {
   return (
     <>
       <Modal
-        trigger={<Button id="login-button">Log in</Button>}
+        trigger={
+          <Button id="login-button">
+            {translate("login")}
+          </Button>
+        }
         centered={false}
       >
-        <Modal.Header>Log in</Modal.Header>
+        <Modal.Header>{translate("login")}</Modal.Header>
         <Modal.Content>
           <Form id="login-form" onSubmit={handleSubmit(loginHandler)}>
             <Form.Field>
@@ -39,7 +46,7 @@ const LogIn = props => {
               />
             </Form.Field>
             <Form.Field>
-              <label>Password</label>
+              <label>{translate("password")}</label>
               <input
                 id="password"
                 name="password"
@@ -48,10 +55,12 @@ const LogIn = props => {
               />
             </Form.Field>
             <Button id="login-form-submit" type="submit">
-              Log in
+             {translate("login")}
             </Button>
           </Form>
-          <OauthButton provider="facebook" />
+          <OauthButton provider="facebook">
+            {translate("log_in_with_facebook")}
+          </OauthButton>
         </Modal.Content>
       </Modal>
     </>

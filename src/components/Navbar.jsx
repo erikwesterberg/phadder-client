@@ -1,13 +1,17 @@
-import React from "react";
-import { Container, Menu } from "semantic-ui-react";
+import React, { useContext } from "react";
+import { Menu, Button } from "semantic-ui-react";
 import LogIn from "./LogIn";
 import { connect } from "react-redux";
 import "../css/style.css";
 import { NavLink } from "react-router-dom";
 import * as flashActions from "../state/actions/flashActions";
 import { bindActionCreators } from "redux";
+import LanguageSelect from "./LanguageSelect";
+import "../css/style.css";
+import { I18nContext } from "../i18n/index";
 
 const Navbar = props => {
+  const { translate } = useContext(I18nContext);
   let logInActions;
   let profileButton;
   let welcomeName =
@@ -16,25 +20,35 @@ const Navbar = props => {
 
   if (props.currentUser.isSignedIn) {
     profileButton = (
-      <Menu.Item as={NavLink} to="/profile" id="profile-button">
-        Profile
+      <Menu.Item>
+        <Button primary as={NavLink} to="/profile" id="profile-button">
+          {translate("profile-button")}
+        </Button>
       </Menu.Item>
     );
     props.flashActions.dispatchMessage(`Welcome ${welcomeName}!`, "success");
   } else {
-    logInActions = <LogIn />;
+    logInActions = (
+      <Menu.Item>
+        <Button primary id="login-button">
+          <LogIn />
+        </Button>
+      </Menu.Item>
+    );
   }
 
   return (
-    <div className="ui inverted menu" id="nav-bar">
-      <Container>
-        <Menu.Item id="home-button" as={NavLink} to="/">
-          Phadder
-        </Menu.Item>
-        <Menu.Item id="login-button">{logInActions}</Menu.Item>
+    <Menu id="nav-bar">
+      <div id="logo-bg">
+        <div id="phadder-logo" />
+      </div>
+      <Menu.Item id="home-button" as={NavLink} to="/" name="Phadder" />
+      <Menu.Menu position="right">
         {profileButton}
-      </Container>
-    </div>
+        {logInActions}
+        <LanguageSelect />
+      </Menu.Menu>
+    </Menu>
   );
 };
 
