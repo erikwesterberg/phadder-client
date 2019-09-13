@@ -25,10 +25,10 @@ describe("Client can create service request", () => {
       cy.get("#title").type("Build my webpage");
       cy.get('select[id="category"]').select("IT Services");
       cy.get("#details").type(
-        "Im a professional painter, I want a website to show the world my art"
+        "Im a proffensional painter, I want a website to show the world my art. It needs to be pretty and user friendly"
       );
-      cy.get('select[id="budget"]').select("Big");
-      cy.get('select[id="timeframe"]').select("Long Term");
+      cy.get('select[id="budget"]').select("Big")
+      cy.get('select[id="timeframe"]').select("Long Term")
       cy.get("#submit-request-button").click();
     });
     cy.contains("Request successfully created");
@@ -51,12 +51,11 @@ it("Request is not created successfully", () => {
     cy.get("#create-request-button").click();
     cy.get("#request-form").within(() => {
       cy.get("#title").type("Build my webpage");
-      cy.get('select[id="category"]').select("IT Services");
-      cy.get("#details").type(
-        "Im a proffensional painter, I want a website to show the world my art"
-      );
-      cy.get('select[id="budget"]').select("Big");
-      cy.get('select[id="timeframe"]').select("Long Term");
+      cy.get('select[id="category"]').select("IT Services")
+      cy.get("#details").type("Im a proffensional painter, I want a website to show the world my art. It needs to be pretty and user friendly");
+      cy.get('select[id="budget"]').select("Big")
+      cy.get('select[id="timeframe"]').select("Long Term")
+      cy.file_upload("image.jpeg");
       cy.get("#submit-request-button").click();
     });
     cy.contains("Something went wrong! Please try again.");
