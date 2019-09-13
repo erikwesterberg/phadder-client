@@ -10,6 +10,7 @@ describe("User can access profile page", () => {
       response: "fixture:successful_log_in.json"
     });
     cy.user_login("johndoe@mail.com", "password");
+    cy.wait(6000)
     cy.get("#profile-button").click();
     cy.contains("Welcome John, to your profile page!");
   });
