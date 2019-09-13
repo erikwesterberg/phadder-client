@@ -280,3 +280,33 @@ select {
   text-indent: 1px;
   text-overflow: "";
 }
+
+/* LOGIN MODAL */
+
+#existing-user {
+  color: #a51279
+}
+
+#login-label {
+  color: rgb(92, 92, 92)
+}
+
+#login-form-submit,
+#facebook-login {
+  margin: 5px;
+  background-color: #96006a;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  border-radius: 0px;
+  color: white;
+}
+
+#login-form-submit:hover,
+#facebook-login:hover {
+  background-color: #c81793;
+}
+
+/* SIGN UP */
+
