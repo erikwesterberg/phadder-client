@@ -11,7 +11,7 @@ describe("Looged in users can update there profile picture", () => {
 
   it("User updates profile picture succesfully", () => {
     cy.route({
-      method: "POST",
+      method: "PUT",
       url: "http://localhost:3000/api/profile_update",
       response: "fixture:successful_uploads_profile_image_response.json",
       status: 200
@@ -27,7 +27,7 @@ describe("Looged in users can update there profile picture", () => {
 
   it("User updates profile picture unsuccesfull", () => {
     cy.route({
-      method: "POST",
+      method: "PUT",
       url: "http://localhost:3000/api/profile_update",
       response: "fixture:unsuccessful_upload_profile_image_response.json",
       status: 401

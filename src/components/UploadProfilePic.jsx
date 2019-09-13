@@ -15,7 +15,7 @@ const ProfileImageUpload = () => {
     const image = new FormData();
     image.append("image", selectedPicture, selectedPicture.name);
     axios
-      .post("http://localhost:3000/api/profile_update", image)
+      .put("http://localhost:3000/api/profile_update", image)
       .then(response => {
         setUploadStatus(response.data.message);
         setNewProfilePic(response.data.message);
