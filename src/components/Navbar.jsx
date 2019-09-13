@@ -9,11 +9,13 @@ import { bindActionCreators } from "redux";
 import LanguageSelect from "./LanguageSelect";
 import "../css/style.css";
 import { I18nContext } from "../i18n/index";
+import LogOut from "./LogOut";
 
 const Navbar = props => {
   const { translate } = useContext(I18nContext);
   let logInActions;
   let profileButton;
+  let logoutActions
   let welcomeName =
     props.currentUser.attributes.firstName ||
     props.currentUser.attributes.email;
@@ -26,7 +28,12 @@ const Navbar = props => {
         </Button>
       </Menu.Item>
     );
-    props.flashActions.dispatchMessage(`Welcome ${welcomeName}!`, "success");
+    props.flashActions.dispatchMessage(`Welcome ${welcomeName}!`, "success")
+
+    logoutActions = (
+      <LogOut />
+    )
+     
   } else {
     logInActions = (
       <Menu.Item>
@@ -46,6 +53,7 @@ const Navbar = props => {
       <Menu.Menu position="right">
         {profileButton}
         {logInActions}
+        {logoutActions}
         <LanguageSelect />
       </Menu.Menu>
     </Menu>
