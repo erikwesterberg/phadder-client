@@ -156,6 +156,15 @@
   text-align: center;
 }
 
+#buyer-explain-div {
+  background-color: white
+}
+
+#buyer-explain-title {
+  text-align: center;
+  font-weight: 400
+}
+
 #cover {
   display: flex;
   flex-wrap: wrap;
