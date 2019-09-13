@@ -17,7 +17,9 @@ const SignUp = props => {
     const { registerUser } = props;
     const { email, firstName, password } = data;
     registerUser({ email, firstName, password })
-      .then()
+      .then(() => {
+        props.flashActions.dispatchMessage(`Welcome to Phadder!`, "success");
+      })
       .catch(error => {
         props.flashActions.dispatchMessage(error.response.data.errors, "error");
       });

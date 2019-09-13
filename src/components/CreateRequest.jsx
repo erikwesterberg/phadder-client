@@ -36,7 +36,7 @@ const CreateRequest = props => {
     try {
       let response = await axios.post(
         "http://localhost:3000/api/language_queries",
-        { val }
+        { content: val }
       );
       if (response.status === 200) {
         setLiveLanguage(response.data.message);
@@ -129,10 +129,15 @@ const CreateRequest = props => {
                 </select>
               </Form.Field>
               <Form.Field>
+<<<<<<< HEAD
                 <label id="create-request-label">
                   I can receive bids in the following languages
                 </label>
                 <Checkbox id="se" label="Swedish" />
+=======
+                <label>I can receive bids in the following languages</label>
+                <Checkbox id="sv" label="Swedish" />
+>>>>>>> 3063943d849a1b4972cad39fc2cb09434f943208
                 <Checkbox id="en" label="English" />
               </Form.Field>
               <Form.Field>
