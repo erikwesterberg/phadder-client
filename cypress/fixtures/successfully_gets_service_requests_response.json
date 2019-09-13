@@ -13,9 +13,9 @@
     "id": 2,
     "service_requester": "John Doe",
     "title": "I need a drinking budy",
-    "date": "IT Service",
+    "category": "IT Service",
     "details": "The beneficial of drinking with software developers are amazing, they're super cool",
-    "buget": "Big",
+    "budget": "Big",
     "timeframe": "Urgent",
     "city": "Stockholm"
   },
@@ -23,9 +23,9 @@
     "id": 3,
     "service_requester": "Lars-Göran Sankqvist",
     "title": "I need help with taxes",
-    "date": "Financial Service",
+    "category": "Financial Service",
     "details": "It's soon time for my taxes to be sent in and I'm falling behind",
-    "buget": "Big",
+    "budget": "Big",
     "timeframe": "Urgent",
     "city": "Göteborg"
   }

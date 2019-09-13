@@ -16,11 +16,12 @@ describe("Looged in users can see theres service request", () => {
       response: "fixture:successfully_gets_service_requests_response.json",
       status: 200
     });;
+      cy.wait(6000)
       cy.get("#profile-button").click();
       cy.get("#my-requests-button").click();
       cy.get("#service-request").within(() => {
-      cy.get("").should("contain", "");  
-        
+      cy.get("#serviceRequest_1").should("contain", "To much snow breaked my roof in half");
+      cy.get("#serviceRequest_2").should("contain", "I need a drinking budy");   
     });
   })
 })

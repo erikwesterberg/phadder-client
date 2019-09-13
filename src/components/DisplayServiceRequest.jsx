@@ -18,20 +18,18 @@ const DisplayServiceRequest = () => {
         setServiceRequest(response.data);
         setShowRequest(true);
       }
-    } catch (error) {
-      setErrorMessage(error.response.date);
-    }
+    } catch (error) {}
   };
 
   if (showRequest === true) {
     usersRequests = (
       <div id="service-request">
         <h1>Service Requests</h1>
-        {serviceRequests.map(serviceReguest => {
+        {serviceRequests.map(serviceRequest => {
           return (
             <RequestTemplate
-              key={serviceReguest.id}
-              serviceReguest={serviceReguest}
+              key={serviceRequest.id}
+              serviceRequest={serviceRequest}
             />
           );
         })}
