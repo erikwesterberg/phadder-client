@@ -5,6 +5,7 @@ import * as locationActions from "../state/actions/locationActions";
 import { bindActionCreators } from "redux";
 import "../css/style.css";
 import axios from "axios";
+import CreateRequest from "./CreateRequest";
 
 const CityFetcher = props => {
   const [location, setLocation] = useState();
@@ -36,7 +37,7 @@ const CityFetcher = props => {
   return (
     <Modal
       size="mini"
-      trigger={<Button id="get-location-button">GET LOCATION</Button>}
+      trigger={<Button id="get-location-button">CREATE A REQUEST</Button>}
     >
       <Modal.Header>Step 1: Enter your post code</Modal.Header>
       <Modal.Content>
@@ -55,7 +56,7 @@ const CityFetcher = props => {
           </Form>
         </Modal.Description>
         {location}
-        {getStarted}
+       {<CreateRequest />}
         <Button>CANCEL</Button>
       </Modal.Content>
     </Modal>

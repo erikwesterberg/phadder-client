@@ -62,7 +62,7 @@ const CreateRequest = props => {
               onClick={() => props.showCreateServiceRequestModal()}
               id="create-request-button"
             >
-              {translate("create_request")}
+              {translate("continue-with-request")}
             </Button>
           }
         >
