@@ -203,13 +203,13 @@
   height: 200px;
 }
 
-#main-actions-title{
+#main-actions-title {
   font-size: 32px;
   margin: 20px;
-  color: rgb(92, 92, 92)
+  color: rgb(92, 92, 92);
 }
 
-#main-actions-info{
+#main-actions-info {
   font-size: 18px;
   margin: 20px;
   /* margin-left: 20px;
@@ -284,11 +284,11 @@ select {
 /* LOGIN MODAL */
 
 #login-title {
-  color: #a51279
+  color: #a51279;
 }
 
 #login-label {
-  color: rgb(92, 92, 92)
+  color: rgb(92, 92, 92);
 }
 
 #login-form-submit,
@@ -311,14 +311,14 @@ select {
 /* SIGN UP MODAL */
 
 #signup-title {
-  color: #a51279
+  color: #a51279;
 }
 
 #signup-label {
-  color: rgb(92, 92, 92)
+  color: rgb(92, 92, 92);
 }
 
-#submit-account-button{
+#submit-account-button {
   margin: 5px;
   background-color: #96006a;
   padding-top: 10px;
@@ -336,11 +336,11 @@ select {
 /* CREATE REQUEST MODAL */
 
 #create-request-title {
-  color: #a51279
+  color: #a51279;
 }
 
 #create-request-label {
-  color: rgb(92, 92, 92)
+  color: rgb(92, 92, 92);
 }
 
 #submit-request-button {
@@ -357,11 +357,11 @@ select {
 /* CITY FETCHER MODAL */
 
 #location-title {
-  color: #a51279
+  color: #a51279;
 }
 
 #location-display {
-  color: #a51279
+  color: #a51279;
 }
 
 #location-button {
@@ -373,4 +373,68 @@ select {
   padding-left: 30px;
   border-radius: 0px;
   color: white;
+}
+
+/* USER PROFILE */
+
+#user-profile,
+#profile-pic {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#service-request-title {
+  color: #96006a;
+  margin-left:20px;
+}
+
+#handle-requests-buttons {
+  margin-left:20px;
+}
+
+#service-requests-bar {
+  background-color: #96006a;
+  height:1px;
+  margin:30px;
+}
+
+#profile-welcome {
+  margin: 20px;
+}
+
+#profile-avatar {
+  margin: 30px;
+}
+
+#edit-profile-picture,
+#my-requests-button,
+#request-activity,
+#request-pening,
+#request-deals {
+  margin: 5px;
+  background-color: #96006a;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  border-radius: 0px;
+  color: white;
+}
+
+#edit-profile-picture:hover,
+#my-requests-button:hover,
+#request-activity:hover,
+#request-pening:hover,
+#request-deals:hover {
+  background-color: #c81793;
+}
+
+#user-service-request {
+  background-color: #dddddd;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
 }

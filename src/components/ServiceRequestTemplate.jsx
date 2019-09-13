@@ -1,12 +1,13 @@
 import React from "react";
 import { Container, Divider, Header, Placeholder } from "semantic-ui-react";
+import "../css/style.css";
 
 const RequestTemplate = props => {
   const serviceRequest = props.serviceRequest;
   console.log(serviceRequest)
   debugger;
   return (
-    <>
+    <div id="user-service-request">
       <Container>
         <div id={`serviceRequest_${serviceRequest.id}`}>
           <Header size="medium" textAlign="left" id="title">
@@ -27,7 +28,7 @@ const RequestTemplate = props => {
           <Divider />
         </div>
       </Container>
-    </>
+    </div>
   );
 };
 

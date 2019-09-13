@@ -3,6 +3,7 @@ import { Button } from "semantic-ui-react";
 import axios from "axios";
 import RequestTemplate from "./ServiceRequestTemplate";
 import { connect } from "react-redux";
+import "../css/style.css";
 
 
 
@@ -10,6 +11,7 @@ const DisplayServiceRequest = props => {
   const [showRequest, setShowRequest] = useState(false);
   const [serviceRequests, setServiceRequest] = useState();
   const [errorMessage, setErrorMessage] = useState();
+  const [showPendingSR, setShowPendingSR]
   let usersRequests;
 
   const getServiceRequest = async e => {
@@ -28,7 +30,8 @@ const DisplayServiceRequest = props => {
   if (showRequest === true) {
     usersRequests = (
       <div id="service-request">
-          <h1>Service Requests</h1>
+        <div id="service-requests-bar"></div>
+          <h1 id="service-request-title">Service Requests</h1>
           <div id="handle-requests-buttons">
               <Button id="request-activity">ACTIVITY</Button>
               <Button id="request-pening">PENDING REQUESTS</Button>

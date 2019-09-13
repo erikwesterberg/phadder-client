@@ -15,7 +15,8 @@ describe("Looged in users can update there profile picture", () => {
       url: "http://localhost:3000/api/profile_update",
       response: "fixture:successful_uploads_profile_image_response.json",
       status: 200
-    });;
+    });
+      cy.wait(5000)
       cy.get("#profile-button").click();
       cy.contains("Welcome John, to your profile page!");
       cy.get("#edit-profile-picture").click()
@@ -32,6 +33,7 @@ describe("Looged in users can update there profile picture", () => {
       response: "fixture:unsuccessful_upload_profile_image_response.json",
       status: 401
     });
+    cy.wait(5000);
     cy.get("#profile-button").click();
     cy.get("#edit-profile-picture").click()
     cy.get("#select-image").click();
