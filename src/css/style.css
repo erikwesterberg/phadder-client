@@ -283,7 +283,7 @@ select {
 
 /* LOGIN MODAL */
 
-#existing-user {
+#login-title {
   color: #a51279
 }
 
@@ -308,5 +308,27 @@ select {
   background-color: #c81793;
 }
 
-/* SIGN UP */
+/* SIGN UP MODAL */
 
+#signup-title {
+  color: #a51279
+}
+
+#signup-label {
+  color: rgb(92, 92, 92)
+}
+
+#submit-account-button{
+  margin: 5px;
+  background-color: #96006a;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  border-radius: 0px;
+  color: white;
+}
+
+#submit-account-button:hover {
+  background-color: #c81793;
+}

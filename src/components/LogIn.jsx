@@ -30,7 +30,7 @@ const LogIn = props => {
         trigger={<Button id="login-button">{translate("login")}</Button>}
         centered={false}
       >
-        <Modal.Header id="existing-user">
+        <Modal.Header id="login-title">
           {translate("existing_user")}
         </Modal.Header>
         <Modal.Content>
