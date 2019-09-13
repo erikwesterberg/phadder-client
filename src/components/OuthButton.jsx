@@ -5,7 +5,8 @@ import { oAuthSignIn } from 'redux-oauth';
 import { dispatchMessage } from "../state/actions/flashActions";
 import { verifyCredentials } from "../state/actions/reduxTokenAuthConfig";
 import { bindActionCreators } from "redux";
-import configuredStore from '../state/store/store'
+import configuredStore from '../state/store/store';
+import "../css/style.css";
 
 
 class OauthButton extends Component {
@@ -24,6 +25,7 @@ class OauthButton extends Component {
     const { disabled, loading, provider } = this.props;
     return (
       <Button
+        id="facebook-login"
         loading={loading}
         icon={`${provider}`}
         className={`${provider}`}

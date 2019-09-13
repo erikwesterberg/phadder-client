@@ -86,14 +86,16 @@ const CreateRequest = props => {
             </Button>
           }
         >
-          <Modal.Header>{translate("create_request_header")}</Modal.Header>
+          <Modal.Header id="create-request-title">
+            {translate("create_request_header")}
+          </Modal.Header>
           <Modal.Content>
             <Form
               id="request-form"
               onSubmit={handleSubmit(saveServiceRequestHandler)}
             >
               <Form.Field>
-                <label>{translate("title")}</label>
+                <label id="create-request-label">{translate("title")}</label>
                 <input
                   id="title"
                   name="title"
@@ -102,7 +104,7 @@ const CreateRequest = props => {
               </Form.Field>
 
               <Form.Field>
-                <label>{translate("category")}</label>
+                <label id="create-request-label">{translate("category")}</label>
                 <select
                   id="category"
                   name="category"
@@ -166,7 +168,7 @@ const CreateRequest = props => {
               </Form.Field>
 
               <Form.Field>
-                <label>{translate("budget")}</label>
+                <label id="create-request-label">{translate("budget")}</label>
                 <select
                   id="budget"
                   name="budget"
@@ -188,7 +190,9 @@ const CreateRequest = props => {
               </Form.Field>
 
               <Form.Field>
-                <label>{translate("time-frame")}</label>
+                <label id="create-request-label">
+                  {translate("time-frame")}
+                </label>
                 <select
                   id="timeframe"
                   name="time_frame"

@@ -3,6 +3,7 @@ import { Button } from "semantic-ui-react";
 import axios from "axios";
 import RequestTemplate from "./ServiceRequestTemplate";
 import { connect } from "react-redux";
+import "../css/style.css";
 
 
 
@@ -18,7 +19,7 @@ const DisplayServiceRequest = props => {
       );
       if (response.data.length > 0) {
         setServiceRequest(response.data);
-        setShowRequest(true);
+        setShowRequest(!showRequest);
       }
     } catch (error) {
       setErrorMessage("You don't have any service request at the moment.")
@@ -28,7 +29,8 @@ const DisplayServiceRequest = props => {
   if (showRequest === true) {
     usersRequests = (
       <div id="service-request">
-          <h1>Service Requests</h1>
+        <div id="service-requests-bar"></div>
+          <h1 id="service-request-title">Service Requests</h1>
           <div id="handle-requests-buttons">
               <Button id="request-activity">ACTIVITY</Button>
               <Button id="request-pening">PENDING REQUESTS</Button>

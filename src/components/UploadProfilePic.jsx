@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Image, Button, Modal } from "semantic-ui-react";
 import { I18nContext } from "../i18n/index";
+import "../css/style.css";
 
 const ProfileImageUpload = () => {
   const [selectedPicture, setSelectedPicture] = useState();
@@ -28,8 +29,8 @@ const ProfileImageUpload = () => {
   };
 
   return (
-    <>
-      <div>
+    <div id="profile-pic">
+      <div id="profile-avatar">
         <Image
           src={
             newProfilePic ||
@@ -69,7 +70,7 @@ const ProfileImageUpload = () => {
           {uploadStatus}
         </Modal.Content>
       </Modal>
-    </>
+    </div>
   );
 };
 
