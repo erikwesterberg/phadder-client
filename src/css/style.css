@@ -353,3 +353,24 @@ select {
   border-radius: 0px;
   color: white;
 }
+
+/* CITY FETCHER MODAL */
+
+#location-title {
+  color: #a51279
+}
+
+#location-display {
+  color: #a51279
+}
+
+#location-button {
+  margin: 5px;
+  background-color: #96006a;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  border-radius: 0px;
+  color: white;
+}

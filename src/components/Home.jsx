@@ -22,11 +22,8 @@ const Home = props => {
     <Container>
       <div id="cover">
         <div id="cover-info">
-          <div id="main-actions-title">Accelerated Procurement</div>
-          <div id="main-actions-info">
-            Phadder B2B Marketplace is designed to make corporate buying of
-            business services fast, agile and cost effective.
-          </div>
+          <div id="main-actions-title">{translate("cover_title")}</div>
+          <div id="main-actions-info">{translate("cover_info")}</div>
           <div id="main-actions">
             <div>{signUpActions}</div>
             <div>

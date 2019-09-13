@@ -19,7 +19,7 @@ const CityFetcher = props => {
       if (response.status === 200) {
         props.locationActions.updateUserLocation(`${response.data.message}`);
         setLocation(response.data.message);
-        setGetStarted(<Button>GET STARTED</Button>);
+        setGetStarted(<Button id="location-button">GET STARTED</Button>);
       }
     } catch (error) {
       setLocation(error.response.data.message);
@@ -38,7 +38,9 @@ const CityFetcher = props => {
       size="mini"
       trigger={<Button id="get-location-button">GET LOCATION</Button>}
     >
-      <Modal.Header>Step 1: Enter your post code</Modal.Header>
+      <Modal.Header id="location-title">
+        Step 1: Enter your post code
+      </Modal.Header>
       <Modal.Content>
         <Modal.Description>
           <Form>
@@ -54,9 +56,11 @@ const CityFetcher = props => {
             </Form.Field>
           </Form>
         </Modal.Description>
-        {location}
-        {getStarted}
-        <Button>CANCEL</Button>
+        <div id="location-display">{location}</div>
+        <div>
+          {getStarted}
+          <Button id="location-button">CANCEL</Button>
+        </div>
       </Modal.Content>
     </Modal>
   );
