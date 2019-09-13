@@ -5,11 +5,11 @@ import * as locationActions from "../state/actions/locationActions";
 import { bindActionCreators } from "redux";
 import "../css/style.css";
 import axios from "axios";
+import CreateRequest from "./CreateRequest";
 
 const CityFetcher = props => {
   const [location, setLocation] = useState();
-  const [getStarted, setGetStarted] = useState();
-
+  
   const getLocation = async val => {
     try {
       let response = await axios.post(
@@ -19,8 +19,8 @@ const CityFetcher = props => {
       if (response.status === 200) {
         props.locationActions.updateUserLocation(`${response.data.message}`);
         setLocation(response.data.message);
-        setGetStarted(<Button id="location-button">GET STARTED</Button>);
       }
+        
     } catch (error) {
       setLocation(error.response.data.message);
     }
@@ -33,10 +33,11 @@ const CityFetcher = props => {
     }
   };
 
+ 
   return (
     <Modal
       size="mini"
-      trigger={<Button id="get-location-button">GET LOCATION</Button>}
+      trigger={<Button id="get-location-button">CREATE A REQUEST</Button>}
     >
       <Modal.Header id="location-title">
         Step 1: Enter your post code
@@ -56,11 +57,9 @@ const CityFetcher = props => {
             </Form.Field>
           </Form>
         </Modal.Description>
-        <div id="location-display">{location}</div>
-        <div>
-          {getStarted}
-          <Button id="location-button">CANCEL</Button>
-        </div>
+        {location}
+       {<CreateRequest />}
+        <Button>CANCEL</Button>
       </Modal.Content>
     </Modal>
   );

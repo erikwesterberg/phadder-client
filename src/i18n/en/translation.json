@@ -157,5 +157,9 @@
   "profile-button": "Profile",
   "cover_title": "Accelerated Procurement",
   "cover_info": "Phadder B2B Marketplace is designed to make corporate buying of business services fast, agile and cost effective.",
-  "header-profile-picture": "Select a new Photo"
+  "header-profile-picture": "Select a new Photo",
+  "profile-update-picture": "Upload Picture",
+  "Edit-profile-button": "Edit",
+  "profile-pic-description": "A new picture helps making your site more personal, and sometimes thats helps for better deals.",
+  "continue-with-request": "Continue"
 }

@@ -4,8 +4,6 @@ import "../css/style.css";
 
 const RequestTemplate = props => {
   const serviceRequest = props.serviceRequest;
-  console.log(serviceRequest)
-  debugger;
   return (
     <div id="user-service-request">
       <Container>

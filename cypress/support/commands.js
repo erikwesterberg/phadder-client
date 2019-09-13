@@ -59,3 +59,4 @@ Cypress.Commands.add("file_upload", file => {
     )
   );
 });
+

@@ -159,5 +159,9 @@
   "profile-button": "Profil",
   "cover_title": "Smidigare upphandlingar",
   "cover_info": "Phadder B2B marknadsplats är utformad för att göra inköp av företagstjänster snabba, smidiga och kostnadseffektiva.",
-  "header-profile-picture": "Välj en ny bild"
-}
+  "header-profile-picture": "Välj en ny bild",
+  "profile-update-picture": "Ladda upp bild",
+  "Edit-profile-button": "Redigera",
+  "profile-pic-description": "En ny bild gör din profil mer personlig, och ibland hjälper det för bättre affärer.",
+  "continue-with-request": "Fortsätt"
+} 

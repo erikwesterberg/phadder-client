@@ -24,14 +24,11 @@ const Home = props => {
         <div id="cover-info">
           <div id="main-actions-title">{translate("cover_title")}</div>
           <div id="main-actions-info">{translate("cover_info")}</div>
+
           <div id="main-actions">
-            <div>{signUpActions}</div>
-            <div>
-              <CreateRequest />
-            </div>
-            <div>
-              <CityFetcher />
-            </div>
+            {signUpActions}
+
+            <CityFetcher />
           </div>
         </div>
       </div>

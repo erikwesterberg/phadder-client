@@ -40,7 +40,7 @@ const ProfileImageUpload = () => {
         />
       </div>
       <Modal
-        trigger={<Button id="edit-profile-picture">Edit</Button>}
+        trigger={<Button id="edit-profile-picture">{translate("Edit-profile-button")}</Button>}
         centered={false}
       >
         <Modal.Header>{translate("header-profile-picture")}</Modal.Header>
@@ -55,7 +55,7 @@ const ProfileImageUpload = () => {
           />
           <Modal.Description>
             <p>
-            A new picture helps making your site more personal, and sometimes thats helps for better deals.
+            {translate("profile-pic-description")}
             </p>
           </Modal.Description>
           <input
@@ -65,7 +65,7 @@ const ProfileImageUpload = () => {
             onChange={fileSelectedHandler}
           />
           <Button id="upload-button" onClick={fileUploadHandler} >
-            Upload Picture
+            {translate("profile-update-picture")}
           </Button>
           {uploadStatus}
         </Modal.Content>
