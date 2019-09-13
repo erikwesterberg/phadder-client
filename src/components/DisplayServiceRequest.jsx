@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Button } from "semantic-ui-react";
 import axios from "axios";
 import RequestTemplate from "./ServiceRequestTemplate";
+import { connect } from "react-redux";
 
-const DisplayServiceRequest = () => {
+
+const DisplayServiceRequest = props => {
   const [showRequest, setShowRequest] = useState(false);
   const [serviceRequests, setServiceRequest] = useState();
   const [errorMessage, setErrorMessage] = useState();
@@ -11,14 +13,15 @@ const DisplayServiceRequest = () => {
 
   const getServiceRequest = async e => {
     try {
-      const response = await axios.get(
-        "http://localhost:3000/api/service_request"
+      const response = await axios.get(`http://localhost:3000/api/service_request`
       );
       if (response.data.length > 0) {
         setServiceRequest(response.data);
         setShowRequest(true);
       }
-    } catch (error) {}
+    } catch (error) {
+      setErrorMessage("You don't have any service request at the moment.")
+    }
   };
 
   if (showRequest === true) {
@@ -48,4 +51,10 @@ const DisplayServiceRequest = () => {
   );
 };
 
-export default DisplayServiceRequest;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  };
+};
+
+export default connect(mapStateToProps)(DisplayServiceRequest);

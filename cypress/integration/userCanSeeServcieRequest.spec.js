@@ -16,7 +16,7 @@ describe("Looged in users can see theres service request", () => {
       response: "fixture:successfully_gets_service_requests_response.json",
       status: 200
     });;
-      cy.wait(6000)
+      cy.wait(7000)
       cy.get("#profile-button").click();
       cy.get("#my-requests-button").click();
       cy.get("#service-request").within(() => {
