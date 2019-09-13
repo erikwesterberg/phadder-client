@@ -42,12 +42,12 @@ const CreateRequest = props => {
         setLiveLanguage(response.data.message);
         document.getElementById(`${response.data.lang_code}`).checked = true;
       }
-    } catch {}
+    } catch (error) {};
   };
 
   const onChangeHandler = e => {
     const val = e.target.value;
-    if (val.length > 20) {
+    if (val.length === 20) {
       getLanguage(val);
     }
   };
