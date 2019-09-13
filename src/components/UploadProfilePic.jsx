@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Image, Button, Modal } from "semantic-ui-react";
+import { I18nContext } from "../i18n/index";
 
 const ProfileImageUpload = () => {
   const [selectedPicture, setSelectedPicture] = useState();
   const [uploadStatus, setUploadStatus] = useState();
   const [newProfilePic, setNewProfilePic] = useState();
+  const { translate } = useContext(I18nContext);
 
   const fileSelectedHandler = event => {
     setSelectedPicture(event.target.files[0]);
@@ -40,7 +42,7 @@ const ProfileImageUpload = () => {
         trigger={<Button id="edit-profile-picture">Edit</Button>}
         centered={false}
       >
-        <Modal.Header>Select a new Photo</Modal.Header>
+        <Modal.Header>{translate("header-profile-picture")}</Modal.Header>
         <Modal.Content image>
           <Image
             wrapped
