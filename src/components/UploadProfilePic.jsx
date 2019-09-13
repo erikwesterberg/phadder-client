@@ -31,10 +31,9 @@ const ProfileImageUpload = () => {
         <Image
           src={
             newProfilePic ||
-            "https://cdn0.iconfinder.com/data/icons/occupation-002/64/programmer-programming-occupation-avatar-512.png"
+            "https://villageinsurancedirect.com/wp-content/uploads/2016/06/default_avatar_community.png"
           }
-          size="medium"
-          rounded
+          size='small' circular
         />
       </div>
       <Modal
@@ -48,7 +47,7 @@ const ProfileImageUpload = () => {
             size="medium"
             src={
               selectedPicture ||
-              "https://www.bemanistyle.com/wp-content/uploads/2018/01/Linux-Avatar-300px.png"
+              "https://react.semantic-ui.com/images/avatar/large/rachel.png"
             }
           />
           <Modal.Description>
