@@ -14,7 +14,7 @@ const CityFetcher = props => {
     try {
       let response = await axios.post(
         "http://localhost:3000/api/post_code_queries",
-        { val }
+        { post_code: val }
       );
       if (response.status === 200) {
         props.locationActions.updateUserLocation(`${response.data.message}`);
