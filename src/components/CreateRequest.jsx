@@ -64,7 +64,6 @@ const CreateRequest = props => {
     });
 
   const fileUploadHandler = async event => {
-    debugger
     const file = event.target.files[0];
     let convertedFile = await toBase64(file);
     setSelectedPicture(convertedFile);
