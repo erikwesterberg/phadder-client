@@ -9,6 +9,7 @@ import CreateRequest from "./CreateRequest";
 
 const CityFetcher = props => {
   const [location, setLocation] = useState();
+  const [nextModal, setNextModal] = useState();
   
   const getLocation = async val => {
     try {
@@ -19,6 +20,7 @@ const CityFetcher = props => {
       if (response.status === 200) {
         props.locationActions.updateUserLocation(`${response.data.message}`);
         setLocation(response.data.message);
+        setNextModal(<CreateRequest />)
       }
         
     } catch (error) {
@@ -57,9 +59,12 @@ const CityFetcher = props => {
             </Form.Field>
           </Form>
         </Modal.Description>
+        <div>
         {location}
-       {<CreateRequest />}
-        <Button>CANCEL</Button>
+        </div>
+        
+       {nextModal}
+        <Button id="cancel-cityfetch-modal">Cancel</Button>
       </Modal.Content>
     </Modal>
   );
