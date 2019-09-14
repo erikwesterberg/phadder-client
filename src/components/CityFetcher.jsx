@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button, Modal, Form } from "semantic-ui-react";
 import { connect } from "react-redux";
 import * as locationActions from "../state/actions/locationActions";
@@ -6,11 +6,13 @@ import { bindActionCreators } from "redux";
 import "../css/style.css";
 import axios from "axios";
 import CreateRequest from "./CreateRequest";
+import { I18nContext } from "../i18n/index";
 
 const CityFetcher = props => {
   const [location, setLocation] = useState();
   const [nextModal, setNextModal] = useState();
-  
+  const { translate } = useContext(I18nContext);
+
   const getLocation = async val => {
     try {
       let response = await axios.post(
@@ -20,9 +22,8 @@ const CityFetcher = props => {
       if (response.status === 200) {
         props.locationActions.updateUserLocation(`${response.data.message}`);
         setLocation(response.data.message);
-        setNextModal(<CreateRequest />)
+        setNextModal(<CreateRequest />);
       }
-        
     } catch (error) {
       setLocation(error.response.data.message);
     }
@@ -35,11 +36,10 @@ const CityFetcher = props => {
     }
   };
 
- 
   return (
     <Modal
       size="mini"
-      trigger={<Button id="get-location-button">CREATE A REQUEST</Button>}
+      trigger={<Button id="get-location-button">{translate("create-a-req-button")}</Button>}
     >
       <Modal.Header id="location-title">
         Step 1: Enter your post code
@@ -59,11 +59,8 @@ const CityFetcher = props => {
             </Form.Field>
           </Form>
         </Modal.Description>
-        <div>
-        {location}
-        </div>
-        
-       {nextModal}
+        <div>{location}</div>
+        {nextModal}
         <Button id="cancel-cityfetch-modal">Cancel</Button>
       </Modal.Content>
     </Modal>
